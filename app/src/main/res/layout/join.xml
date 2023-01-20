@@ -10,6 +10,7 @@
         android:layout_height="55dp"
         android:orientation="horizontal">
 
+        <!-- 뒤로가기 버튼 -->
         <ImageButton
             android:id="@+id/back"
             android:layout_width="40dp"
@@ -20,6 +21,7 @@
             android:contentDescription="뒤로가기"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/back" />
+        <!-- 회원가입 텍스트 -->
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
@@ -31,6 +33,7 @@
 
     </LinearLayout>
 
+    <!-- 밑줄 -->
     <View
         android:background="@color/black"
         android:layout_width="match_parent"
@@ -51,6 +54,7 @@
         android:hint="이메일"
         android:inputType="textEmailAddress" />
 
+    <!-- 인증번호 발송 버튼 부분 -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button1"
         android:layout_width="350dp"
@@ -68,6 +72,7 @@
         android:layout_marginTop="14dp"
         android:orientation="horizontal">
 
+        <!-- 인증번호 입력 부분 -->
         <EditText
             android:id="@+id/num_text"
             android:layout_width="262dp"
@@ -79,6 +84,7 @@
             android:hint="인증번호 입력"
             android:inputType="number" />
 
+        <!-- 인증번호 확인 버튼 부분 -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/num_submit"
             android:layout_width="70dp"
@@ -91,6 +97,7 @@
             android:text="확인" />
     </LinearLayout>
 
+    <!-- 비밀번호 입력 부분 -->
     <EditText
         android:id="@+id/pwd_text2"
         android:layout_width="350dp"
@@ -105,6 +112,7 @@
         android:hint="비밀번호"
         android:inputType="textPassword" />
 
+    <!-- 비밀번호 확인 입력 부분 -->
     <EditText
         android:id="@+id/chpwd_text"
         android:layout_width="350dp"
@@ -118,6 +126,7 @@
         android:hint="비밀번호 확인"
         android:inputType="textPassword" />
 
+    <!-- 이름 입력 부분 -->
     <EditText
         android:id="@+id/join_name"
         android:layout_width="350dp"
@@ -132,6 +141,7 @@
         android:hint="이름"
         android:inputType="textPersonName" />
 
+    <!-- 출생년도 입력 부분 -->
     <EditText
         android:id="@+id/birth_year"
         android:layout_width="350dp"
@@ -145,6 +155,7 @@
         android:hint="출생년도"
         android:inputType="number" />
 
+    <!-- 초록색 밑줄 부분 -->
     <View
         android:background="@color/green_2"
         android:layout_width="346dp"
@@ -157,6 +168,7 @@
         android:layout_marginTop="8dp"
         android:orientation="horizontal">
 
+        <!-- 이용약관 동의 부분 -->
         <CheckBox
             android:id="@+id/checkBox"
             android:layout_width="200dp"
@@ -165,6 +177,7 @@
             android:textSize="13dp"
             android:text="이용약관 동의 (필수)" />
 
+        <!-- 이용약관 확인 부분 -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/clause"
             android:layout_width="wrap_content"
@@ -180,6 +193,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <!-- 개인정보 처리방침 동의 부분 -->
         <CheckBox
             android:id="@+id/checkBox2"
             android:layout_width="200dp"
@@ -188,6 +202,7 @@
             android:textSize="13dp"
             android:text="개인정보 처리방침 동의 (필수)" />
 
+        <!-- 개인정보 처리방침 약관 확인 부분 -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/clause2"
             android:layout_width="wrap_content"
@@ -199,6 +214,7 @@
 
     </LinearLayout>
 
+    <!-- 회원가입 버튼 부분 -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/join_submit"
         android:layout_width="350dp"
