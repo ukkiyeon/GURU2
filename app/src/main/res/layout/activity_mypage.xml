@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Mypage">
+
+    <ImageView
+        android:id="@+id/mypage_image"
+        android:src="@drawable/mypage_image"
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:layout_marginTop="50dp"></ImageView>
+
+    <TextView
+        android:id="@+id/mypage_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="test"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"></TextView>
+
+    <!-- 플로깅 레이아웃 -->
+    <LinearLayout
+        android:id="@+id/mypage_flogging"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="18sp"
+            android:layout_weight="6"
+            android:text="오늘의 플로깅"
+            android:gravity="center">
+        </TextView>
+        <!--이동거리, 시간 레이아웃-->
+        <LinearLayout
+            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <!--이동거리 -->
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="이동거리"
+                    android:textSize="18dp"
+                    android:gravity="center">
+                </TextView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="100m"
+                    android:layout_weight="1"
+                    android:id="@+id/mypage_distance"
+                    android:gravity="center"
+                    android:textSize="18dp">
+                </TextView>
+            </LinearLayout>
+            <!--시간 -->
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="시간"
+                    android:textSize="18dp"
+                    android:gravity="center">
+                </TextView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="01 : 00"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:id="@+id/mypage_time"
+                    android:textSize="18dp">
+                </TextView>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_info_modify"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+        android:text="회원정보 수정"></Button>
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:text="로그아웃"></Button>
+
+</LinearLayout>
