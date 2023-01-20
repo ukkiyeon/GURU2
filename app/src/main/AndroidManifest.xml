@@ -13,6 +13,13 @@
         android:theme="@style/Theme.GURU2"
         tools:targetApi="31">
         <activity
+            android:name=".AppMain"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Mypage"
             android:exported="false">
             <meta-data

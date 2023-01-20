@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/modify_email"
+        android:layout_width="380dp"
+        android:textSize="20sp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        android:text="test">
+    </TextView>
+
+    <EditText
+        android:id="@+id/modify_pwd"
+        android:layout_width="380dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:hint="비밀번호 수정">
+    </EditText>
+
+    <EditText
+        android:id="@+id/modify_pwd_2"
+        android:layout_width="380dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:hint="비밀번호 확인"></EditText>
+
+    <TextView
+        android:id="@+id/modify_name"
+        android:layout_width="380dp"
+        android:layout_height="50dp"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:text="test"
+        android:layout_marginTop="20dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/modify_birth"
+        android:layout_width="380dp"
+        android:textSize="20sp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:text="test"
+        android:layout_marginTop="20dp">
+    </TextView>
+
+    <Button
+        android:id="@+id/btn_modify"
+        android:layout_width="380dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="수정 완료"
+        android:textColor="@color/white"></Button>
+
+
+
+
+
+</LinearLayout>

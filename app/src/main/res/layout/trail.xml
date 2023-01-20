@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AppMain">
+
+    <!--상단 글씨, 마이페이지 이동 버튼-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+        <!--상단 글씨-->
+        <!--마이페이지 이동 버튼(로고)-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ooo님 안녕하세요"
+                android:textColor="@color/black"
+                android:textSize="20sp"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="오늘 하루 힘차게 시작해볼까요!"
+                android:textColor="@color/gray"></TextView>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="80dp"
+            android:src="@drawable/logo"></ImageView>
+    </LinearLayout>
+
+    <!-- 플로깅 레이아웃 -->
+    <LinearLayout
+        android:id="@+id/flogging"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="오늘의 플로깅"
+            android:textSize="18sp"></TextView>
+        <!--이동거리, 시간 레이아웃-->
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <!--이동거리 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="이동거리"
+                    android:textSize="18dp"></TextView>
+
+                <TextView
+                    android:id="@+id/mypage_distance"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="100m"
+                    android:textSize="18dp"></TextView>
+            </LinearLayout>
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/black" />
+
+            <!--시간 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="시간"
+                    android:textSize="18dp"></TextView>
+
+                <TextView
+                    android:id="@+id/mypage_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="01 : 00"
+                    android:textSize="18dp"></TextView>
+            </LinearLayout>
+        </LinearLayout>
+        <Button
+            android:layout_marginTop="10dp"
+            android:id="@+id/flogging_start"
+            android:layout_width="380dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:text="시작"></Button>
+    </LinearLayout>
+
+    <!--버튼 3개-->
+    <LinearLayout
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="오늘의 날씨"></Button>
+
+        <Button
+            android:id="@+id/btn_walk"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="추천 산책로"></Button>
+
+        <Button
+            android:id="@+id/btn_trash"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="쓰레기통 위치"></Button>
+    </LinearLayout>
+</LinearLayout>
