@@ -5,5 +5,8 @@
     <color name="gray">#A6A6A6</color>
     <color name="black">#000000</color>
     <color name="yellow">#FFFF00</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="purple_500"></color>
+    <color name="teal_200"></color>
+    <color name="purple_700"></color>
 </resources>
