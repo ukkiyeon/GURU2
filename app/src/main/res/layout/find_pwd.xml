@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal">
+
+        <!-- 뒤로가기 버튼 -->
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="40dp"
+            android:layout_height="55dp"
+            android:paddingLeft="13dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="뒤로가기"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/back" />
+        <!-- 비밀번호 찾기 텍스트 -->
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="14dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="비밀번호 찾기" />
+
+    </LinearLayout>
+
+    <!-- 밑줄 -->
+    <View
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="3px"></View>
+
+    <!-- 이메일 입력 부분 -->
+    <EditText
+        android:id="@+id/femail_text"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginBottom="13dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/border"
+        android:layout_gravity="center"
+        android:paddingLeft="15dp"
+        android:hint="이메일 입력"
+        android:inputType="textEmailAddress" />
+
+    <!-- 인증번호 발송 버튼 부분 -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fbutton1"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/border"
+        android:layout_gravity="center"
+        android:textSize="18dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/green_2"
+        android:text="인증번호 발송" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:orientation="horizontal">
+
+        <!-- 인증번호 입력 부분 -->
+        <EditText
+            android:id="@+id/fnum_text"
+            android:layout_width="262dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="31dp"
+            android:background="@drawable/border"
+            android:paddingLeft="15dp"
+            android:hint="인증번호 입력"
+            android:inputType="number" />
+
+        <!-- 인증번호 확인 버튼 부분 -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/fnum_submit"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:background="@drawable/border"
+            android:layout_marginLeft="17dp"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/green_1"
+            android:text="확인" />
+    </LinearLayout>
+
+</LinearLayout>
