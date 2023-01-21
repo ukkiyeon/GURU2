@@ -6,6 +6,6 @@ import android.os.Bundle
 class Tip : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tip)
+        setContentView(R.layout.tip)
     }
 }
