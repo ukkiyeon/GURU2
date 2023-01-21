@@ -13,6 +13,29 @@
         android:theme="@style/Theme.GURU2"
         tools:targetApi="31">
         <activity
+            android:name=".TipEcoGuide"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".TipAppGuide"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Tip"
+            android:exported="false"
+            android:label="@string/title_activity_tip"
+            android:theme="@style/Theme.GURU2.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".TipZeroWaste"
             android:exported="false">
             <meta-data
@@ -49,13 +72,6 @@
         </activity>
         <activity
             android:name=".AppGuide"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Tip"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

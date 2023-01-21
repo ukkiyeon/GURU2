@@ -3,9 +3,9 @@ package com.example.guru2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class AppGuide : AppCompatActivity() {
+class TipEcoGuide : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.app_guide)
+        setContentView(R.layout.tip_eco_guide)
     }
 }

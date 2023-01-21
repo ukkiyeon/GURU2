@@ -17,4 +17,10 @@
         <!-- 상태바 없애는 코드 -->
         <item name="android:windowFullscreen">true</item>
     </style>
+    <style name="Theme.GURU2.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.GURU2.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.GURU2.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
