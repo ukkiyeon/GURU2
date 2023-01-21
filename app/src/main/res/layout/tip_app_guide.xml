@@ -40,7 +40,7 @@
     </LinearLayout>
 
     <View
-        android:id="@+id/view2"
+        android:id="@+id/tip_view1"
         android:layout_width="match_parent"
         android:layout_height="3px"
         android:layout_marginTop="55dp"

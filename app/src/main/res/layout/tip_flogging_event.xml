@@ -25,7 +25,8 @@
             android:paddingLeft="13dp"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/back" />
-        <!-- 이용약관 텍스트 -->
+
+        <!-- 플로깅 행사 텍스트 -->
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
@@ -39,7 +40,7 @@
     </LinearLayout>
 
     <View
-        android:id="@+id/view3"
+        android:id="@+id/tip_view3"
         android:layout_width="match_parent"
         android:layout_height="3px"
         android:layout_marginTop="55dp"
@@ -62,60 +63,58 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/tip_event_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="총 n개" />
+
             <Button
-                android:id="@+id/button"
+                android:id="@+id/tip_event01_btn"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:layout_marginLeft="10dp"
-
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/green_2"
                 android:drawableLeft="@drawable/tip_flogging_event_imagesize"
                 android:text="제주바다 살리기\n\n지역: 제주\n기간: ~ 10/6" />
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/tip_event02_btn"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:layout_marginLeft="10dp"
-
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/green_2"
                 android:drawableLeft="@drawable/tip_flogging_event_imagesize"
                 android:text="제주바다 살리기\n\n지역: 제주\n기간: ~ 10/6" />
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/tip_event03_btn"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:layout_marginLeft="10dp"
-
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/green_2"
                 android:drawableLeft="@drawable/tip_flogging_event_imagesize"
                 android:text="제주바다 살리기\n\n지역: 제주\n기간: ~ 10/6" />
 
             <Button
-                android:id="@+id/button11"
+                android:id="@+id/tip_event04_btn"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:layout_marginLeft="10dp"
-
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/green_2"
                 android:drawableLeft="@drawable/tip_flogging_event_imagesize"
                 android:text="제주바다 살리기\n\n지역: 제주\n기간: ~ 10/6" />
 
-            <Button
-                android:id="@+id/button12"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_marginLeft="10dp"
-
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp"
-                android:drawableLeft="@drawable/tip_flogging_event_imagesize"
-                android:text="제주바다 살리기\n\n지역: 제주\n기간: ~ 10/6" />
         </LinearLayout>
     </ScrollView>
 

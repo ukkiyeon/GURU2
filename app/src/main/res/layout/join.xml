@@ -57,7 +57,7 @@
 
     <!-- 인증번호 발송 버튼 부분 -->
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button1"
+        android:id="@+id/tip_event01_btn"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:background="@drawable/border"
