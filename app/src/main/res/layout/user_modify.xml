@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".UserModify">
 
     <TextView
         android:id="@+id/modify_email"
@@ -10,16 +13,21 @@
         android:textSize="20sp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_marginTop="70dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:background="@drawable/border"
         android:text="test">
     </TextView>
 
     <EditText
         android:id="@+id/modify_pwd"
         android:layout_width="380dp"
+        android:padding="10dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/border"
         android:hint="비밀번호 수정">
     </EditText>
 
@@ -28,7 +36,9 @@
         android:layout_width="380dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:background="@drawable/border"
         android:hint="비밀번호 확인"></EditText>
 
     <TextView
@@ -37,8 +47,11 @@
         android:layout_height="50dp"
         android:textSize="20sp"
         android:layout_gravity="center"
+        android:background="@drawable/border"
+        android:gravity="center_vertical"
+        android:padding="10dp"
         android:text="test"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="30dp">
     </TextView>
 
     <TextView
@@ -47,8 +60,11 @@
         android:textSize="20sp"
         android:layout_height="50dp"
         android:layout_gravity="center"
+        android:padding="10dp"
+        android:gravity="center_vertical"
         android:text="test"
-        android:layout_marginTop="20dp">
+        android:background="@drawable/border"
+        android:layout_marginTop="10dp">
     </TextView>
 
     <Button
@@ -56,13 +72,10 @@
         android:layout_width="380dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:text="수정 완료"
+        android:backgroundTint="@color/green_2"
         android:textColor="@color/white"></Button>
-
-
-
-
 
 </LinearLayout>

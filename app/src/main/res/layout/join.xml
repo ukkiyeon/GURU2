@@ -186,7 +186,8 @@
             android:layout_marginLeft="76dp"
             android:background="#00ff0000"
             android:textSize="13dp"
-            android:text="약관 확인" />
+            android:textColor="@color/black"
+            android:text="@string/underlined_button" />
     </LinearLayout>
 
     <LinearLayout
@@ -211,7 +212,8 @@
             android:layout_marginLeft="76dp"
             android:background="#00ff0000"
             android:textSize="13dp"
-            android:text="약관 확인" />
+            android:textColor="@color/black"
+            android:text="@string/underlined_button" />
 
     </LinearLayout>
 
