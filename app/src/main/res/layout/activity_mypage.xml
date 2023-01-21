@@ -19,6 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="test"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:layout_marginTop="20dp"
         android:gravity="center"></TextView>
@@ -26,15 +27,18 @@
     <!-- 플로깅 레이아웃 -->
     <LinearLayout
         android:id="@+id/flogging"
-        android:layout_width="match_parent"
+        android:layout_width="380dp"
         android:layout_height="160dp"
         android:orientation="vertical"
+        android:layout_gravity="center"
+        android:background="@drawable/flogging_round"
         android:layout_marginTop="30dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="18sp"
+            android:textSize="17sp"
             android:layout_weight="6"
+            android:textColor="@color/black"
             android:text="오늘의 플로깅"
             android:gravity="center">
         </TextView>
@@ -56,18 +60,27 @@
                     android:layout_weight="1"
                     android:text="이동거리"
                     android:textSize="18dp"
+                    android:textColor="@color/black"
                     android:gravity="center">
                 </TextView>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="100m"
+                    android:textColor="@color/black"
                     android:layout_weight="1"
                     android:id="@+id/mypage_distance"
-                    android:gravity="center"
-                    android:textSize="18dp">
+                    android:gravity="center_horizontal"
+                    android:textSize="20dp">
                 </TextView>
             </LinearLayout>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/green_2" />
+
             <!--시간 -->
             <LinearLayout
                 android:layout_weight="1"
@@ -78,6 +91,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:textColor="@color/black"
                     android:text="시간"
                     android:textSize="18dp"
                     android:gravity="center">
@@ -87,27 +101,35 @@
                     android:layout_height="match_parent"
                     android:text="01 : 00"
                     android:layout_weight="1"
-                    android:gravity="center"
+                    android:gravity="center_horizontal"
                     android:id="@+id/mypage_time"
-                    android:textSize="18dp">
+                    android:textColor="@color/black"
+                    android:textSize="20dp">
                 </TextView>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_info_modify"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_gravity="center"
-        android:text="회원정보 수정"></Button>
+        android:textColor="@color/black"
+        android:background="@drawable/btn_round"
+        android:text="회원정보 수정"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_logout"
         android:layout_width="380dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_gravity="center"
-        android:text="로그아웃"></Button>
+        android:backgroundTint="@color/green_2"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_round"
+        android:layout_marginTop="10dp"
+        android:text="로그아웃">
+    </androidx.appcompat.widget.AppCompatButton>
 
 </LinearLayout>
