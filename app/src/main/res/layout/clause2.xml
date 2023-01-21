@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal">
+
+        <!-- 뒤로가기 버튼 -->
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="40dp"
+            android:layout_height="55dp"
+            android:paddingLeft="13dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="뒤로가기"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/back" />
+        <!-- 개인정보 처리방침 텍스트 -->
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="14dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="개인정보 처리방침" />
+
+    </LinearLayout>
+
+    <!-- 밑줄 -->
+    <View
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="3px"></View>
+
+
+    <!-- 스크롤 가능하게 ScrollView 사용 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- 개인정보처리방침 내용들 -->
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:text="에코런 개인정보처리방침"
+                android:textColor="@color/black"
+                android:textSize="19dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="7dp"
+                android:text='주)에코런(이하 "(주)에코런" 또는 "회사") 및 회사에서 운영하는 에코런 애플리케이션(이하 "에코런")은 이용자의 개인정보를 소중하게 생각하고 보호하기 위하여 항상 최선을 다해 노력하고 있습니다. 회사는 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」 등 정보통신서비스 제공자가 준수하여야 할 개인정보와 관련된 법령 상의 개인정보 보호규정을 모두 준수하고 있습니다. 또한 관련 법령에 의거한 「개인정보처리방침」을 정하여 이용자 권익 보호에 최선을 다하고 있습니다.' />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:text='1. 수집하는 개인정보의 항목 및 수집방법 가. 수집하는 개인정보의 항목 첫째, 회사는 회원가입, 원활한 고객상담, 각종 서비스의 제공을 위해 최초 회원가입 당시 아래와 같은 개인정보를 수집하고 있습니다. - 이용자의 이메일, 출생연도, 기기고유번호 (디바이스 아이디 또는 IMEI) 둘째, 서비스 이용과정에서 아래와 같은 정보들이 생성되어 수집될 수 있습니다. - 이용자 상태 정보, 이용자 이름, 전화번호, 사진, 방문일시, 서비스 이용 기록, 불량 이용 기록 나. 개인정보 수집방법 회사는 다음과 같은 방법으로 개인정보를 수집합니다. - 에코런 실행 또는 사용을 통해 자동 수집 - 서면 양식, 팩스, 고객센터를 통한 전화와 온라인 상담, 이벤트 응모 등 이용자의 자발적 제공 ' />
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:text='2. 개인정보의 수집 및 이용목적 가. 에코런 기본 기능의 제공 회사는 정보를 수집·이용하여 서비스를 제공합니다. 또한 에코런은 이용자 접속 시에 기기고유번호(디바이스 아이디 또는 IMEI)를 수집, 저장할 수 있습니다. 나. 서비스 제공에 관한 계약 이행 및 서비스 제공에 따른 요금 정산 콘텐츠 제공, 특정 맞춤 서비스 제공, 물품 배송 또는 청구서 등 발송, 본인인증, 구매 및 요금 결제, 요금 추심 등을 목적으로 개인정보를 처리합니다. 다. 회원관리 및 민원처리 회원제 서비스 이용 및 제한적 본인 확인제에 따른 본인확인, 개인식별, 불량회원(에코런 이용약관 제5조 제3항 제1호 내 지 제5호 및 제11조 위반 등으로 인하여 제13조 제2항에 따른 영구이용정지 회원)의 부정 이용 방지와 비인가 사용방지, 가입 의사 확인, 가입 및 가입횟수 제한, 추후 법정 대리인 본인확인, 분쟁 조정을 위한 기록보존, 불만처리 등 민원처리, 고지사항 전달 등의 목적으로 개인정보를 처리합니다. 라. 신규 서비스 개발 및 마케팅 · 광고에의 활용 신규 서비스 개발 및 맞춤 서비스 제공, 통계학적 특성에 따른 서비스 제공 및 광고 게재, 서비스의 유효성 확인, 이벤트 및 광고성 정보 제공 및 참여기회 제공, 접속빈도 파악, 회원의 서비스 이용에 대한 통계 등의 목적으로 개인정보를 처리합니다.' />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:text='3. 개인정보의 공유 및 제공 회사는 이용자들의 개인정보를 "2. 개인정보의 수집 및 이용목적"에서 고지한 범위 내에서만 처리하며, 원칙적으로 제3자에게 제공하지 않습니다. 단, 아래의 경우에는 예외로 합니다. - 이용자들이 사전에 공개에 동의한 경우 - 개인정보 보호법 제17조 등 법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우'/>
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:text='4. 개인정보의 보유 및 이용기간 이용자의 개인정보는 원칙적으로 개인정보의 수집 및 이용목적이 달성되면 지체 없이 파기합니다. 단, 다음의 정보에 대해서는 아래의 이유로 명시한 기간 동안 보존합니다. 가. 회사 내부 방침에 의한 정보보유 사유 - 부정이용기록 보존 이유 : 부정 이용 방지 보존 기간 : 1년 나. 관련법령에 의한 정보보유 사유 「전자상거래 등에서의 소비자보호에 관한 법률」 등 관계법령의 규정에 의하여 보존할 필요가 있는 경우 회사는 관계법령에서 정한 일정한 기간동안 회원정보를 보관합니다. 이 경우 회사는 보관하는 정보를 그 보관의 목적으로만 이용하며 보존 기간은 아래와 같습니다. - 계약 또는 청약철회 등에 관한 기록 보존 이유 : 「전자상거래 등에서의 소비자보호에 관한 법률」 보존 기간 : 5년 - 대금결제 및 재화 등의 공급에 관한 기록 보존 이유 : 「전자상거래 등에서의 소비자보호에 관한 법률」 보존 기간 : 5년 - 소비자의 불만 또는 분쟁처리에 관한 기록 보존 이유 : 「전자상거래 등에서의 소비자보호에 관한 법률」 보존 기간 : 3년 - 본인확인에 관한 기록 보존 이유 : 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」 보존 기간 : 6개월 - 방문에 관한 기록 보존 이유 : 「통신비밀보호법」 보존 기간 : 3개월' />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="30dp"
+                android:text='5. 개인정보 파기절차 및 방법 이용자의 개인정보는 원칙적으로 개인정보의 수집 및 이용목 적이 달성되면 지체 없이 파기합니다. 회사의 개인정보 파기절차 및 방법은 다음과 같습니다. 가. 파기절차 - 이용자가 회원가입 등을 위해 입력한 정보는 목적이 달성된 후 별도의 DB로 옮겨져(종이의 경우 별도의 서류함) 내부 방침 및 기타 관련 법령에 의한 정보보호 사유에 따라(보유 및 이용 기간 참조)일정기간 저장된 후 파기됩니다. 동 개인정보는 법률에 의한 경우가 아니고는 다른 목적으로 이용되지 않습니다. 나. 파기방법 - 종이에 출력된 개인정보는 분쇄기로 분쇄하거나 소각을 통하여 파기합니다. - 전자적 파일 형태로 저장된 개인정보는 기록을 재생할 수 없는 기술적 방법을 사용하여 삭제합니다.'/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

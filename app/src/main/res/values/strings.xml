@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GURU2</string>
+    <string name="underlined_button"><u>약관 확인</u></string>
 </resources>

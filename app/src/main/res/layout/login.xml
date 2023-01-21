@@ -1,74 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <!-- 로고 부분 -->
     <ImageView
         android:id="@+id/logo_img"
-        android:layout_width="195dp"
-        android:layout_height="249dp"
+        android:layout_width="183dp"
+        android:layout_height="234dp"
         android:layout_marginStart="120dp"
-        android:layout_marginTop="67dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="96dp"
-        android:layout_marginBottom="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/EmailAdd_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="28dp"
         app:srcCompat="@drawable/logo" />
 
+    <!-- 이메일 입력 부분 -->
     <EditText
         android:id="@+id/EmailAdd_text"
-        android:layout_width="284dp"
-        android:layout_height="34dp"
-        android:ems="10"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/border"
-        android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="352dp" />
+        android:layout_gravity="center"
+        android:paddingLeft="15dp"
+        android:hint="이메일"
+        android:inputType="textEmailAddress" />
 
+    <!-- 비밀번호 입력 부분 -->
     <EditText
         android:id="@+id/pwd_text"
-        android:layout_width="288dp"
-        android:layout_height="33dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="430dp" />
-
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="291dp"
-        android:layout_height="47dp"
-        android:text="Button"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/border"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="497dp" />
+        android:layout_gravity="center"
+        android:paddingLeft="15dp"
+        android:hint="비밀번호"
+        android:inputType="textPassword" />
 
-    <TextView
-        android:id="@+id/join"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="회원가입"
-        tools:layout_editor_absoluteX="73dp"
-        tools:layout_editor_absoluteY="603dp" />
+    <!-- 로그인버튼 부분 -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login_button"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginEnd="66dp"
+        android:background="@drawable/border"
+        android:backgroundTint="@color/green_2"
+        android:gravity="center"
+        android:text="로그인"
+        android:textColor="@color/white"
+        android:textSize="18dp" />
 
-    <TextView
-        android:id="@+id/find_pwd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="비밀번호 찾기"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="562dp" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="54dp"
-        android:layout_height="55dp"
-        app:srcCompat="@drawable/google"
-        tools:layout_editor_absoluteX="328dp"
-        tools:layout_editor_absoluteY="544dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="295dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- 비밀번호 찾기 버튼 부분 -->
+            <Button
+                android:id="@+id/find_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="66dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginEnd="100dp"
+                android:background="#00ff0000"
+                android:text="비밀번호 찾기"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <!-- 회원가입 버튼 부분 -->
+            <Button
+                android:id="@+id/join"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="66dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="100dp"
+                android:background="#00ff0000"
+                android:text="회원가입"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <!-- 구글 버튼 부분 -->
+        <ImageButton
+            android:id="@+id/google"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="37dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="google"
+            android:src="@drawable/google"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"/>
+    </LinearLayout>
+
+
+</LinearLayout>
