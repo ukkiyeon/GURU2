@@ -53,6 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -69,19 +70,19 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView6"
+                    android:id="@+id/main_example_plant"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="30dp"
-                    app:srcCompat="@drawable/KakaoTalk_20230119_225251812" />
+                    app:srcCompat="@drawable/plant" />
 
                 <TextView
-                    android:id="@+id/textView28"
+                    android:id="@+id/main_example_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="5dp"
-                    android:text="메인 탭"
+                    android:text="Main"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -92,18 +93,113 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imageView7"
-                    android:layout_width="250dp"
-                    android:layout_height="300dp"
+                    android:id="@+id/main_example_image"
+                    android:layout_width="220dp"
+                    android:layout_height="270dp"
                     android:layout_gravity="center"
                     app:srcCompat="@drawable/main_example" />
 
                 <TextView
-                    android:id="@+id/textView29"
+                    android:id="@+id/main_example_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
-                    android:text="TextView" />
+                    android:layout_marginRight="30dp"
+                    android:text="Main 탭\n플로깅 시작: 시작 버튼을 클릭하여 오늘의 플로깅을 시작할 수 있습니다. 실시간 이동 거리와 시간이 측정됩니다.\n오늘의 날씨: 오늘의 날씨를 확인하실 수 있습니다. 조깅에 날씨는 중요하니까요!\n추천 산책로: 실시간 위치에 기반한 추천 산책로를 확인하며 플로깅을 즐길 수 있습니다.\n쓰레기통 위치: 실시간 위치에 기반한 인근 쓰레기통을 확인하실 수 있습니다. 플로깅을 하며 주운 쓰레기는 처리도 중요하니까요!"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/tip_example_plant"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    app:srcCompat="@drawable/plant" />
+
+                <TextView
+                    android:id="@+id/tip_example_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:text="TIP"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/tip_example_image"
+                    android:layout_width="220dp"
+                    android:layout_height="270dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/main_example" />
+
+                <TextView
+                    android:id="@+id/tip_example_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:text="TIP 탭\n어플 사용 가이드: 에코런 어플 사용 방법에 대해 소개합니다. 지금 읽고 계시는군요!\n분리 배출 가이드: 플로깅을 통해 주운 쓰레기는 분리수거도 확실히 해야 합니다! 몰랐던 분리 배출 방법에 대해 알 수 있어요~\n플로깅 행사: 플로깅 행사 일정에 대해 알려드립니다! 마라톤, 환경 관련 행사 정보까지 아실 수 있어요 *.*\n플로깅 TIP: 플로깅이 생소하신 분들에게 도움을 드립니다 >_<)!b\n환경 뉴스: 환경과 관련한 최신 뉴스들을 보실 수 있습니다!\n제로 웨이스트: 플로깅을 하시는 당신 .. 혹시 제로 웨이스트에도 관심이 많으시진 않나요? 오늘은 주변 제로 웨이스트 샵 구경 어떨까요!!"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/community_example_plant"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    app:srcCompat="@drawable/plant" />
+
+                <TextView
+                    android:id="@+id/community_example_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:text="COMMUNITY"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/community_example_image"
+                    android:layout_width="220dp"
+                    android:layout_height="270dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/main_example" />
+
+                <TextView
+                    android:id="@+id/community_example_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:text="COMMUNITY 탭\n 커뮤니티에서는 글쓰기를 통해 다른 사람들과 자유로운 소통이 가능합니다. 사람들과 함께 소통하고, 플로깅을 같이 즐겨보는 건 어떨까요? 함께라면 더 재밌을 거에요!"
+                    android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
