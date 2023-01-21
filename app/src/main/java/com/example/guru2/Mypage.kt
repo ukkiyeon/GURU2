@@ -11,7 +11,7 @@ class Mypage : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_mypage)
+        setContentView(R.layout.mypage)
 
         btn_info_modify = findViewById(R.id.btn_info_modify)
 
