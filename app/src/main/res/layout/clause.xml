@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal">
+
+        <!-- 뒤로가기 버튼 -->
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="40dp"
+            android:layout_height="55dp"
+            android:paddingLeft="13dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="뒤로가기"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/back" />
+        <!-- 이용약관 텍스트 -->
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="14dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="이용약관" />
+
+    </LinearLayout>
+
+    <!-- 밑줄 -->
+    <View
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="3px"></View>
+
+
+    <!-- 스크롤 가능하게 ScrollView 사용 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- 이용약관 내용들 -->
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:text="에코런 서비스 이용약관"
+                android:textColor="@color/black"
+                android:textSize="19dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text='제1조 (목적)' />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text='이 약관은 (주)에코런(이하 (주)에코런 및 "회사")이 제공하는 에코런 애플리케이션(이하 "에코런")의 이용 조건 및 절차, 회사와 회원 간의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다. ' />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:text='제2조 (용어의 정의)' />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text='이 약관에서 사용하는 용어의 정의는 다음과 같으며, 정의되지 않은 용어에 대한 해석은 일반적인 이용관행 및 서비스별 안내 에서 정하는 바에 따릅니다. ① "서비스"란 이용자가 에코런을 통하여 이용할 수 있도록 회사가 제공하는 콘텐츠 및 각종 재화를 말합니다. ② "이용자"란 이 약관에 따라 서비스를 이용하는 회원을 말합니다. ③ "회원"이란 회원등록을 하고 서비스를 이용하는 자를 말합니다. ④ "계정"이란 이용계약을 통해 생성된 회원의 고유 아이디와 이에 수반하는 정보를 말합니다. ⑤ "회원정보"란 회사가 가입신청자에게 회원가입 신청양식에 기재를 요청하는 가입신청자의 개인정보와 회원의 식별과 서비스 이용을 위하여 회원이 입력하고 서비스 내 공개된 개인정보를 의미합니다. ' />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:text='제3조 (약관의 효력 및 변경)' />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text='(약관의 효력 및 변경) ① 이 약관은 회사가 제공하는 애플리케이션 및 사이트를 이용 하는 모든 순간부터 효력이 발생됩니다. ② 회사에서는 합리적 이유가 있는 경우 약관을 어느 시기에나 변경할 권리를 갖고 있으며, 사전고지 없이 이 약관들의 내용을 변경할 수 있습니다. 변경된 약관은 서비스 화면에 게재하거나 회원가입 시 공지 또는 이메일 등의 기타 방법으로 이용자에게 공지함으로써 효력을 발생합니다. 회사는 또한 마지막 수정 일을 약관의 가장 하단에 표기할 것입니다. ③ 회사가 변경된 약관의 수정사항을 홈페이지, 애플리케이션 또는 이메일 등의 방법을 통해 공지한 경우, 기존 회원들이 서비스를 지속적으로 이용할 경우에 변경된 약관에 대해 동의한 것으로 간주합니다. 회원은 변경된 약관에 대해 동의하지 않을 경우 서비스 이용을 즉시 중단하고 탈퇴할 수 있습니다. ' />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:text='제4조 (약관 외 준칙)' />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text='① 본 약관과 개인정보처리방침에 명시되지 않은 사항은 국내 관련 법령의 규정을 따릅니다. ② 회사는 약관 외에 개별 서비스에 대한 세부적인 사항을 정할 수 있으며, 그 내용은 개별 이용 동의 절차에 따릅니다. ' />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:text='제5조 (이용계약의 성립)' />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text='① 서비스 이용 계약의 성립은 이용자의 이용신청에 대하여 회사의 이용승낙과 이용자의 약관 내용에 대한 동의로 성립됩니다. ② 이용자는 모든 서비스의 이용을 원할 경우 회사에서 요청하는 개인정보를 회사에 제공하여야 합니다. 이용자가 제공하는 개인정보는 개인정보보호정책에 따라 보호됩니다. 단 가입신청 양식에 기재 된 모든 이용자 정보는 반드시 실제 정보와 동일해야 합니다. 실제 정보를 입력하지 않은 이용자는 법적인 보호를 받을 수 없습니다. ③ 회사는 다음 사항에 대해서는 이용신청을 거절할 수 있습니다. - 가명으로 신청을 한 경우 - 타인의 명의를 빌리거나 도용하여 차명으로 신청을 한 경우 - 이용신청서의 내용을 허위로 작성한 경우나 허위 서류를 첨부 하여 신청한 경우 - 관계 법령에 위배되거나 사회의 안녕, 질서, 미풍양속을 저해 할 수 있는 목적으로 신청을 한 경우 - 고의적으로 시스템에 손상을 주거나 마비를 줄 수 있는 행위를 한 경우' />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:text='제6조 (회원정보의 변경)' />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text='① 회원은 에코런을 통하여 언제든지 본인의 개인정보를 열람하고 수정할 수 있습니다. ② 회원은 회사에 제출한 회원정보가 변경되었을 경우 에코런 내 개인정보 설정 화면에서 회원정보를 수정하여 회사에 변경 사항을 통지하여야 합니다. ③ 회원정보를 수정하지 않음으로 인하여 발생하는 모든 책임은 회원에게 있습니다.' />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:text='제7조 (서비스 제공)' />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="40dp"
+                android:text='① 서비스의 제공은 회사의 업무상 또는 기술상 특별한 지장이 없는 한 연중무휴, 1일 24시간을 원칙으로 합니다. ② 시스템 정기점검 등의 필요로 인하여 회사가 정한 날 또는 시간은 예외로 합니다. ③ 이용계약이 성립된 후 회사의 동의 없이 임의로 회원 ID를 변경하여 서비스를 이용할 수 없습니다.' />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

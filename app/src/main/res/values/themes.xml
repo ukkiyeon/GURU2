@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
         <!-- 타이틀바 없애는 코드 -->
         <item name="windowNoTitle">true</item>
-        <!-- 상태바 없애는 코드
-        <item name="android:windowFullscreen">true</item>  -->
+        <!-- 상태바 없애는 코드 -->
+        <item name="android:windowFullscreen">true</item>
     </style>
 </resources>
