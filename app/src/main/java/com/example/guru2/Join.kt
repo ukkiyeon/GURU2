@@ -5,11 +5,20 @@ import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 
 class Join : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.join)
+
+        //뒤로가기
+        val back = findViewById<ImageButton>(R.id.back)
+
+        back.setOnClickListener {
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
+        }
 
         //clause (이용약관)약관확인 페이지로 이동
         val clause = findViewById<Button>(R.id.clause)
