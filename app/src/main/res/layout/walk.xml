@@ -221,7 +221,7 @@
             android:background="@android:color/transparent"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/mypage" />
+            app:srcCompat="@drawable/bb" />
     </LinearLayout>
 
 </LinearLayout>
