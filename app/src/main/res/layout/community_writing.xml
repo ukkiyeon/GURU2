@@ -138,12 +138,6 @@
                 android:textColor="@color/white"
                 android:backgroundTint="@color/green_2"/>
 
-
-
-
-
-
-
     </LinearLayout>
     </ScrollView>
 </LinearLayout>
