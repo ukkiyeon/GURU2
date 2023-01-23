@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CommunityMain"
+    >
+
+    <!--상단 고정-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal">
+
+        <!-- 뒤로가기 버튼 -->
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="40dp"
+            android:layout_height="55dp"
+            android:paddingLeft="13dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="뒤로가기"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/back" />
+        <!-- 커뮤니티 텍스트 -->
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="14dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="커뮤니티" />
+
+    </LinearLayout>
+
+    <!--스크롤뷰-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--검색창-->
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:iconifiedByDefault="false"
+                app:queryHint="검색어를 입력하시오" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+                <!--구분선-->
+                <View
+                    android:background="@color/green_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="5px"
+                    />
+
+                <!--제목-->
+                <TextView
+                    android:id="@+id/commu02_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="플로깅 하러 갈 사람"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <!--글쓴이 정보-->
+                    <TextView
+                        android:id="@+id/commu02_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/gray"
+                        android:text="OOO동 | 23-01-23 18:30"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!--댓글이랑 추천-->
+                <TextView
+                    android:id="@+id/commu02_comment_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:drawableLeft="@drawable/drawable_left_img_customise_comment"
+                    android:text=" 1"
+                    android:textSize="15dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/commu02_good_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="15dp"
+                    android:text=" 1"
+                    android:layout_toRightOf="@id/commu02_comment_cnt"
+                    android:drawableLeft="@drawable/drawable_left_img_customise_good"
+                    />
+            </LinearLayout>
+
+            <!--여기서부터 반복-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+                <View
+                    android:background="@color/green_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="5px"
+                    />
+
+                <TextView
+                    android:id="@+id/commu03_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="플로깅 하러 갈 사람"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/commu03_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/gray"
+                        android:text="OOO동 | 23-01-23 18:30"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/commu03_comment_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:drawableLeft="@drawable/drawable_left_img_customise_comment"
+                    android:text=" 1"
+                    android:textSize="15dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/commu03_good_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="15dp"
+                    android:text=" 1"
+                    android:layout_toRightOf="@id/commu03_comment_cnt"
+                    android:drawableLeft="@drawable/drawable_left_img_customise_good"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+                <View
+                    android:background="@color/green_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="5px"
+                    />
+
+                <TextView
+                    android:id="@+id/commu04_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="플로깅 하러 갈 사람"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/commu04_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/gray"
+                        android:text="OOO동 | 23-01-23 18:30"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/commu04_comment_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:drawableLeft="@drawable/drawable_left_img_customise_comment"
+                    android:text=" 1"
+                    android:textSize="15dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/commu04_good_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="15dp"
+                    android:text=" 1"
+                    android:layout_toRightOf="@id/commu04_comment_cnt"
+                    android:drawableLeft="@drawable/drawable_left_img_customise_good"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+                <View
+                    android:background="@color/green_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="5px"
+                    />
+
+                <TextView
+                    android:id="@+id/commu05_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="플로깅 하러 갈 사람"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/commu05_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/gray"
+                        android:text="OOO동 | 23-01-23 18:30"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/commu05_comment_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:drawableLeft="@drawable/drawable_left_img_customise_comment"
+                    android:text=" 1"
+                    android:textSize="15dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/commu05_good_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="15dp"
+                    android:text=" 1"
+                    android:layout_toRightOf="@id/commu05_comment_cnt"
+                    android:drawableLeft="@drawable/drawable_left_img_customise_good"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+                <View
+                    android:background="@color/green_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="5px"
+                    />
+
+                <TextView
+                    android:id="@+id/commu06_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="플로깅 하러 갈 사람"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/commu06_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/gray"
+                        android:text="OOO동 | 23-01-23 18:30"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/commu06_comment_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:drawableLeft="@drawable/drawable_left_img_customise_comment"
+                    android:text=" 1"
+                    android:textSize="15dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/commu06_good_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="15dp"
+                    android:text=" 1"
+                    android:layout_toRightOf="@id/commu06_comment_cnt"
+                    android:drawableLeft="@drawable/drawable_left_img_customise_good"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+                <View
+                    android:background="@color/green_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="5px"
+                    />
+
+                <TextView
+                    android:id="@+id/commu07_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="플로깅 하러 갈 사람"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/commu07_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:textColor="@color/gray"
+                        android:text="OOO동 | 23-01-23 18:30"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/commu07_comment_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:drawableLeft="@drawable/drawable_left_img_customise_comment"
+                    android:text=" 1"
+                    android:textSize="15dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/commu07_good_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="15dp"
+                    android:text=" 1"
+                    android:layout_toRightOf="@id/commu07_comment_cnt"
+                    android:drawableLeft="@drawable/drawable_left_img_customise_good"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!--하단 고정-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/green_2"
+            android:text="글쓰기" />
+
+    </LinearLayout>
+</LinearLayout>
