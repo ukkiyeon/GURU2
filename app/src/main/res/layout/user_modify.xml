@@ -7,6 +7,39 @@
     android:orientation="vertical"
     tools:context=".UserModify">
 
+    <!-- 상단 뒤로가기 버튼, 텍스트 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal">
+        <!-- 뒤로가기 버튼 -->
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="40dp"
+            android:layout_height="55dp"
+            android:paddingLeft="13dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="뒤로가기"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/back" />
+        <!-- 텍스트 -->
+        <TextView
+            android:id="@+id/textVieww"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="14dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="회원정보 수정" />
+    </LinearLayout>
+    <!-- 밑줄 -->
+    <View
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="3px"></View>
+
     <TextView
         android:id="@+id/modify_email"
         android:layout_width="380dp"
