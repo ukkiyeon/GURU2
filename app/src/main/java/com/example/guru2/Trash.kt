@@ -3,6 +3,7 @@ package com.example.guru2
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 
 class Trash : AppCompatActivity() {
@@ -11,9 +12,9 @@ class Trash : AppCompatActivity() {
     lateinit var btn_walk:Button
 
     //하단 버튼
-    lateinit var btn_tipPage:Button
-    lateinit var btn_homePage:Button
-    lateinit var btn_communityPage:Button
+    lateinit var btn_tipPage: ImageButton
+    lateinit var btn_homePage: ImageButton
+    lateinit var btn_communityPage: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
