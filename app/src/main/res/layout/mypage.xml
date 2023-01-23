@@ -7,12 +7,45 @@
     android:orientation="vertical"
     tools:context=".Mypage">
 
+    <!-- 상단 뒤로가기 버튼, 텍스트 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal">
+        <!-- 뒤로가기 버튼 -->
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="40dp"
+            android:layout_height="55dp"
+            android:paddingLeft="13dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="뒤로가기"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/back" />
+        <!-- 텍스트 -->
+        <TextView
+            android:id="@+id/textVieww"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="14dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:text="마이페이지" />
+    </LinearLayout>
+    <!-- 밑줄 -->
+    <View
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="3px"></View>
+
     <ImageView
         android:id="@+id/mypage_image"
         android:src="@drawable/mypage_image"
         android:layout_width="match_parent"
         android:layout_height="115dp"
-        android:layout_marginTop="50dp"></ImageView>
+        android:layout_marginTop="40dp"></ImageView>
 
     <TextView
         android:id="@+id/mypage_name"
@@ -131,5 +164,47 @@
         android:layout_marginTop="10dp"
         android:text="로그아웃">
     </androidx.appcompat.widget.AppCompatButton>
+
+    <!-- 하단 버튼 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginTop="34dp"
+        android:background="@color/green_1"
+        android:orientation="horizontal">
+        <!-- 팁 버튼 -->
+        <ImageButton
+            android:id="@+id/btn_tipPage"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="팁"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/tip" />
+        <!-- 홈 버튼 -->
+        <ImageButton
+            android:id="@+id/btn_homePage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="홈"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/mypage" />
+        <!-- 커뮤니티 버튼 -->
+        <ImageButton
+            android:id="@+id/btn_communityPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="커뮤니티"
+            android:background="@android:color/transparent"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/mypage" />
+    </LinearLayout>
 
 </LinearLayout>
