@@ -9,7 +9,7 @@ import android.widget.ImageButton
 class Mypage : AppCompatActivity() {
 
     lateinit var btn_info_modify:Button
-    lateinit var back:Button
+    lateinit var back:ImageButton
 
     //하단 버튼
     lateinit var btn_tipPage: ImageButton

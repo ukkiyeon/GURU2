@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AppMain">
+    tools:context=".Walk">
 
     <!--상단 글씨, 마이페이지 이동 버튼-->
     <LinearLayout
@@ -174,12 +174,11 @@
     </LinearLayout>
 
     <!--지도-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="270dp"
-        android:id="@+id/map_walk"
-        android:orientation="horizontal">
-    </LinearLayout>
+<!--    <fragment-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:id="@+id/map_walk"-->
+<!--        android:name="com.google.android.gms.maps.SupportMapFragment" />-->
 
     <!-- 하단 버튼 -->
     <LinearLayout
@@ -192,7 +191,7 @@
         <!-- 팁 버튼 -->
         <ImageButton
             android:id="@+id/btn_tipPage"
-            android:layout_height="35dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_weight="1"

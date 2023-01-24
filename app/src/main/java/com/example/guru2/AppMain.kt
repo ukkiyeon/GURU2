@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 
@@ -24,9 +25,9 @@ class AppMain : AppCompatActivity() {
     lateinit var btn_trash:Button
 
     //하단 버튼
-    lateinit var btn_tipPage:Button
-    lateinit var btn_homePage:Button
-    lateinit var btn_communityPage:Button
+    lateinit var btn_tipPage:ImageButton
+    lateinit var btn_homePage:ImageButton
+    lateinit var btn_communityPage:ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

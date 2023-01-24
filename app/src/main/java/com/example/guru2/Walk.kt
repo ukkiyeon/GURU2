@@ -5,6 +5,11 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 
 class Walk : AppCompatActivity() {
 
@@ -15,6 +20,8 @@ class Walk : AppCompatActivity() {
     lateinit var btn_tipPage: ImageButton
     lateinit var btn_homePage: ImageButton
     lateinit var btn_communityPage: ImageButton
+
+    private var mMap: GoogleMap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,4 +54,5 @@ class Walk : AppCompatActivity() {
             startActivity(Intent(this@Walk, AppMain::class.java))  //커뮤니티로 바꾸기
         }
     }
+
 }
