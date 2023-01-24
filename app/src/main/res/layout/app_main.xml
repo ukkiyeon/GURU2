@@ -7,325 +7,292 @@
     android:orientation="vertical"
     tools:context=".AppMain">
 
-    <!--상단 글씨, 마이페이지 이동 버튼-->
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:orientation="horizontal">
-        <!--상단 글씨-->
-        <!--마이페이지 이동 버튼(로고)-->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="30dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ooo님 안녕하세요"
-                android:textColor="@color/black"
-                android:textSize="20sp"></TextView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="오늘 하루 힘차게 시작해볼까요!"
-                android:textColor="@color/gray"></TextView>
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginLeft="80dp"
-            android:src="@drawable/logo"></ImageView>
-    </LinearLayout>
-
-    <!-- 플로깅 레이아웃 -->
-    <LinearLayout
-        android:id="@+id/flogging"
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/flogging_round"
-        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:orientation="vertical">
-        <!--오늘의 플로깅, 공유 이미지-->
+        <!--상단 글씨, 마이페이지 이동 버튼-->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
             android:orientation="horizontal">
-            <TextView
+            <!--상단 글씨-->
+            <!--마이페이지 이동 버튼(로고)-->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="9"
                 android:layout_marginLeft="30dp"
-                android:gravity="center"
-                android:text="오늘의 플로깅"
-                android:textColor="@color/black"
-                android:textSize="14sp"></TextView>
-            <ImageView
-                android:layout_width="10dp"
-                android:layout_weight="1"
-                android:layout_height="20dp"
-                android:layout_gravity="right"
-                android:visibility="invisible"
-                android:id="@+id/btn_share"
-                android:src="@drawable/share"></ImageView>
-        </LinearLayout>
-
-        <!--이동거리, 시간 레이아웃-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <!--이동거리 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="이동거리"
-                    android:textColor="@color/black"
-                    android:textSize="15dp"></TextView>
-
-                <TextView
-                    android:id="@+id/flogging_distance"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:textColor="@color/black"
-                    android:text="100m"
-                    android:textSize="18dp"></TextView>
-            </LinearLayout>
-            <View
-                android:layout_width="2dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/green_2" />
-            <!--시간 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:text="시간"
-                    android:textSize="15dp"></TextView>
-
-                <TextView
-                    android:id="@+id/flogging_time"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:text="01 : 00"
-                    android:textColor="@color/black"
-                    android:textSize="18dp"></TextView>
-            </LinearLayout>
-        </LinearLayout>
-        <Button
-            android:layout_marginTop="5dp"
-            android:id="@+id/flogging_start"
-            android:layout_width="350dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/green_2"
-            android:textColor="@color/white"
-            android:text="시작"></Button>
-    </LinearLayout>
-
-    <!--버튼 3개-->
-    <LinearLayout
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_marginTop="7dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_weather"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/green_2"
-            android:textColor="@color/white"
-            android:text="오늘의 날씨"></Button>
-
-        <Button
-            android:id="@+id/btn_walk"
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/green_1"
-            android:textColor="@color/white"
-            android:text="추천 산책로"></Button>
-
-        <Button
-            android:id="@+id/btn_trash"
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/green_1"
-            android:textColor="@color/white"
-            android:text="쓰레기통 위치"></Button>
-    </LinearLayout>
-
-    <!--날씨-->
-    <LinearLayout
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical">
-        <!--위-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginLeft="50dp"
-            android:orientation="horizontal">
-            <!--글씨-->
-            <LinearLayout
-                android:layout_width="133dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/weather_temp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="5도"
+                    android:text="ooo님 안녕하세요"
                     android:textColor="@color/black"
-                    android:textSize="30sp"></TextView>
+                    android:textSize="20sp"></TextView>
 
                 <TextView
-                    android:id="@+id/weather_loc"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="중랑구"
-                    android:textSize="17sp"></TextView>
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="오늘 하루 힘차게 시작해볼까요!"
+                    android:textColor="@color/gray"></TextView>
             </LinearLayout>
 
             <ImageView
-                android:id="@+id/weather_img"
-                android:layout_width="70dp"
-                android:layout_height="65dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginLeft="80dp"
                 android:src="@drawable/logo"></ImageView>
         </LinearLayout>
 
-        <View
-            android:layout_width="380dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/green_2" />
-
-        <!--아래-->
+        <!-- 플로깅 레이아웃 -->
         <LinearLayout
-            android:id="@+id/weather_week"
-            android:layout_width="match_parent"
+            android:id="@+id/flogging"
+            android:layout_width="380dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/flogging_round"
             android:layout_marginTop="20dp"
             android:orientation="vertical">
-            <TextView
+            <!--오늘의 플로깅, 공유 이미지-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="9"
+                    android:layout_marginLeft="30dp"
+                    android:gravity="center"
+                    android:text="오늘의 플로깅"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"></TextView>
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_weight="1"
+                    android:layout_height="20dp"
+                    android:layout_gravity="right"
+                    android:visibility="invisible"
+                    android:id="@+id/btn_share"
+                    android:src="@drawable/share"></ImageView>
+            </LinearLayout>
+
+            <!--이동거리, 시간 레이아웃-->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="어제                                 2도 3도"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/black"
-                android:textSize="18sp">
-            </TextView>
-            <TextView
-                android:layout_width="match_parent"
+                android:orientation="horizontal">
+                <!--이동거리 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="이동거리"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"></TextView>
+
+                    <TextView
+                        android:id="@+id/flogging_distance"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/black"
+                        android:text="100m"
+                        android:textSize="18dp"></TextView>
+                </LinearLayout>
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/green_2" />
+                <!--시간 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:text="시간"
+                        android:textSize="15dp"></TextView>
+
+                    <TextView
+                        android:id="@+id/flogging_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="01 : 00"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"></TextView>
+                </LinearLayout>
+            </LinearLayout>
+            <Button
+                android:layout_marginTop="5dp"
+                android:id="@+id/flogging_start"
+                android:layout_width="350dp"
                 android:layout_height="match_parent"
-                android:text="어제                                 2도 3도"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/black"
-                android:textSize="18sp">
-            </TextView>
-            <TextView
+                android:layout_gravity="center"
+                android:backgroundTint="@color/green_2"
+                android:textColor="@color/white"
+                android:text="시작"></Button>
+        </LinearLayout>
+
+        <!--버튼 3개-->
+        <LinearLayout
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_weather"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/green_2"
+                android:textColor="@color/white"
+                android:text="오늘의 날씨"></Button>
+
+            <Button
+                android:id="@+id/btn_walk"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/green_1"
+                android:textColor="@color/white"
+                android:text="추천 산책로"></Button>
+
+            <Button
+                android:id="@+id/btn_trash"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/green_1"
+                android:textColor="@color/white"
+                android:text="쓰레기통 위치"></Button>
+        </LinearLayout>
+
+        <!--날씨-->
+        <LinearLayout
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+            <!--위-->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="어제                                 2도 3도"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/black"
-                android:textSize="18sp">
-            </TextView>
-            <TextView
+                android:layout_height="100dp"
+                android:layout_marginLeft="50dp"
+                android:orientation="horizontal">
+                <!--글씨-->
+                <LinearLayout
+                    android:layout_width="133dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/weather_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5도"
+                        android:textColor="@color/black"
+                        android:textSize="30sp"></TextView>
+
+                    <TextView
+                        android:id="@+id/weather_loc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="중랑구"
+                        android:textSize="17sp"></TextView>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/weather_img"
+                    android:layout_width="70dp"
+                    android:layout_height="65dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:src="@drawable/logo"></ImageView>
+            </LinearLayout>
+
+            <View
+                android:layout_width="380dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/green_2" />
+
+            <!--아래-->
+            <LinearLayout
+                android:id="@+id/weather_week"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="어제                                 2도 3도"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/black"
-                android:textSize="18sp">
-            </TextView>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="어제                                 2도 3도"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp">
+                </TextView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="어제                                 2도 3도"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp">
+                </TextView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="어제                                 2도 3도"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp">
+                </TextView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="어제                                 2도 3도"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp">
+                </TextView>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
-    <!-- 하단 버튼 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_gravity="bottom"
-        android:background="@color/green_1"
-        android:layout_marginTop="40dp"
-        android:orientation="horizontal">
-        <!-- 팁 버튼 -->
-        <ImageButton
-            android:id="@+id/btn_tipPage"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="팁"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/tip" />
-        <!-- 홈 버튼 -->
-        <ImageButton
-            android:id="@+id/btn_homePage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:contentDescription="홈"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/mypage" />
-        <!-- 커뮤니티 버튼 -->
-        <ImageButton
-            android:id="@+id/btn_communityPage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:contentDescription="커뮤니티"
-            android:background="@android:color/transparent"
-            android:layout_weight="1"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/bb" />
-    </LinearLayout>
+    <include
+        layout="@layout/fix_bottom"
+        android:id="@+id/fix_bottom" />
 
 </LinearLayout>

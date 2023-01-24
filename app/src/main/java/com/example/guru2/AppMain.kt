@@ -1,13 +1,14 @@
 package com.example.guru2
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
 class AppMain : AppCompatActivity() {
 
@@ -24,11 +25,6 @@ class AppMain : AppCompatActivity() {
     lateinit var btn_walk:Button
     lateinit var btn_trash:Button
 
-    //하단 버튼
-    lateinit var btn_tipPage:ImageButton
-    lateinit var btn_homePage:ImageButton
-    lateinit var btn_communityPage:ImageButton
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.app_main)
@@ -36,9 +32,29 @@ class AppMain : AppCompatActivity() {
         flogging_start = findViewById(R.id.flogging_start)
         floggint_time = findViewById(R.id.flogging_time)
         btn_share = findViewById(R.id.btn_share)
-        btn_tipPage = findViewById(R.id.btn_tipPage)
-        btn_homePage = findViewById(R.id.btn_homePage)
-        btn_communityPage = findViewById(R.id.btn_communityPage)
+
+        //하단 버튼 동작
+        val fix_bottom = findViewById<View>(R.id.fix_bottom)
+        var btn_tipPage: ImageButton
+        var btn_homePage: ImageButton
+        var btn_communityPage: ImageButton
+
+        btn_tipPage = fix_bottom.findViewById(R.id.btn_tipPage)
+        btn_homePage = fix_bottom.findViewById(R.id.btn_homePage)
+        btn_communityPage = fix_bottom.findViewById(R.id.btn_communityPage)
+
+        btn_tipPage.setOnClickListener {
+            Log.i("에러", "에러");
+            startActivity(Intent(this@AppMain, Tip::class.java))
+        }
+
+        btn_homePage.setOnClickListener {
+            startActivity(Intent(this@AppMain, AppMain::class.java))
+        }
+
+        btn_communityPage.setOnClickListener {
+            startActivity(Intent(this@AppMain, CommunityMain::class.java))
+        }
 
         flogging_start.setOnClickListener {
             flogging_start.setText("종료")
@@ -56,17 +72,7 @@ class AppMain : AppCompatActivity() {
             startActivity(Intent(this@AppMain, Trash::class.java))
         }
 
-        btn_tipPage.setOnClickListener {
-            startActivity(Intent(this@AppMain, Tip::class.java))
-        }
 
-        btn_homePage.setOnClickListener {
-            startActivity(Intent(this@AppMain, AppMain::class.java))
-        }
-
-        btn_communityPage.setOnClickListener {
-            startActivity(Intent(this@AppMain, CommunityMain::class.java))
-        }
     }
 
     //타이머
