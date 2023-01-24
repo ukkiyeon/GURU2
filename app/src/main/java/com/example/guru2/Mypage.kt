@@ -43,7 +43,7 @@ class Mypage : AppCompatActivity() {
         }
 
         btn_communityPage.setOnClickListener {
-            startActivity(Intent(this@Mypage, AppMain::class.java))  //커뮤니티로 바꾸기
+            startActivity(Intent(this@Mypage, CommunityMain::class.java))
         }
 
     }

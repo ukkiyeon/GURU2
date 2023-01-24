@@ -65,7 +65,7 @@ class AppMain : AppCompatActivity() {
         }
 
         btn_communityPage.setOnClickListener {
-            startActivity(Intent(this@AppMain, AppMain::class.java))  //커뮤니티로 바꾸기
+            startActivity(Intent(this@AppMain, CommunityMain::class.java))
         }
     }
 

@@ -4,19 +4,20 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 
 class Tip : AppCompatActivity() {
     // 이미지 버튼
-    lateinit var appguideBtn: Button
-    lateinit var ecoguideBtn: Button
-    lateinit var floggingeventBtn: Button
-    lateinit var floggingBtn: Button
-    lateinit var econewsBtn: Button
-    lateinit var zerowasteBtn: Button
+    lateinit var appguideBtn: ImageButton
+    lateinit var ecoguideBtn: ImageButton
+    lateinit var floggingeventBtn: ImageButton
+    lateinit var floggingBtn: ImageButton
+    lateinit var econewsBtn: ImageButton
+    lateinit var zerowasteBtn: ImageButton
 
     // 하단 버튼
-    lateinit var MainBtn: Button
-    lateinit var CommunityBtn: Button
+    lateinit var MainBtn: ImageButton
+    lateinit var CommunityBtn: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,12 +66,13 @@ class Tip : AppCompatActivity() {
         }
 
         MainBtn.setOnClickListener {
-            var intent = Intent(this, MainActivity::class.java)
+            var intent = Intent(this, AppMain::class.java)
             startActivity(intent)
         }
 
         CommunityBtn.setOnClickListener {
-            var intent = Intent(this, MainActivity::class.java) // 커뮤니티로 변경해야 함
+            var intent = Intent(this, CommunityMain::class.java)
+            startActivity(intent)
         }
 
 
