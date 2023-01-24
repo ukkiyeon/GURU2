@@ -6,12 +6,17 @@ import android.os.Bundle
 import android.widget.Button
 
 class Tip : AppCompatActivity() {
+    // 이미지 버튼
     lateinit var appguideBtn: Button
     lateinit var ecoguideBtn: Button
     lateinit var floggingeventBtn: Button
     lateinit var floggingBtn: Button
     lateinit var econewsBtn: Button
     lateinit var zerowasteBtn: Button
+
+    // 하단 버튼
+    lateinit var MainBtn: Button
+    lateinit var CommunityBtn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +29,9 @@ class Tip : AppCompatActivity() {
         floggingBtn = findViewById(R.id.imageButton4)
         econewsBtn = findViewById(R.id.imageButton5)
         zerowasteBtn = findViewById(R.id.imageButton6)
+
+        MainBtn = findViewById(R.id.btn_homePage2)
+        CommunityBtn = findViewById(R.id.btn_communityPage2)
 
         // 버튼 클릭 시 화면 이동
         appguideBtn.setOnClickListener {
@@ -54,6 +62,15 @@ class Tip : AppCompatActivity() {
         zerowasteBtn.setOnClickListener {
             var intent = Intent(this, TipZeroWaste::class.java)
             startActivity(intent)
+        }
+
+        MainBtn.setOnClickListener {
+            var intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        CommunityBtn.setOnClickListener {
+            var intent = Intent(this, MainActivity::class.java) // 커뮤니티로 변경해야 함
         }
 
 

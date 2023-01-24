@@ -290,18 +290,18 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_gravity="bottom"
+        android:layout_marginTop="38dp"
         android:background="@color/green_1"
-        android:layout_marginTop="40dp"
         android:orientation="horizontal">
         <!-- 팁 버튼 -->
         <ImageButton
             android:id="@+id/btn_tipPage"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_width="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="팁"
             android:background="@android:color/transparent"
+            android:contentDescription="팁"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/tip" />
         <!-- 홈 버튼 -->
@@ -310,9 +310,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:contentDescription="홈"
             android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:contentDescription="홈"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/mypage" />
         <!-- 커뮤니티 버튼 -->
@@ -321,9 +321,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:contentDescription="커뮤니티"
-            android:background="@android:color/transparent"
             android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:contentDescription="커뮤니티"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/bb" />
     </LinearLayout>
