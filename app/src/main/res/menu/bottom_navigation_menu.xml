@@ -9,10 +9,10 @@
         android:id="@+id/main"
         android:enabled="true"
         android:title="Main"
-        android:icon="@drawable/main"/>
+        android:icon="@drawable/mypage"/>
     <item
         android:id="@+id/community"
         android:enabled="true"
         android:title="Community"
-        android:icon="@drawable/community"/>
+        android:icon="@drawable/bb"/>
 </menu>

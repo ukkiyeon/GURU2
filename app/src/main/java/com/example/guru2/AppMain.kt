@@ -23,6 +23,11 @@ class AppMain : AppCompatActivity() {
     lateinit var btn_walk:Button
     lateinit var btn_trash:Button
 
+    //하단 버튼
+    lateinit var btn_tipPage:Button
+    lateinit var btn_homePage:Button
+    lateinit var btn_communityPage:Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.app_main)
@@ -30,6 +35,9 @@ class AppMain : AppCompatActivity() {
         flogging_start = findViewById(R.id.flogging_start)
         floggint_time = findViewById(R.id.flogging_time)
         btn_share = findViewById(R.id.btn_share)
+        btn_tipPage = findViewById(R.id.btn_tipPage)
+        btn_homePage = findViewById(R.id.btn_homePage)
+        btn_communityPage = findViewById(R.id.btn_communityPage)
 
         flogging_start.setOnClickListener {
             flogging_start.setText("종료")
@@ -45,6 +53,18 @@ class AppMain : AppCompatActivity() {
 
         btn_trash.setOnClickListener {
             startActivity(Intent(this@AppMain, Trash::class.java))
+        }
+
+        btn_tipPage.setOnClickListener {
+            startActivity(Intent(this@AppMain, Tip::class.java))
+        }
+
+        btn_homePage.setOnClickListener {
+            startActivity(Intent(this@AppMain, AppMain::class.java))
+        }
+
+        btn_communityPage.setOnClickListener {
+            startActivity(Intent(this@AppMain, AppMain::class.java))  //커뮤니티로 바꾸기
         }
     }
 
