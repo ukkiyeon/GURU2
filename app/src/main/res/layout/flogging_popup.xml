@@ -1,59 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="350dp"
+    android:layout_gravity="center"
+    android:layout_height="400dp"
     android:orientation="vertical"
+    android:minWidth="350dp"
+    android:minHeight="400dp"
+    android:background="@drawable/flogging_round"
     android:layout_marginTop="30dp"
-    android:layout_marginBottom="20dp">
+    android:layout_marginBottom="20dp"
+    android:id="@+id/popup">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:textColor="@color/black"
-        android:layout_weight="1"
-        android:text="오늘의 플로깅">
-    </TextView>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
-    </ImageView>
-
-    <!--하단 글씨-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:orientation="horizontal">
-
+        android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:layout_gravity="left"
+            android:layout_height="50dp"
             android:layout_weight="1"
-            android:text="이동거리 100M"></TextView>
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            android:text="오늘의 플로깅">
+        </TextView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:layout_gravity="right"
+        <ImageView
+            android:layout_width="wrap_content"
             android:layout_weight="1"
-            android:text="시간 01:00"></TextView>
+            android:src="@drawable/mypage"
+            android:layout_height="60dp">
+        </ImageView>
+
+        <!--하단 글씨-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:layout_height="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/popup_distance"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:gravity="center|bottom"
+                android:textSize="18sp"
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:text="이동거리 100M"></TextView>
+
+            <TextView
+                android:id="@+id/popup_time"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:gravity="center|bottom"
+                android:textSize="18sp"
+                android:layout_gravity="right"
+                android:layout_weight="1"
+                android:text="시간 01:00"></TextView>
+        </LinearLayout>
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+    <View
+        android:layout_width="300dp"
         android:layout_gravity="center"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/green_2" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/instagram"></ImageView>
 
 </LinearLayout>

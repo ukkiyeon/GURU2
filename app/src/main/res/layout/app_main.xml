@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical">
         <!--상단 글씨, 마이페이지 이동 버튼-->
@@ -55,8 +55,8 @@
             android:layout_width="380dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/flogging_round"
             android:layout_marginTop="20dp"
+            android:background="@drawable/flogging_round"
             android:orientation="vertical">
             <!--오늘의 플로깅, 공유 이미지-->
             <LinearLayout
@@ -65,23 +65,25 @@
                 android:layout_marginTop="15dp"
                 android:gravity="center"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="9"
                     android:layout_marginLeft="30dp"
+                    android:layout_weight="9"
                     android:gravity="center"
                     android:text="오늘의 플로깅"
                     android:textColor="@color/black"
                     android:textSize="14sp"></TextView>
+
                 <ImageView
+                    android:id="@+id/btn_share"
                     android:layout_width="10dp"
-                    android:layout_weight="1"
                     android:layout_height="20dp"
                     android:layout_gravity="right"
-                    android:visibility="invisible"
-                    android:id="@+id/btn_share"
-                    android:src="@drawable/share"></ImageView>
+                    android:layout_weight="1"
+                    android:src="@drawable/share"
+                    android:visibility="invisible"></ImageView>
             </LinearLayout>
 
             <!--이동거리, 시간 레이아웃-->
@@ -111,10 +113,11 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center_horizontal"
+                        android:text="0m"
                         android:textColor="@color/black"
-                        android:text="100m"
                         android:textSize="18dp"></TextView>
                 </LinearLayout>
+
                 <View
                     android:layout_width="2dp"
                     android:layout_height="70dp"
@@ -126,13 +129,14 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:textColor="@color/black"
                         android:text="시간"
+                        android:textColor="@color/black"
                         android:textSize="15dp"></TextView>
 
                     <TextView
@@ -141,20 +145,21 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center_horizontal"
-                        android:text="01 : 00"
+                        android:text="00 : 00"
                         android:textColor="@color/black"
                         android:textSize="18dp"></TextView>
                 </LinearLayout>
             </LinearLayout>
+
             <Button
-                android:layout_marginTop="5dp"
                 android:id="@+id/flogging_start"
                 android:layout_width="350dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:layout_marginTop="5dp"
                 android:backgroundTint="@color/green_2"
-                android:textColor="@color/white"
-                android:text="시작"></Button>
+                android:text="시작"
+                android:textColor="@color/white"></Button>
         </LinearLayout>
 
         <!--버튼 3개-->
@@ -162,8 +167,8 @@
             android:layout_width="380dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
             android:layout_marginTop="10dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <Button
@@ -172,36 +177,38 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/green_2"
-                android:textColor="@color/white"
-                android:text="오늘의 날씨"></Button>
+                android:text="오늘의 날씨"
+                android:textColor="@color/white"></Button>
 
             <Button
                 android:id="@+id/btn_walk"
                 android:layout_width="wrap_content"
-                android:layout_marginLeft="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
                 android:backgroundTint="@color/green_1"
-                android:textColor="@color/white"
-                android:text="추천 산책로"></Button>
+                android:text="추천 산책로"
+                android:textColor="@color/white"></Button>
 
             <Button
                 android:id="@+id/btn_trash"
                 android:layout_width="wrap_content"
-                android:layout_marginLeft="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
                 android:backgroundTint="@color/green_1"
-                android:textColor="@color/white"
-                android:text="쓰레기통 위치"></Button>
+                android:text="쓰레기통 위치"
+                android:textColor="@color/white"></Button>
         </LinearLayout>
 
         <!--날씨-->
         <LinearLayout
+            android:id="@+id/main_weather"
             android:layout_width="380dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="visible">
             <!--위-->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -255,41 +262,62 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="어제                                 2도 3도"
                     android:layout_marginBottom="10dp"
+                    android:text="어제                                 2도 3도"
                     android:textColor="@color/black"
-                    android:textSize="18sp">
-                </TextView>
+                    android:textSize="18sp"></TextView>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="어제                                 2도 3도"
                     android:layout_marginBottom="10dp"
+                    android:text="어제                                 2도 3도"
                     android:textColor="@color/black"
-                    android:textSize="18sp">
-                </TextView>
+                    android:textSize="18sp"></TextView>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="어제                                 2도 3도"
                     android:layout_marginBottom="10dp"
+                    android:text="어제                                 2도 3도"
                     android:textColor="@color/black"
-                    android:textSize="18sp">
-                </TextView>
+                    android:textSize="18sp"></TextView>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="어제                                 2도 3도"
                     android:layout_marginBottom="10dp"
+                    android:text="어제                                 2도 3도"
                     android:textColor="@color/black"
-                    android:textSize="18sp">
-                </TextView>
+                    android:textSize="18sp"></TextView>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:visibility="gone"
+        android:id="@+id/map_walk"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="380dp"
+        android:layout_gravity="center"
+        android:layout_height="260dp"
+        android:layout_marginBottom="20dp"
+        tools:layout="@layout/abc_search_view" />
+
+    <!--쓰레기통 위치-->
+    <androidx.fragment.app.FragmentContainerView
+        android:visibility="gone"
+        android:id="@+id/map_trash"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="380dp"
+        android:layout_gravity="center"
+        android:layout_height="260dp"
+        android:layout_marginBottom="20dp"
+        tools:layout="@layout/abc_search_view" />
 
     <include
         layout="@layout/fix_bottom"
