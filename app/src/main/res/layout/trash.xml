@@ -179,12 +179,15 @@
         </LinearLayout>
 
         <!--지도-->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <!--지도-->
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/mapview"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="380dp"
+            android:layout_gravity="center"
             android:layout_height="270dp"
-            android:id="@+id/map_walk"
-            android:orientation="horizontal">
-        </LinearLayout>
+            android:layout_marginTop="20dp"
+            tools:layout="@layout/abc_search_view" />
     </LinearLayout>
 
     <include
