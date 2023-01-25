@@ -36,43 +36,35 @@ class Tip : AppCompatActivity() {
 
         // 버튼 클릭 시 화면 이동
         appguideBtn.setOnClickListener {
-            var intent = Intent(this, TipAppGuide::class.java)
-            startActivity(intent)
+            startActivity(Intent(this@Tip, TipAppGuide::class.java))
         }
 
         ecoguideBtn.setOnClickListener {
-            var intent = Intent(this, TipEcoGuide::class.java)
-            startActivity(intent)
+            startActivity(Intent(this@Tip, TipEcoGuide::class.java))
         }
 
         floggingeventBtn.setOnClickListener {
-            var intent = Intent(this, TipFloggingEvent::class.java)
-            startActivity(intent)
+            startActivity(Intent(this@Tip, TipFloggingEvent::class.java))
         }
 
         floggingBtn.setOnClickListener {
-            var intent = Intent(this, TipFlogging::class.java)
-            startActivity(intent)
+            startActivity(Intent(this@Tip, TipFlogging::class.java))
         }
 
         econewsBtn.setOnClickListener {
-            var intent = Intent(this, TipEcoNews::class.java)
-            startActivity(intent)
+            startActivity(Intent(this@Tip, TipEcoNews::class.java))
         }
 
         zerowasteBtn.setOnClickListener {
-            var intent = Intent(this, TipZeroWaste::class.java)
-            startActivity(intent)
+            startActivity(Intent(this@Tip, TipZeroWaste::class.java))
         }
 
         MainBtn.setOnClickListener {
-            var intent = Intent(this, AppMain::class.java)
-            startActivity(intent)
+            startActivity(Intent(this@Tip, AppMain::class.java))
         }
 
         CommunityBtn.setOnClickListener {
-            var intent = Intent(this, CommunityMain::class.java)
-            startActivity(intent)
+            startActivity(Intent(this@Tip, CommunityMain::class.java))
         }
 
 

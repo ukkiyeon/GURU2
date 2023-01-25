@@ -46,10 +46,12 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
-    implementation files('libs\\jsoup-1.15.3.jar')
+    implementation 'org.jsoup:jsoup:1.15.3' // 크롤링 - jsoup plugin
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4' // 코루틴 plugin
+    implementation 'com.google.code.gson:gson:2.8.6' // gson
 
 //    classpath "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin:2.0.1"
 }

@@ -87,9 +87,7 @@
         </activity>
         <activity
             android:name=".Tip"
-            android:exported="false"
-            android:label="@string/title_activity_tip"
-            android:theme="@style/Theme.GURU2.NoActionBar">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -131,12 +129,12 @@
         </activity>
         <activity
             android:name=".SplashActivity"
-            android:exported="true">
+            android:exported="false"> <!-- false로 변경했음 아래 주석처리랑 -->
+            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter> -->
         </activity>
         <activity
             android:name=".AppMain"
