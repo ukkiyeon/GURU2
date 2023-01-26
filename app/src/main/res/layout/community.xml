@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CommunityMain"
+    tools:context=".Community"
     >
 
     <!--상단 고정-->
@@ -478,7 +478,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <!--하단 고정-->
+    <!--하단 글쓰기 버튼 고정-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -495,4 +495,11 @@
             android:text="글쓰기" />
 
     </LinearLayout>
+
+
+
+    <include
+        layout="@layout/fix_bottom"
+        android:id="@+id/fix_bottom" />
+
 </LinearLayout>
