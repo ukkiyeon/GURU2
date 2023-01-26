@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".AppMain">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".AppMain">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,11 +42,15 @@
                     android:textColor="@color/gray"></TextView>
             </LinearLayout>
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/btn_mypage"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_marginLeft="80dp"
-                android:src="@drawable/logo"></ImageView>
+                android:contentDescription="마이페이지 이동"
+                android:background="@android:color/transparent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo"></ImageButton>
         </LinearLayout>
 
         <!-- 플로깅 레이아웃 -->

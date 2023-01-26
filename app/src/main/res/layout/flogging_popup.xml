@@ -72,12 +72,16 @@
         android:layout_marginTop="20dp"
         android:background="@color/green_2" />
 
-    <ImageView
+    <ImageButton
+        android:id="@+id/instagram"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
+        android:contentDescription="팁"
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp"
-        android:src="@drawable/instagram"></ImageView>
+        android:src="@drawable/instagram"></ImageButton>
 
 </LinearLayout>

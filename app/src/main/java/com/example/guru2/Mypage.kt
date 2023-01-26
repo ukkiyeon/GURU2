@@ -7,10 +7,12 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
+import androidx.appcompat.widget.AppCompatButton
 
 class Mypage : AppCompatActivity() {
 
-    lateinit var btn_info_modify:Button
+    lateinit var btn_info_modify: AppCompatButton
+    lateinit var btn_logout : AppCompatButton
     lateinit var back:ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,10 +20,15 @@ class Mypage : AppCompatActivity() {
         setContentView(R.layout.mypage)
 
         btn_info_modify = findViewById(R.id.btn_info_modify)
+        btn_logout = findViewById(R.id.btn_logout)
         back = findViewById(R.id.back)
 
         btn_info_modify.setOnClickListener {
             startActivity(Intent(this@Mypage, UserModify::class.java))
+        }
+
+        btn_logout.setOnClickListener {
+            startActivity(Intent(this@Mypage, Login::class.java))
         }
 
         back.setOnClickListener {
@@ -39,7 +46,6 @@ class Mypage : AppCompatActivity() {
         btn_communityPage = fix_bottom.findViewById(R.id.btn_communityPage)
 
         btn_tipPage.setOnClickListener {
-            Log.i("에러", "에러");
             startActivity(Intent(this@Mypage, Tip::class.java))
         }
 
