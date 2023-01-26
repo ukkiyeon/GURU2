@@ -1,6 +1,7 @@
 package com.example.guru2
 
 import android.content.ClipData
+import android.content.ClipData.Item
 import android.content.Intent
 import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
@@ -40,16 +41,17 @@ class TipEcoNews : AppCompatActivity() {
 
         // 크롤링 코루틴 (job 생성)
         CoroutineScope(Dispatchers.IO + job).launch {
+
             val returnList = async { crawlEcoNews() } // crawlEcoNews()의 반환값을 넘김
-            val titleList = "${returnList.await()}" // 뉴스 제목 리스트 반환
+            val titleList = returnList.await() // 뉴스 제목 리스트 반환
 
             // 잠시 메인 스레드로 전환해서 제목 출력
             withContext(Dispatchers.Main) {
-                tip_news01_title.text = titleList[0].toString()
-                tip_news02_title.text = titleList[1].toString()
-                tip_news03_title.text = titleList[2].toString()
-                tip_news04_title.text = titleList[3].toString()
-                tip_news05_title.text = titleList[4].toString()
+                tip_news01_title.text = titleList.get(0)
+                tip_news02_title.text = titleList.get(1)
+                tip_news03_title.text = titleList.get(2)
+                tip_news04_title.text = titleList.get(3)
+                tip_news04_title.text = titleList.get(4)
 
 
             }
@@ -70,21 +72,28 @@ class TipEcoNews : AppCompatActivity() {
 
     // 크롤링 부분, 코루틴에서 사용하는 함수 (suspend 사용)
     private suspend fun crawlEcoNews(): ArrayList<String> {
-        var titleList = arrayListOf<String>() // 리턴할 뉴스 제목 리스트
+        var titleList = ArrayList<String>(); // 리턴할 뉴스 제목 리스트
 
         try{
             val url = "https://www.yna.co.kr/society/environment"
             val doc = Jsoup.connect(url).get() // Jsoup을 통해 접속하고, url에 있는 html 코드를 다 가져오기
 
-            //val title = doc.select("bnusNo").text() // 파싱
-            //EcoNewsTitle = title
+            /* 방법 2
+            val base_url = "https:"
+            val today = doc.select("ul.list div.item-box01") // html 코드 중에서도 필요한 부분만
+
+            today.forEach { item ->
+                val item_title = item.select("strong.tit-news").text() // 일단 제목만 ..
+
+                items.add(Item(item_title)) // arrayList 리스트에 추가
+
+            }
+            */
 
             val classTag = doc.getElementsByClass("news-con") // <div class="news-con">
 
             for (i in 0..4) {
-                val title = classTag[i].getElementsByTag("strong").text() // strong 태그의 제목 부분 파싱
-                titleList.add(title) // 제목 리스트에 추가
-
+                titleList.add(classTag[i].getElementsByTag("strong").text()) // 제목 리스트에 추가
             }
         } catch (e: Exception) {
             e.printStackTrace()
