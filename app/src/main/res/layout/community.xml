@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CommunityMain"
+    tools:context=".Community"
     >
 
     <!--상단 고정-->
@@ -496,48 +496,10 @@
 
     </LinearLayout>
 
-    <!-- 하단 버튼 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="@color/green_1"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
 
-        <ImageButton
-            android:id="@+id/btn_tipPage2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="팁"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/tip" />
 
-        <ImageButton
-            android:id="@+id/btn_homePage2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="홈"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/mypage" />
+    <include
+        layout="@layout/fix_bottom"
+        android:id="@+id/fix_bottom" />
 
-        <ImageButton
-            android:id="@+id/btn_communityPage2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="커뮤니티"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/bb" />
-
-    </LinearLayout>
 </LinearLayout>

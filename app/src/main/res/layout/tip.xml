@@ -145,7 +145,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
 
-    <!-- 하단 버튼 -->
+    <!-- 하단 버튼
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="55dp"
@@ -188,6 +188,21 @@
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/bb" />
 
+    </LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            android:id="@+id/fix_bottom"
+            layout="@layout/fix_bottom" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

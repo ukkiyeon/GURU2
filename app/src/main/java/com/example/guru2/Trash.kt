@@ -59,7 +59,7 @@ class Trash : AppCompatActivity() {
         }
 
         btn_communityPage.setOnClickListener {
-            startActivity(Intent(this@Trash, CommunityMain::class.java))
+            startActivity(Intent(this@Trash, Community::class.java))
         }
     }
 

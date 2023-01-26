@@ -67,7 +67,7 @@ class AppMain : AppCompatActivity() {
         }
 
         btn_communityPage.setOnClickListener {
-            startActivity(Intent(this@AppMain, CommunityMain::class.java))
+            startActivity(Intent(this@AppMain, Community::class.java))
         }
 
         flogging_start.setOnClickListener {

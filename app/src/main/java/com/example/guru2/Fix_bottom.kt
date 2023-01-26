@@ -31,7 +31,7 @@ class Fix_bottom : AppCompatActivity() {
         }
 
         btn_communityPage.setOnClickListener {
-            startActivity(Intent(this@Fix_bottom, CommunityMain::class.java))
+            startActivity(Intent(this@Fix_bottom, Community::class.java))
         }
     }
 }

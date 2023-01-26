@@ -59,7 +59,7 @@ class Walk : AppCompatActivity() {
         }
 
         btn_communityPage.setOnClickListener {
-            startActivity(Intent(this@Walk, CommunityMain::class.java))
+            startActivity(Intent(this@Walk, Community::class.java))
         }
     }
 
