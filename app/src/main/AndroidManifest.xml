@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,7 +16,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GURU2"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        android:usesCleartextTraffic="true">
+
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAThw4etbSYJMUA_GpVxyKNqRwKW6gU1lA"/>
 
         <activity
             android:name=".Login"
@@ -20,36 +42,35 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-        <activity android:name=".Clause2"
+        <activity
+            android:name=".Clause2"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-        <activity android:name=".Clause"
+        <activity
+            android:name=".Clause"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-        <activity android:name=".Join"
+        <activity
+            android:name=".Join"
             android:exported="false"
             android:parentActivityName=".Login">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-        <activity android:name=".FindPwd"
+        <activity
+            android:name=".FindPwd"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".TipEcoGuide"
             android:exported="false">
@@ -66,9 +87,7 @@
         </activity>
         <activity
             android:name=".Tip"
-            android:exported="false"
-            android:label="@string/title_activity_tip"
-            android:theme="@style/Theme.GURU2.NoActionBar">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -102,13 +121,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".EcoGuide"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".Mypage"
             android:exported="false">
             <meta-data
@@ -117,22 +129,20 @@
         </activity>
         <activity
             android:name=".SplashActivity"
-            android:exported="true">
+            android:exported="false"> <!-- false로 변경했음 아래 주석처리랑 -->
+            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter> -->
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".AppMain"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -146,6 +156,14 @@
         </activity>
         <activity
             android:name=".Trash"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".Fix_bottom"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

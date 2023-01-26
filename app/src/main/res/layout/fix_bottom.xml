@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_gravity="bottom"
+    android:gravity="bottom"
+    android:layout_height="55dp"
+    android:id="@+id/fix_bottom"
+    android:background="@color/green_1"
+    android:orientation="horizontal">
+    <!-- 팁 버튼 -->
+    <ImageButton
+        android:id="@+id/btn_tipPage"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:contentDescription="팁"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/tip" />
+    <!-- 홈 버튼 -->
+    <ImageButton
+        android:id="@+id/btn_homePage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:contentDescription="홈"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/mypage" />
+    <!-- 커뮤니티 버튼 -->
+    <ImageButton
+        android:id="@+id/btn_communityPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:contentDescription="커뮤니티"
+        android:background="@android:color/transparent"
+        android:layout_weight="1"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/bb" />
+</LinearLayout>
