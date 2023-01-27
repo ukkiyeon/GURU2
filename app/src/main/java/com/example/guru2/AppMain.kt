@@ -1,21 +1,42 @@
 package com.example.guru2
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.app.ProgressDialog.show
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.provider.SettingsSlicesContract.KEY_LOCATION
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentContainerView
+import com.google.android.gms.location.*
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import org.jsoup.nodes.Document
 import java.util.*
+import javax.xml.parsers.DocumentBuilderFactory
 import kotlin.concurrent.timer
 
 
@@ -56,6 +77,15 @@ class AppMain : AppCompatActivity() {
 
     lateinit var btn_mypage:ImageButton
 
+    //지도
+    private lateinit var mMap: GoogleMap
+    val TAG: String = "로그"
+
+    private var mFusedLocationProviderClient: FusedLocationProviderClient? = null // 현재 위치를 가져오기 위한 변수
+    lateinit var mLastLocation: Location // 위치 값을 가지고 있는 객체
+    internal lateinit var mLocationRequest: LocationRequest // 위치 정보 요청의 매개변수를 저장하는
+    private val REQUEST_PERMISSION_LOCATION = 10
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.app_main)
@@ -67,6 +97,18 @@ class AppMain : AppCompatActivity() {
         flogging_distance = findViewById(R.id.flogging_distance)
 
         btn_mypage = findViewById(R.id.btn_mypage)
+
+        //이름 불러오기
+        val mypage_name = findViewById<TextView>(R.id.mypage_name2)
+        val user = Firebase.auth.currentUser
+        user?.let {
+            val name = user.displayName
+            mypage_name.text = name+"님 안녕하세요"
+        }
+
+        //지도
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.map_walk) as SupportMapFragment
+        mapFragment.getMapAsync(this)
 
         //하단 버튼 동작
         val fix_bottom = findViewById<View>(R.id.fix_bottom)
@@ -145,6 +187,7 @@ class AppMain : AppCompatActivity() {
             btn_weather.visibility = View.GONE
             btn_walk.visibility = View.VISIBLE
             btn_trash.visibility = View.GONE
+            checkPermissionForLocation(this)
         }
         btn_5.setOnClickListener {
             main_weather.visibility = View.GONE
@@ -154,6 +197,7 @@ class AppMain : AppCompatActivity() {
             btn_weather.visibility = View.GONE
             btn_walk.visibility = View.VISIBLE
             btn_trash.visibility = View.GONE
+            checkPermissionForLocation(this)
         }
         btn_8.setOnClickListener {
             main_weather.visibility = View.GONE
@@ -163,6 +207,7 @@ class AppMain : AppCompatActivity() {
             btn_weather.visibility = View.GONE
             btn_walk.visibility = View.VISIBLE
             btn_trash.visibility = View.GONE
+            checkPermissionForLocation(this)
         }
 
         btn_3.setOnClickListener {
@@ -209,14 +254,19 @@ class AppMain : AppCompatActivity() {
         instagram.setOnClickListener{
             var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com"))
             startActivity(intent)
-//            var handler = Handler()
-//            var thread = Runnable { pro?.cancel() }
         }
 
         //마이페이지 이동
         btn_mypage.setOnClickListener{
             startActivity(Intent(this@AppMain, Mypage::class.java))
         }
+    }
+
+    fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+        val marker = LatLng(37.628144, 127.090426)
+        mMap.addMarker(MarkerOptions().position(marker).title("마커 제목"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(marker))
     }
 
     //타이머 시작
@@ -269,4 +319,43 @@ class AppMain : AppCompatActivity() {
             flogging_start()
         }
     }
+
+    // 위치 권한이 있는지 확인하는 메서드
+    fun checkPermissionForLocation(context: Context): Boolean {
+        Log.d(TAG, "checkPermissionForLocation()")
+        Log.d(TAG, context.toString())
+        // Android 6.0 Marshmallow 이상에서는 지리 확보(위치) 권한에 추가 런타임 권한이 필요합니다.
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (context.checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                Log.d(TAG, "checkPermissionForLocation() 권한 상태 : O")
+                true
+            } else {
+                // 권한이 없으므로 권한 요청 알림 보내기
+                Log.d(TAG, "checkPermissionForLocation() 권한 상태 : X")
+                ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_PERMISSION_LOCATION)
+                false
+            }
+        } else {
+            true
+        }
+    }
+
+    // 사용자에게 권한 요청 후 결과에 대한 처리 로직
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        Log.d(TAG, "onRequestPermissionsResult()")
+        if (requestCode == REQUEST_PERMISSION_LOCATION) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Log.d(TAG, "onRequestPermissionsResult() _ 권한 허용 클릭")
+                //startLocationUpdates()
+            } else {
+                Log.d(TAG, "onRequestPermissionsResult() _ 권한 허용 거부")
+                Toast.makeText(this@AppMain, "권한이 없어 해당 기능을 실행할 수 없습니다.", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+}
+
+private fun SupportMapFragment.getMapAsync(appMain: AppMain) {
+
 }
