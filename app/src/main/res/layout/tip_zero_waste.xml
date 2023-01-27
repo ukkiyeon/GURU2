@@ -91,7 +91,7 @@
                     android:layout_marginHorizontal="20dp"
 
                     android:background="@android:color/transparent"
-                    android:text="제로 웨이스트 샵 이름"
+                    android:text="지구샵"
                     android:textColor="@color/green_700"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -120,7 +120,7 @@
                     android:layout_marginHorizontal="20dp"
 
                     android:background="@android:color/transparent"
-                    android:text="제로 웨이스트 샵 이름"
+                    android:text="알맹상점"
                     android:textColor="@color/green_700"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -149,7 +149,7 @@
                     android:layout_marginHorizontal="20dp"
 
                     android:background="@android:color/transparent"
-                    android:text="제로 웨이스트 샵 이름"
+                    android:text="더피커"
                     android:textColor="@color/green_700"
                     android:textSize="20sp"
                     android:textStyle="bold" />
