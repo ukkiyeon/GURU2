@@ -11,10 +11,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.FragmentContainerView
 import com.google.android.material.datepicker.MaterialDatePicker.Builder.datePicker
 import java.util.*
 import kotlin.concurrent.timer
+import kotlin.math.roundToInt
 
 
 class AppMain : AppCompatActivity() {
@@ -29,9 +31,9 @@ class AppMain : AppCompatActivity() {
     private var timerTask : Timer?=null
 
     //버튼 3개
-    lateinit var btn_walk:Button
-    lateinit var btn_trash:Button
-    lateinit var btn_weather:Button
+    lateinit var btn_walk: AppCompatButton
+    lateinit var btn_trash:AppCompatButton
+    lateinit var btn_weather:AppCompatButton
 
     //팝업
     lateinit var popup_time :TextView
@@ -44,7 +46,7 @@ class AppMain : AppCompatActivity() {
 
     lateinit var btn_mypage:ImageButton
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint("MissingInflatedId", "ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.app_main)
@@ -103,10 +105,9 @@ class AppMain : AppCompatActivity() {
             map_trash.visibility = View.GONE
 
             //버튼 색상 변경
-            btn_weather.resources.getColor(R.color.green_1)
-            btn_walk.resources.getColor(R.color.green_2)
-            btn_trash.resources.getColor(R.color.green_1)
-            //startActivity(Intent(this@AppMain, Walk::class.java))
+//            btn_weather.setBackgroundColor(R.color.green_1)
+//            btn_walk.setBackgroundColor(R.color.green_2)
+//            btn_trash.setBackgroundColor(R.color.green_1)
         }
 
         btn_trash.setOnClickListener {
@@ -118,7 +119,6 @@ class AppMain : AppCompatActivity() {
             btn_weather.resources.getColor(R.color.green_1)
             btn_walk.resources.getColor(R.color.green_1)
             btn_trash.resources.getColor(R.color.green_2)
-            //startActivity(Intent(this@AppMain, Trash::class.java))
         }
 
         //팝업
@@ -162,9 +162,9 @@ class AppMain : AppCompatActivity() {
                 popup_distance.text = "이동거리  ${distance} m"
             }
             //이동 거리
-            if(sec >= 10 && milli == 0) {
+            if(sec >= 2 && milli == 0) {
                 Log.d("sec", "sec : " + sec)
-                distance += 5
+                distance += 1
             }
         }
         flogging_start.setOnClickListener { //시작 클릭
