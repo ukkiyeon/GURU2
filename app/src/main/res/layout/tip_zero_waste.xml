@@ -61,12 +61,26 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/tip_news_count4"
+                android:id="@+id/zerowaste_desc1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:text="총 n개" />
+                android:layout_marginRight="20dp"
+                android:text="제로 웨이스트(Zero Waste)란?"
+                android:textColor="@color/green_700"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/zerowaste_desc2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+
+                android:text="일화용품 사용을 줄이고 일상 생활용품을 재활용하여 쓰레기 배출을 최소화해 탄소 중립을 실천하는 운동을 의미합니다."
+                android:textColor="@color/green_2" />
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -111,7 +125,7 @@
                     android:alpha="0.5"
                     android:padding="0sp"
                     android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/zerowaste01" />
+                    app:srcCompat="@drawable/almang" />
 
                 <Button
                     android:id="@+id/button2"
@@ -140,7 +154,7 @@
                     android:alpha="0.5"
                     android:padding="0sp"
                     android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/zerowaste01" />
+                    app:srcCompat="@drawable/thepicker" />
 
                 <Button
                     android:id="@+id/button3"

@@ -168,18 +168,20 @@
                 android:textColor="@color/white"></Button>
         </LinearLayout>
 
-        <!--버튼 3개-->
+        <!--오늘의 날씨-->
         <LinearLayout
             android:layout_width="380dp"
+            android:id="@+id/btn_weather"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
+            android:visibility="visible"
             android:gravity="center"
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_weather"
-                android:layout_width="wrap_content"
+                android:id="@+id/btn_1"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="오늘의 날씨"
@@ -187,22 +189,104 @@
                 android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_walk"
-                android:layout_width="wrap_content"
+                android:id="@+id/btn_2"
+                android:layout_width="120dp"
                 android:backgroundTint="@color/green_1"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:text="추천 산책로"
                 android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_trash"
-                android:layout_width="wrap_content"
+                android:id="@+id/btn_3"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:backgroundTint="@color/green_1"
+                android:text="쓰레기통 위치"
+                android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
+        </LinearLayout>
+
+        <!--추천 산책로-->
+        <LinearLayout
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_walk"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_4"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="오늘의 날씨"
+                android:backgroundTint="@color/green_1"
+                android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_5"
+                android:layout_width="120dp"
+                android:backgroundTint="@color/green_2"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="추천 산책로"
+                android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_6"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:backgroundTint="@color/green_1"
+                android:text="쓰레기통 위치"
+                android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
+        </LinearLayout>
+
+        <!--쓰레기통 위치-->
+        <LinearLayout
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:gravity="center"
+            android:id="@+id/btn_trash"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_7"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="오늘의 날씨"
+                android:backgroundTint="@color/green_1"
+                android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_8"
+                android:layout_width="120dp"
+                android:backgroundTint="@color/green_1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="추천 산책로"
+                android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_9"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:backgroundTint="@color/green_2"
                 android:text="쓰레기통 위치"
                 android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
         </LinearLayout>
