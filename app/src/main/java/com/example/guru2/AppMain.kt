@@ -2,21 +2,21 @@ package com.example.guru2
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.app.ProgressDialog
+import android.app.ProgressDialog.show
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.FragmentContainerView
-import com.google.android.material.datepicker.MaterialDatePicker.Builder.datePicker
 import java.util.*
 import kotlin.concurrent.timer
-import kotlin.math.roundToInt
 
 
 class AppMain : AppCompatActivity() {
@@ -31,14 +31,24 @@ class AppMain : AppCompatActivity() {
     private var timerTask : Timer?=null
 
     //버튼 3개
-    lateinit var btn_walk: AppCompatButton
-    lateinit var btn_trash:AppCompatButton
-    lateinit var btn_weather:AppCompatButton
+    lateinit var btn_walk: LinearLayout
+    lateinit var btn_trash:LinearLayout
+    lateinit var btn_weather:LinearLayout
+    lateinit var btn_1 :AppCompatButton
+    lateinit var btn_2 :AppCompatButton
+    lateinit var btn_3 :AppCompatButton
+    lateinit var btn_4 :AppCompatButton
+    lateinit var btn_5 :AppCompatButton
+    lateinit var btn_6 :AppCompatButton
+    lateinit var btn_7 :AppCompatButton
+    lateinit var btn_8 :AppCompatButton
+    lateinit var btn_9 :AppCompatButton
 
     //팝업
     lateinit var popup_time :TextView
     lateinit var popup_distance:TextView
     lateinit var instagram :ImageButton
+    var pro: AlertDialog? = null
 
     lateinit var main_weather : LinearLayout
     lateinit var map_walk: FragmentContainerView
@@ -46,7 +56,6 @@ class AppMain : AppCompatActivity() {
 
     lateinit var btn_mypage:ImageButton
 
-    @SuppressLint("MissingInflatedId", "ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.app_main)
@@ -89,52 +98,119 @@ class AppMain : AppCompatActivity() {
         btn_trash = findViewById(R.id.btn_trash)
         btn_weather = findViewById(R.id.btn_weather)
 
+        btn_1 = findViewById(R.id.btn_1)
+        btn_2 = findViewById(R.id.btn_2)
+        btn_3 = findViewById(R.id.btn_3)
+        btn_4 = findViewById(R.id.btn_4)
+        btn_5 = findViewById(R.id.btn_5)
+        btn_6 = findViewById(R.id.btn_6)
+        btn_7 = findViewById(R.id.btn_7)
+        btn_8 = findViewById(R.id.btn_8)
+        btn_9 = findViewById(R.id.btn_9)
+
         main_weather = findViewById(R.id.main_weather)
         map_walk = findViewById(R.id.map_walk)
         map_trash = findViewById(R.id.map_trash)
 
-        btn_weather.setOnClickListener {
+        btn_1.setOnClickListener {
             main_weather.visibility = View.VISIBLE
             map_walk.visibility = View.GONE
             map_trash.visibility = View.GONE
+            btn_weather.visibility = View.VISIBLE
+            btn_walk.visibility = View.GONE
+            btn_trash.visibility = View.GONE
+        }
+        btn_4.setOnClickListener {
+            main_weather.visibility = View.VISIBLE
+            map_walk.visibility = View.GONE
+            map_trash.visibility = View.GONE
+            btn_weather.visibility = View.VISIBLE
+            btn_walk.visibility = View.GONE
+            btn_trash.visibility = View.GONE
+        }
+        btn_7.setOnClickListener {
+            main_weather.visibility = View.VISIBLE
+            map_walk.visibility = View.GONE
+            map_trash.visibility = View.GONE
+            btn_weather.visibility = View.VISIBLE
+            btn_walk.visibility = View.GONE
+            btn_trash.visibility = View.GONE
         }
 
-        btn_walk.setOnClickListener {
+        btn_2.setOnClickListener {
             main_weather.visibility = View.GONE
             map_walk.visibility = View.VISIBLE
             map_trash.visibility = View.GONE
-
             //버튼 색상 변경
-//            btn_weather.setBackgroundColor(R.color.green_1)
-//            btn_walk.setBackgroundColor(R.color.green_2)
-//            btn_trash.setBackgroundColor(R.color.green_1)
+            btn_weather.visibility = View.GONE
+            btn_walk.visibility = View.VISIBLE
+            btn_trash.visibility = View.GONE
+        }
+        btn_5.setOnClickListener {
+            main_weather.visibility = View.GONE
+            map_walk.visibility = View.VISIBLE
+            map_trash.visibility = View.GONE
+            //버튼 색상 변경
+            btn_weather.visibility = View.GONE
+            btn_walk.visibility = View.VISIBLE
+            btn_trash.visibility = View.GONE
+        }
+        btn_8.setOnClickListener {
+            main_weather.visibility = View.GONE
+            map_walk.visibility = View.VISIBLE
+            map_trash.visibility = View.GONE
+            //버튼 색상 변경
+            btn_weather.visibility = View.GONE
+            btn_walk.visibility = View.VISIBLE
+            btn_trash.visibility = View.GONE
         }
 
-        btn_trash.setOnClickListener {
+        btn_3.setOnClickListener {
             main_weather.visibility = View.GONE
             map_walk.visibility = View.GONE
             map_trash.visibility = View.VISIBLE
-
             //버튼 색상 변경
-            btn_weather.resources.getColor(R.color.green_1)
-            btn_walk.resources.getColor(R.color.green_1)
-            btn_trash.resources.getColor(R.color.green_2)
+            btn_weather.visibility = View.GONE
+            btn_walk.visibility = View.GONE
+            btn_trash.visibility = View.VISIBLE
+        }
+        btn_6.setOnClickListener {
+            main_weather.visibility = View.GONE
+            map_walk.visibility = View.GONE
+            map_trash.visibility = View.VISIBLE
+            //버튼 색상 변경
+            btn_weather.visibility = View.GONE
+            btn_walk.visibility = View.GONE
+            btn_trash.visibility = View.VISIBLE
+        }
+        btn_9.setOnClickListener {
+            main_weather.visibility = View.GONE
+            map_walk.visibility = View.GONE
+            map_trash.visibility = View.VISIBLE
+            //버튼 색상 변경
+            btn_weather.visibility = View.GONE
+            btn_walk.visibility = View.GONE
+            btn_trash.visibility = View.VISIBLE
         }
 
         //팝업
         val mDialogView = LayoutInflater.from(this).inflate(R.layout.flogging_popup, null)
-        val mBuilder = AlertDialog.Builder(this).setView(mDialogView)
+        val mBuilder = AlertDialog.Builder(this)
+
         popup_time = mDialogView.findViewById(R.id.popup_time)
         popup_distance = mDialogView.findViewById(R.id.popup_distance)
         instagram = mDialogView.findViewById(R.id.instagram)
 
         btn_share.setOnClickListener {
             // Dialog만들기
-            mBuilder.show()
+            mBuilder.setView(mDialogView).show()
         }
+
         instagram.setOnClickListener{
             var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com"))
             startActivity(intent)
+//            var handler = Handler()
+//            var thread = Runnable { pro?.cancel() }
         }
 
         //마이페이지 이동

@@ -38,29 +38,6 @@ class Walk : AppCompatActivity() {
         btn_trash.setOnClickListener {
             startActivity(Intent(this@Walk, Trash::class.java))
         }
-
-        //하단 버튼 동작
-        val fix_bottom = findViewById<View>(R.id.fix_bottom)
-        var btn_tipPage: ImageButton
-        var btn_homePage: ImageButton
-        var btn_communityPage: ImageButton
-
-        btn_tipPage = fix_bottom.findViewById(R.id.btn_tipPage)
-        btn_homePage = fix_bottom.findViewById(R.id.btn_homePage)
-        btn_communityPage = fix_bottom.findViewById(R.id.btn_communityPage)
-
-        btn_tipPage.setOnClickListener {
-            Log.i("에러", "에러");
-            startActivity(Intent(this@Walk, Tip::class.java))
-        }
-
-        btn_homePage.setOnClickListener {
-            startActivity(Intent(this@Walk, AppMain::class.java))
-        }
-
-        btn_communityPage.setOnClickListener {
-            startActivity(Intent(this@Walk, Community::class.java))
-        }
     }
 
     fun onMapReady(googleMap: GoogleMap) {
@@ -71,6 +48,6 @@ class Walk : AppCompatActivity() {
     }
 }
 
-    private fun SupportMapFragment.getMapAsync(walk: Walk) {
+private fun SupportMapFragment.getMapAsync(walk: Walk) {
 
-    }
+}
