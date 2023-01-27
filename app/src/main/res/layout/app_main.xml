@@ -28,11 +28,13 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/mypage_name2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ooo님 안녕하세요"
+                    android:text="ooo"
                     android:textColor="@color/black"
-                    android:textSize="20sp"></TextView>
+                    android:textSize="22sp"></TextView>
+
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -305,7 +307,6 @@
     <androidx.fragment.app.FragmentContainerView
         android:visibility="gone"
         android:id="@+id/map_walk"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="380dp"
         android:layout_gravity="center"
         android:layout_height="260dp"
@@ -316,7 +317,6 @@
     <androidx.fragment.app.FragmentContainerView
         android:visibility="gone"
         android:id="@+id/map_trash"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="380dp"
         android:layout_gravity="center"
         android:layout_height="260dp"
