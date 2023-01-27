@@ -3,6 +3,8 @@ package com.example.guru2
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -28,9 +30,8 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
 
+
         auth = Firebase.auth
-
-
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken("82394092320-kga33mchu8l8j2dna7bi8arkjrt45ugr.apps.googleusercontent.com")
@@ -45,16 +46,11 @@ class Login : AppCompatActivity() {
             //로그인 처리
             googleSignInClient = GoogleSignIn.getClient(this, gso)
             val signInIntent = googleSignInClient!!.signInIntent
+            googleSignInClient!!.signOut()  //로그인 선택되게
 
             startActivityForResult(signInIntent, RC_SIGN_IN)
         }
     }
-
-
-    override fun onDestroy() {
-        super.onDestroy()
-        firebaseAuthSignOut()
-    }// onDestory() 밑부분에 추가 해줍니다.(onCreate 외부)
 
     // 구글에 인증 하는 부분입니다
     //--------------------------------------------------------------------------------------
@@ -106,10 +102,19 @@ class Login : AppCompatActivity() {
     }
 
 
+    private fun setGoogleButtonText(loginButton: SignInButton, buttonText: String){
+        var i = 0
+        while (i < loginButton.childCount){
+            var v = loginButton.getChildAt(i)
+            if (v is TextView) {
+                var tv = v
+                tv.setText(buttonText)
+                tv.setGravity(Gravity.CENTER)
+                return
+            }
+            i++
 
-    private fun firebaseAuthSignOut(){ //로그 아웃 시키기
-        Firebase.auth.signOut()
-        googleSignInClient!!.signOut()  //로그인 선택되게
+        }
     }
 
 }
