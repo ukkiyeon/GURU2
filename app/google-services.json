@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "82394092320-ord307kscbdk2676c7p1t0bq9775u4l1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.guru2",
+            "certificate_hash": "21fb7335be30f62197ed6f7e39ab0a0799429182"
+          }
+        },
+        {
           "client_id": "82394092320-kga33mchu8l8j2dna7bi8arkjrt45ugr.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -27,7 +35,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "82394092320-4bsrklpj95m3nlgv7oqqmefi6f615nbp.apps.googleusercontent.com",
+              "client_id": "82394092320-kga33mchu8l8j2dna7bi8arkjrt45ugr.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
