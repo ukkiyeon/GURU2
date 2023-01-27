@@ -4,12 +4,33 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 
 class Community : AppCompatActivity() {
+
+    // 이미지 버튼
+    lateinit var writingBtn: Button
+    lateinit var viewBtn: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.community)
+
+        // 버튼 연결
+        writingBtn = findViewById(R.id.write_btn)
+        viewBtn = findViewById(R.id.commu02_title)
+
+
+        // 버튼 클릭 시 화면 이동
+        writingBtn.setOnClickListener {
+            startActivity(Intent(this@Community, CommunityWriting::class.java))
+        }
+
+        viewBtn.setOnClickListener {
+            startActivity(Intent(this@Community, CommunityView::class.java))
+        }
 
         //하단 버튼 동작
         val fix_bottom = findViewById<View>(R.id.fix_bottom)
