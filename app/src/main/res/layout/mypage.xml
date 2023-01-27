@@ -58,7 +58,8 @@
             android:layout_height="wrap_content"
             android:text="test"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="22sp"
+            android:textStyle="bold"
             android:layout_marginTop="20dp"
             android:gravity="center"></TextView>
 
@@ -148,27 +149,28 @@
             </LinearLayout>
         </LinearLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_info_modify"
-            android:layout_width="380dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_gravity="center"
-            android:textColor="@color/black"
-            android:background="@drawable/btn_round"
-            android:text="회원정보 수정"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_logout"
             android:layout_width="380dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:background="@drawable/btn_round"
+            android:layout_marginTop="40dp"
+            android:text="로그아웃">
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_delete"
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
             android:backgroundTint="@color/green_2"
             android:textColor="@color/white"
             android:background="@drawable/btn_round"
-            android:layout_marginTop="10dp"
-            android:text="로그아웃">
-        </androidx.appcompat.widget.AppCompatButton>
+            android:text="회원 탈퇴"/>
     </LinearLayout>
 
     <include
