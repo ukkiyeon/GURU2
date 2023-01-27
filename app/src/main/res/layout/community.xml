@@ -11,37 +11,29 @@
     <!--상단 고정-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="90dp"
         android:orientation="horizontal">
 
-        <!-- 뒤로가기 버튼 -->
-        <ImageButton
-            android:id="@+id/back"
-            android:layout_width="40dp"
-            android:layout_height="55dp"
-            android:paddingLeft="13dp"
-            android:adjustViewBounds="true"
-            android:background="@android:color/transparent"
-            android:contentDescription="뒤로가기"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/back" />
-        <!-- 커뮤니티 텍스트 -->
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:paddingLeft="20dp"
-            android:paddingTop="14dp"
-            android:textSize="20dp"
-            android:textColor="@color/black"
-            android:text="커뮤니티" />
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="36dp"
+            android:text="커뮤니티"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </LinearLayout>
 
     <!--스크롤뷰-->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1">
 
         <LinearLayout
@@ -50,6 +42,7 @@
             android:orientation="vertical">
 
             <!--검색창-->
+
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/search_view"
                 android:layout_width="match_parent"
