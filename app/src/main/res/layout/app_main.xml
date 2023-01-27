@@ -117,7 +117,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center_horizontal"
-                        android:text="0m"
+                        android:text="00 m"
                         android:textColor="@color/black"
                         android:textSize="18dp"></TextView>
                 </LinearLayout>
@@ -171,30 +171,30 @@
             android:layout_width="380dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:orientation="horizontal">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_weather"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:backgroundTint="@color/green_2"
                 android:text="오늘의 날씨"
-                android:textColor="@color/white"></Button>
+                android:backgroundTint="@color/green_2"
+                android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_walk"
                 android:layout_width="wrap_content"
+                android:backgroundTint="@color/green_1"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="20dp"
-                android:backgroundTint="@color/green_1"
                 android:text="추천 산책로"
-                android:textColor="@color/white"></Button>
+                android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_trash"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -202,7 +202,7 @@
                 android:layout_marginLeft="20dp"
                 android:backgroundTint="@color/green_1"
                 android:text="쓰레기통 위치"
-                android:textColor="@color/white"></Button>
+                android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
         </LinearLayout>
 
         <!--날씨-->
