@@ -105,7 +105,7 @@
                     android:text="제목"/>
 
                 <EditText
-                    android:id="@+id/title_et"
+                    android:id="@+id/title_text_form"
                     android:padding="16dp"
                     android:background="#eeeeee"
                     android:layout_width="match_parent"
@@ -122,7 +122,7 @@
                 android:text="내용"/>
 
             <EditText
-                android:id="@+id/content_et"
+                android:id="@+id/content_text_form"
                 android:layout_width="match_parent"
                 android:layout_height="500dp"
                 android:layout_weight="1"
@@ -131,7 +131,7 @@
                 android:padding="16dp" />
 
             <Button
-                android:id="@+id/reg_button"
+                android:id="@+id/form_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="등록"
