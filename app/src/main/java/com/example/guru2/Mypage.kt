@@ -1,23 +1,31 @@
 package com.example.guru2
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+
 
 class Mypage : AppCompatActivity() {
 
     lateinit var btn_info_modify: AppCompatButton
     lateinit var btn_logout : AppCompatButton
     lateinit var back:ImageButton
+    private var googleSignInClient: GoogleSignInClient?=null
+    lateinit var auth: FirebaseAuth // 객체의 공유 인스턴스
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mypage)
+
+        auth = Firebase.auth
 
         btn_info_modify = findViewById(R.id.btn_info_modify)
         btn_logout = findViewById(R.id.btn_logout)
@@ -28,7 +36,10 @@ class Mypage : AppCompatActivity() {
         }
 
         btn_logout.setOnClickListener {
-            startActivity(Intent(this@Mypage, Login::class.java))
+            Firebase.auth.signOut()
+            Toast.makeText(this, "로그아웃 성공", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
         }
 
         back.setOnClickListener {
@@ -58,4 +69,5 @@ class Mypage : AppCompatActivity() {
         }
 
     }
+
 }
