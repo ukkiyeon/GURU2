@@ -51,13 +51,17 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:21.0.1'
     implementation 'com.google.maps.android:android-maps-utils:2.3.0'
     implementation 'org.jsoup:jsoup:1.15.3'
-    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'// 크롤링 - jsoup plugin
+    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
+    implementation 'com.google.firebase:firebase-database:20.1.0'// 크롤링 - jsoup plugin
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4' // 코루틴 plugin
     implementation 'com.google.code.gson:gson:2.8.6' // gson
 
+    // 게시판
     implementation platform('com.google.firebase:firebase-bom:31.2.0')
     implementation 'com.google.firebase:firebase-database-ktx'
 }
+
+apply plugin: 'com.google.gms.google-services' // 게시판
