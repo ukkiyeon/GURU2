@@ -69,11 +69,11 @@ class Login : AppCompatActivity() {
                 val account = task.getResult(ApiException::class.java)!!
                 firebaseAuthWithGoogle(account.idToken!!)
                 Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, Mypage::class.java)
+                val intent = Intent(this, AppMain::class.java)
                 startActivity(intent)
             } catch (e: ApiException) {//로그인 실패
                 Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, Tip::class.java)
+                val intent = Intent(this, Login::class.java)
                 startActivity(intent)
             }
         }
