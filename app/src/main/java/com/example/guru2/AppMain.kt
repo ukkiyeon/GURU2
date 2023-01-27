@@ -106,9 +106,7 @@ class AppMain : AppCompatActivity() {
             mypage_name.text = name+"님 안녕하세요"
         }
 
-        //지도
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.map_walk) as SupportMapFragment
-        mapFragment.getMapAsync(this)
+
 
         //하단 버튼 동작
         val fix_bottom = findViewById<View>(R.id.fix_bottom)
