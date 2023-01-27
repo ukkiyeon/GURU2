@@ -1,22 +1,43 @@
 package com.example.guru2
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.app.ProgressDialog
+import android.app.ProgressDialog.show
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.provider.SettingsSlicesContract.KEY_LOCATION
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentContainerView
-import com.google.android.material.datepicker.MaterialDatePicker.Builder.datePicker
+import com.google.android.gms.location.*
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import org.jsoup.nodes.Document
 import java.util.*
+import javax.xml.parsers.DocumentBuilderFactory
 import kotlin.concurrent.timer
-import kotlin.math.roundToInt
 
 
 class AppMain : AppCompatActivity() {
@@ -31,14 +52,24 @@ class AppMain : AppCompatActivity() {
     private var timerTask : Timer?=null
 
     //버튼 3개
-    lateinit var btn_walk: AppCompatButton
-    lateinit var btn_trash:AppCompatButton
-    lateinit var btn_weather:AppCompatButton
+    lateinit var btn_walk: LinearLayout
+    lateinit var btn_trash:LinearLayout
+    lateinit var btn_weather:LinearLayout
+    lateinit var btn_1 :AppCompatButton
+    lateinit var btn_2 :AppCompatButton
+    lateinit var btn_3 :AppCompatButton
+    lateinit var btn_4 :AppCompatButton
+    lateinit var btn_5 :AppCompatButton
+    lateinit var btn_6 :AppCompatButton
+    lateinit var btn_7 :AppCompatButton
+    lateinit var btn_8 :AppCompatButton
+    lateinit var btn_9 :AppCompatButton
 
     //팝업
     lateinit var popup_time :TextView
     lateinit var popup_distance:TextView
     lateinit var instagram :ImageButton
+    var pro: AlertDialog? = null
 
     lateinit var main_weather : LinearLayout
     lateinit var map_walk: FragmentContainerView
@@ -46,7 +77,15 @@ class AppMain : AppCompatActivity() {
 
     lateinit var btn_mypage:ImageButton
 
-    @SuppressLint("MissingInflatedId", "ResourceAsColor")
+    //지도
+    private lateinit var mMap: GoogleMap
+    val TAG: String = "로그"
+
+    private var mFusedLocationProviderClient: FusedLocationProviderClient? = null // 현재 위치를 가져오기 위한 변수
+    lateinit var mLastLocation: Location // 위치 값을 가지고 있는 객체
+    internal lateinit var mLocationRequest: LocationRequest // 위치 정보 요청의 매개변수를 저장하는
+    private val REQUEST_PERMISSION_LOCATION = 10
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.app_main)
@@ -58,6 +97,16 @@ class AppMain : AppCompatActivity() {
         flogging_distance = findViewById(R.id.flogging_distance)
 
         btn_mypage = findViewById(R.id.btn_mypage)
+
+        //이름 불러오기
+        val mypage_name = findViewById<TextView>(R.id.mypage_name2)
+        val user = Firebase.auth.currentUser
+        user?.let {
+            val name = user.displayName
+            mypage_name.text = name+"님 안녕하세요"
+        }
+
+
 
         //하단 버튼 동작
         val fix_bottom = findViewById<View>(R.id.fix_bottom)
@@ -89,49 +138,117 @@ class AppMain : AppCompatActivity() {
         btn_trash = findViewById(R.id.btn_trash)
         btn_weather = findViewById(R.id.btn_weather)
 
+        btn_1 = findViewById(R.id.btn_1)
+        btn_2 = findViewById(R.id.btn_2)
+        btn_3 = findViewById(R.id.btn_3)
+        btn_4 = findViewById(R.id.btn_4)
+        btn_5 = findViewById(R.id.btn_5)
+        btn_6 = findViewById(R.id.btn_6)
+        btn_7 = findViewById(R.id.btn_7)
+        btn_8 = findViewById(R.id.btn_8)
+        btn_9 = findViewById(R.id.btn_9)
+
         main_weather = findViewById(R.id.main_weather)
         map_walk = findViewById(R.id.map_walk)
         map_trash = findViewById(R.id.map_trash)
 
-        btn_weather.setOnClickListener {
+        btn_1.setOnClickListener {
             main_weather.visibility = View.VISIBLE
             map_walk.visibility = View.GONE
             map_trash.visibility = View.GONE
+            btn_weather.visibility = View.VISIBLE
+            btn_walk.visibility = View.GONE
+            btn_trash.visibility = View.GONE
+        }
+        btn_4.setOnClickListener {
+            main_weather.visibility = View.VISIBLE
+            map_walk.visibility = View.GONE
+            map_trash.visibility = View.GONE
+            btn_weather.visibility = View.VISIBLE
+            btn_walk.visibility = View.GONE
+            btn_trash.visibility = View.GONE
+        }
+        btn_7.setOnClickListener {
+            main_weather.visibility = View.VISIBLE
+            map_walk.visibility = View.GONE
+            map_trash.visibility = View.GONE
+            btn_weather.visibility = View.VISIBLE
+            btn_walk.visibility = View.GONE
+            btn_trash.visibility = View.GONE
         }
 
-        btn_walk.setOnClickListener {
+        btn_2.setOnClickListener {
             main_weather.visibility = View.GONE
             map_walk.visibility = View.VISIBLE
             map_trash.visibility = View.GONE
-
             //버튼 색상 변경
-//            btn_weather.setBackgroundColor(R.color.green_1)
-//            btn_walk.setBackgroundColor(R.color.green_2)
-//            btn_trash.setBackgroundColor(R.color.green_1)
+            btn_weather.visibility = View.GONE
+            btn_walk.visibility = View.VISIBLE
+            btn_trash.visibility = View.GONE
+            checkPermissionForLocation(this)
+        }
+        btn_5.setOnClickListener {
+            main_weather.visibility = View.GONE
+            map_walk.visibility = View.VISIBLE
+            map_trash.visibility = View.GONE
+            //버튼 색상 변경
+            btn_weather.visibility = View.GONE
+            btn_walk.visibility = View.VISIBLE
+            btn_trash.visibility = View.GONE
+            checkPermissionForLocation(this)
+        }
+        btn_8.setOnClickListener {
+            main_weather.visibility = View.GONE
+            map_walk.visibility = View.VISIBLE
+            map_trash.visibility = View.GONE
+            //버튼 색상 변경
+            btn_weather.visibility = View.GONE
+            btn_walk.visibility = View.VISIBLE
+            btn_trash.visibility = View.GONE
+            checkPermissionForLocation(this)
         }
 
-        btn_trash.setOnClickListener {
+        btn_3.setOnClickListener {
             main_weather.visibility = View.GONE
             map_walk.visibility = View.GONE
             map_trash.visibility = View.VISIBLE
-
             //버튼 색상 변경
-            btn_weather.resources.getColor(R.color.green_1)
-            btn_walk.resources.getColor(R.color.green_1)
-            btn_trash.resources.getColor(R.color.green_2)
+            btn_weather.visibility = View.GONE
+            btn_walk.visibility = View.GONE
+            btn_trash.visibility = View.VISIBLE
+        }
+        btn_6.setOnClickListener {
+            main_weather.visibility = View.GONE
+            map_walk.visibility = View.GONE
+            map_trash.visibility = View.VISIBLE
+            //버튼 색상 변경
+            btn_weather.visibility = View.GONE
+            btn_walk.visibility = View.GONE
+            btn_trash.visibility = View.VISIBLE
+        }
+        btn_9.setOnClickListener {
+            main_weather.visibility = View.GONE
+            map_walk.visibility = View.GONE
+            map_trash.visibility = View.VISIBLE
+            //버튼 색상 변경
+            btn_weather.visibility = View.GONE
+            btn_walk.visibility = View.GONE
+            btn_trash.visibility = View.VISIBLE
         }
 
         //팝업
         val mDialogView = LayoutInflater.from(this).inflate(R.layout.flogging_popup, null)
-        val mBuilder = AlertDialog.Builder(this).setView(mDialogView)
+        val mBuilder = AlertDialog.Builder(this)
+
         popup_time = mDialogView.findViewById(R.id.popup_time)
         popup_distance = mDialogView.findViewById(R.id.popup_distance)
         instagram = mDialogView.findViewById(R.id.instagram)
 
         btn_share.setOnClickListener {
             // Dialog만들기
-            mBuilder.show()
+            mBuilder.setView(mDialogView).show()
         }
+
         instagram.setOnClickListener{
             var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com"))
             startActivity(intent)
@@ -141,6 +258,13 @@ class AppMain : AppCompatActivity() {
         btn_mypage.setOnClickListener{
             startActivity(Intent(this@AppMain, Mypage::class.java))
         }
+    }
+
+    fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+        val marker = LatLng(37.628144, 127.090426)
+        mMap.addMarker(MarkerOptions().position(marker).title("마커 제목"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(marker))
     }
 
     //타이머 시작
@@ -193,4 +317,43 @@ class AppMain : AppCompatActivity() {
             flogging_start()
         }
     }
+
+    // 위치 권한이 있는지 확인하는 메서드
+    fun checkPermissionForLocation(context: Context): Boolean {
+        Log.d(TAG, "checkPermissionForLocation()")
+        Log.d(TAG, context.toString())
+        // Android 6.0 Marshmallow 이상에서는 지리 확보(위치) 권한에 추가 런타임 권한이 필요합니다.
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (context.checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                Log.d(TAG, "checkPermissionForLocation() 권한 상태 : O")
+                true
+            } else {
+                // 권한이 없으므로 권한 요청 알림 보내기
+                Log.d(TAG, "checkPermissionForLocation() 권한 상태 : X")
+                ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_PERMISSION_LOCATION)
+                false
+            }
+        } else {
+            true
+        }
+    }
+
+    // 사용자에게 권한 요청 후 결과에 대한 처리 로직
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        Log.d(TAG, "onRequestPermissionsResult()")
+        if (requestCode == REQUEST_PERMISSION_LOCATION) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Log.d(TAG, "onRequestPermissionsResult() _ 권한 허용 클릭")
+                //startLocationUpdates()
+            } else {
+                Log.d(TAG, "onRequestPermissionsResult() _ 권한 허용 거부")
+                Toast.makeText(this@AppMain, "권한이 없어 해당 기능을 실행할 수 없습니다.", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+}
+
+private fun SupportMapFragment.getMapAsync(appMain: AppMain) {
+
 }
