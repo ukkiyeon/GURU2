@@ -7,70 +7,93 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import com.example.guru2.CommunityWriting.Companion.adapter
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import org.json.JSONException
+import org.json.JSONObject
+import java.io.*
+import java.net.MalformedURLException
+import java.net.URL
+import java.net.URLEncoder
 
-class Walk : AppCompatActivity() {
+class Walk (addr:String) {
 
-    lateinit var btn_weather: Button
-    lateinit var btn_trash: Button
+    var addr: String
 
-    private lateinit var mMap: GoogleMap
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.walk)
-
-        val mapFragment: SupportMapFragment = supportFragmentManager.findFragmentById(R.id.mapview) as SupportMapFragment
-        mapFragment.getMapAsync(this)
-
-        btn_weather = findViewById(R.id.btn_weather)
-        btn_trash = findViewById(R.id.btn_trash)
-
-        btn_weather.setOnClickListener {
-            startActivity(Intent(this@Walk, AppMain::class.java))
-        }
-
-        btn_trash.setOnClickListener {
-            startActivity(Intent(this@Walk, Trash::class.java))
-        }
-
-        //하단 버튼 동작
-        val fix_bottom = findViewById<View>(R.id.fix_bottom)
-        var btn_tipPage: ImageButton
-        var btn_homePage: ImageButton
-        var btn_communityPage: ImageButton
-
-        btn_tipPage = fix_bottom.findViewById(R.id.btn_tipPage)
-        btn_homePage = fix_bottom.findViewById(R.id.btn_homePage)
-        btn_communityPage = fix_bottom.findViewById(R.id.btn_communityPage)
-
-        btn_tipPage.setOnClickListener {
-            Log.i("에러", "에러");
-            startActivity(Intent(this@Walk, Tip::class.java))
-        }
-
-        btn_homePage.setOnClickListener {
-            startActivity(Intent(this@Walk, AppMain::class.java))
-        }
-
-        btn_communityPage.setOnClickListener {
-            startActivity(Intent(this@Walk, Community::class.java))
-        }
+    init{
+        this.addr = addr
     }
 
-    fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
-        val marker = LatLng(35.241615, 128.695587)
-        mMap.addMarker(MarkerOptions().position(marker).title("마커 제목"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(marker))
+    var lats = ArrayList<String>()
+    var lngs = ArrayList<String>()
+    var name = ArrayList<String>()
+    val storesURL = "https://api.odcloud.kr/api/15037992/v1/uddi:b4ea380d-b6b1-4afb-be00-9c7305cc62e3?page=1&perPage=10&serviceKey=data-portal-test-key"
+
+    private operator fun get(apiUrl: String): String {
+        var responseBody: String = ""
+        try {
+            val url = URL(apiUrl)
+            val `in` = url.openStream()
+            responseBody = readBody(`in`)
+
+        } catch (e: MalformedURLException) {
+            e.printStackTrace()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+        return responseBody
+    }
+
+    private fun readBody(body: InputStream): String {
+        val streamReader = InputStreamReader(body)
+
+        try {
+            BufferedReader(streamReader).use({ lineReader ->
+                val responseBody = StringBuilder()
+
+                var line: String? = lineReader.readLine()
+                while ( line != null) {
+                    responseBody.append(line)
+                    line = lineReader.readLine()
+                }
+                return responseBody.toString()
+            })
+        } catch (e: IOException) {
+            throw RuntimeException("API 응답을 읽는데 실패했습니다.", e)
+        }
+
+    }
+
+    private fun parseData(responseBody: String) {
+        var storeName: String
+        var remain_stat: String
+        var lat: String
+        var lng: String
+        var jsonObject = JSONObject()
+        try {
+            jsonObject = JSONObject(responseBody)
+            val jsonArray = jsonObject.getJSONArray("stores")
+
+            for (i in 0 until jsonArray.length()) {
+                val item = jsonArray.getJSONObject(i)
+                storeName = item.getString("name")
+                remain_stat = item.getString("remain_stat")
+                lat = item.getString("lat")
+                lng = item.getString("lng")
+                name.add(storeName)
+                lats.add(lat)
+                lngs.add(lng)
+                adapter.addItem(storeName, remain_stat)
+
+            }
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
     }
 }
-
-    private fun SupportMapFragment.getMapAsync(walk: Walk) {
-
-    }

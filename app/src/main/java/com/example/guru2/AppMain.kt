@@ -15,15 +15,17 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.app.ActivityCompat
-import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentContainerView
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.google.maps.android.clustering.ClusterManager
 import java.util.*
 import kotlin.concurrent.timer
 
@@ -69,6 +71,17 @@ class AppMain : AppCompatActivity() {
     val TAG: String = "로그"
     private val REQUEST_PERMISSION_LOCATION = 10
 
+
+    data class Place(
+        val name: String,
+        val latLng: LatLng,
+        val address: LatLng,
+        val rating: Float
+    )
+//    private val places: List<Place> by lazy {
+//        PlacesReader(this).read()
+//    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.app_main)
@@ -90,8 +103,21 @@ class AppMain : AppCompatActivity() {
         }
 
         //지도
-//        val mapFragment = supportFragmentManager.findFragmentById(R.id.map_walk) as SupportMapFragment
-//        mapFragment.getMapAsync(this)
+//        val mapFragment = supportFragmentManager.findFragmentById(
+//            R.id.map_walk
+//        ) as? SupportMapFragment
+//        mapFragment?.getMapAsync { googleMap ->
+////            addMarkers(googleMap)
+//        }
+////        mMap.setInfoWindowAdapter(MarkerInfoWindowAdapter(this))
+//
+//        mapFragment?.getMapAsync { googleMap ->
+////            addMarkers(googleMap)
+////            addClusteredMarkers(googleMap)
+//
+//            // Set custom info window adapter.
+//             googleMap.setInfoWindowAdapter(MarkerInfoWindowAdapter(this))
+//        }
 
         //하단 버튼 동작
         val fix_bottom = findViewById<View>(R.id.fix_bottom)
@@ -133,30 +159,35 @@ class AppMain : AppCompatActivity() {
         btn_8 = findViewById(R.id.btn_8)
         btn_9 = findViewById(R.id.btn_9)
 
+        val walk = findViewById<View>(R.id.walk)
+        val trash = findViewById<View>(R.id.trash)
         main_weather = findViewById(R.id.main_weather)
-        map_walk = findViewById(R.id.map_walk)
-        map_trash = findViewById(R.id.map_trash)
+//        map_walk = walk.findViewById(R.id.map_walk)
+//        map_trash = findViewById(R.id.map_trash)
 
         btn_1.setOnClickListener {
             main_weather.visibility = View.VISIBLE
-            map_walk.visibility = View.GONE
-            map_trash.visibility = View.GONE
+            walk.visibility = View.GONE
+            trash.visibility = View.GONE
+
             btn_weather.visibility = View.VISIBLE
             btn_walk.visibility = View.GONE
             btn_trash.visibility = View.GONE
         }
         btn_4.setOnClickListener {
             main_weather.visibility = View.VISIBLE
-            map_walk.visibility = View.GONE
-            map_trash.visibility = View.GONE
+            walk.visibility = View.GONE
+            trash.visibility = View.GONE
+
             btn_weather.visibility = View.VISIBLE
             btn_walk.visibility = View.GONE
             btn_trash.visibility = View.GONE
         }
         btn_7.setOnClickListener {
             main_weather.visibility = View.VISIBLE
-            map_walk.visibility = View.GONE
-            map_trash.visibility = View.GONE
+            walk.visibility = View.GONE
+            trash.visibility = View.GONE
+
             btn_weather.visibility = View.VISIBLE
             btn_walk.visibility = View.GONE
             btn_trash.visibility = View.GONE
@@ -164,8 +195,8 @@ class AppMain : AppCompatActivity() {
 
         btn_2.setOnClickListener {
             main_weather.visibility = View.GONE
-            map_walk.visibility = View.VISIBLE
-            map_trash.visibility = View.GONE
+            walk.visibility = View.VISIBLE
+            trash.visibility = View.GONE
             //버튼 색상 변경
             btn_weather.visibility = View.GONE
             btn_walk.visibility = View.VISIBLE
@@ -174,8 +205,8 @@ class AppMain : AppCompatActivity() {
         }
         btn_5.setOnClickListener {
             main_weather.visibility = View.GONE
-            map_walk.visibility = View.VISIBLE
-            map_trash.visibility = View.GONE
+            walk.visibility = View.VISIBLE
+            trash.visibility = View.GONE
             //버튼 색상 변경
             btn_weather.visibility = View.GONE
             btn_walk.visibility = View.VISIBLE
@@ -184,8 +215,8 @@ class AppMain : AppCompatActivity() {
         }
         btn_8.setOnClickListener {
             main_weather.visibility = View.GONE
-            map_walk.visibility = View.VISIBLE
-            map_trash.visibility = View.GONE
+            walk.visibility = View.VISIBLE
+            trash.visibility = View.GONE
             //버튼 색상 변경
             btn_weather.visibility = View.GONE
             btn_walk.visibility = View.VISIBLE
@@ -195,8 +226,8 @@ class AppMain : AppCompatActivity() {
 
         btn_3.setOnClickListener {
             main_weather.visibility = View.GONE
-            map_walk.visibility = View.GONE
-            map_trash.visibility = View.VISIBLE
+            walk.visibility = View.GONE
+            trash.visibility = View.VISIBLE
             //버튼 색상 변경
             btn_weather.visibility = View.GONE
             btn_walk.visibility = View.GONE
@@ -204,8 +235,8 @@ class AppMain : AppCompatActivity() {
         }
         btn_6.setOnClickListener {
             main_weather.visibility = View.GONE
-            map_walk.visibility = View.GONE
-            map_trash.visibility = View.VISIBLE
+            walk.visibility = View.GONE
+            trash.visibility = View.VISIBLE
             //버튼 색상 변경
             btn_weather.visibility = View.GONE
             btn_walk.visibility = View.GONE
@@ -213,8 +244,8 @@ class AppMain : AppCompatActivity() {
         }
         btn_9.setOnClickListener {
             main_weather.visibility = View.GONE
-            map_walk.visibility = View.GONE
-            map_trash.visibility = View.VISIBLE
+            walk.visibility = View.GONE
+            trash.visibility = View.VISIBLE
             //버튼 색상 변경
             btn_weather.visibility = View.GONE
             btn_walk.visibility = View.GONE
@@ -342,8 +373,59 @@ class AppMain : AppCompatActivity() {
             }
         }
     }
+
+//    private val mapIcon: BitmapDescriptor by lazy {
+//        val color = ContextCompat.getColor(this, R.color.green_2)
+////        BitmapHelper.vectorToBitmap(this, R.drawable.mapIcon, color)
+//    }
+
+//    private fun addMarkers(googleMap: GoogleMap) {
+//        places.forEach { place ->
+//            val marker = googleMap.addMarker(
+//                MarkerOptions()
+//                    .title(place.name)
+//                    .position(place.latLng)
+//                    .icon(mapIcon)
+//            )
+//
+//            // Set place as the tag on the marker object so it can be referenced within
+//            // MarkerInfoWindowAdapter
+//            if (marker != null) {
+//                marker.tag = place
+//            }
+//        }
+//    }
+
+//    private fun addClusteredMarkers(googleMap: GoogleMap) {
+//        // Create the ClusterManager class and set the custom renderer.
+//        val clusterManager = ClusterManager<Place>(this, googleMap)
+//        clusterManager.renderer =
+//            PlacesReader(
+//                this,
+//                googleMap,
+//                clusterManager
+//            )
+//
+//        // Set custom info window adapter
+//        clusterManager.markerCollection.setInfoWindowAdapter(MarkerInfoWindowAdapter(this))
+//
+//        // Add the places to the ClusterManager.
+//        clusterManager.addItems(places)
+//        clusterManager.cluster()
+//
+//        // Set ClusterManager as the OnCameraIdleListener so that it
+//        // can re-cluster when zooming in and out.
+//        googleMap.setOnCameraIdleListener {
+//            clusterManager.onCameraIdle()
+//        }
+//    }
 }
 
-private fun SupportMapFragment.getMapAsync(appMain: AppMain) {
-
-}
+//private operator fun <T> Lazy<T>.getValue(appMain: AppMain, property: KProperty<T?>): List<AppMain.Place> {
+//
+//}
+//
+//
+//class KProperty<T> {
+//
+//}

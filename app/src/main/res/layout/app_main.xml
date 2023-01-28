@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".AppMain">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".AppMain">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:id="@+id/app_main"
         android:orientation="vertical">
         <!--상단 글씨, 마이페이지 이동 버튼-->
         <LinearLayout
@@ -386,24 +388,17 @@
                     android:textSize="18sp"></TextView>
             </LinearLayout>
         </LinearLayout>
+
+        <include
+            layout="@layout/walk"
+            android:id="@+id/walk"
+            android:visibility="gone"/>
+
+        <include
+            layout="@layout/trash"
+            android:id="@+id/trash"
+            android:visibility="gone"/>
     </LinearLayout>
-
-    <androidx.fragment.app.FragmentContainerView
-        android:visibility="gone"
-        android:id="@+id/map_walk"
-        android:layout_width="380dp"
-        android:layout_gravity="center"
-        android:layout_height="260dp"
-        android:layout_marginBottom="20dp"/>
-
-    <!--쓰레기통 위치-->
-    <androidx.fragment.app.FragmentContainerView
-        android:visibility="gone"
-        android:id="@+id/map_trash"
-        android:layout_width="380dp"
-        android:layout_gravity="center"
-        android:layout_height="260dp"
-        android:layout_marginBottom="20dp" />
 
     <include
         layout="@layout/fix_bottom"
