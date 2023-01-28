@@ -1,7 +1,5 @@
 package com.example.guru2
 
-data class DataModel (
+import android.text.Editable
 
-    var title : String ="",
-    var contents : String =""
-){}
+data class DataModel (var title : Editable, var contents : Editable){}
