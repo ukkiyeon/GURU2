@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GURU2</string>
+    <string name="app_name">Echo Run</string>
     <string name="underlined_button"><u>약관 확인</u></string>
     <string name="title_activity_tip">Tip</string>
     <!-- Strings used for fragments for navigation -->

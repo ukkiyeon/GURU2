@@ -119,7 +119,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center_horizontal"
-                        android:text="00 m"
+                        android:text="0 m"
                         android:textColor="@color/black"
                         android:textSize="18dp"></TextView>
                 </LinearLayout>
@@ -394,8 +394,7 @@
         android:layout_width="380dp"
         android:layout_gravity="center"
         android:layout_height="260dp"
-        android:layout_marginBottom="20dp"
-        tools:layout="@layout/abc_search_view" />
+        android:layout_marginBottom="20dp"/>
 
     <!--쓰레기통 위치-->
     <androidx.fragment.app.FragmentContainerView
@@ -404,8 +403,7 @@
         android:layout_width="380dp"
         android:layout_gravity="center"
         android:layout_height="260dp"
-        android:layout_marginBottom="20dp"
-        tools:layout="@layout/abc_search_view" />
+        android:layout_marginBottom="20dp" />
 
     <include
         layout="@layout/fix_bottom"

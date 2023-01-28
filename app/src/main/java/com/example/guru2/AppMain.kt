@@ -1,20 +1,13 @@
 package com.example.guru2
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.app.ProgressDialog
-import android.app.ProgressDialog.show
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.location.Location
-import android.location.LocationManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
-import android.provider.SettingsSlicesContract.KEY_LOCATION
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -22,23 +15,17 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
-import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import org.jsoup.nodes.Document
 import java.util.*
-import javax.xml.parsers.DocumentBuilderFactory
 import kotlin.concurrent.timer
-
 
 class AppMain : AppCompatActivity() {
 
@@ -80,10 +67,6 @@ class AppMain : AppCompatActivity() {
     //지도
     private lateinit var mMap: GoogleMap
     val TAG: String = "로그"
-
-    private var mFusedLocationProviderClient: FusedLocationProviderClient? = null // 현재 위치를 가져오기 위한 변수
-    lateinit var mLastLocation: Location // 위치 값을 가지고 있는 객체
-    internal lateinit var mLocationRequest: LocationRequest // 위치 정보 요청의 매개변수를 저장하는
     private val REQUEST_PERMISSION_LOCATION = 10
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -106,7 +89,9 @@ class AppMain : AppCompatActivity() {
             mypage_name.text = name+"님 안녕하세요"
         }
 
-
+        //지도
+//        val mapFragment = supportFragmentManager.findFragmentById(R.id.map_walk) as SupportMapFragment
+//        mapFragment.getMapAsync(this)
 
         //하단 버튼 동작
         val fix_bottom = findViewById<View>(R.id.fix_bottom)
@@ -260,13 +245,6 @@ class AppMain : AppCompatActivity() {
         }
     }
 
-    fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
-        val marker = LatLng(37.628144, 127.090426)
-        mMap.addMarker(MarkerOptions().position(marker).title("마커 제목"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(marker))
-    }
-
     //타이머 시작
     fun flogging_start() {
         flogging_start.setText("종료")
@@ -318,6 +296,19 @@ class AppMain : AppCompatActivity() {
         }
     }
 
+    fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+        val SEOUL = LatLng(37.56, 126.97)
+        val markerOptions = MarkerOptions() // 마커 생성
+        markerOptions.position(SEOUL)
+        markerOptions.title("서울") // 마커 제목
+        markerOptions.snippet("한국의 수도") // 마커 설명
+        mMap.addMarker(markerOptions)
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL)) // 초기 위치
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15f)) // 줌의 정도
+        googleMap.mapType = GoogleMap.MAP_TYPE_HYBRID // 지도 유형 설정
+    }
+
     // 위치 권한이 있는지 확인하는 메서드
     fun checkPermissionForLocation(context: Context): Boolean {
         Log.d(TAG, "checkPermissionForLocation()")
@@ -337,7 +328,6 @@ class AppMain : AppCompatActivity() {
             true
         }
     }
-
     // 사용자에게 권한 요청 후 결과에 대한 처리 로직
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
