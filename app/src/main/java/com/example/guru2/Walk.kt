@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
-import com.example.guru2.CommunityWriting.Companion.adapter
+// import com.example.guru2.CommunityWriting.Companion.adapter
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.CameraUpdateFactory
