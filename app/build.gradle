@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
     id 'kotlin-android-extensions'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -52,7 +53,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:21.0.1'
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'com.google.maps.android:android-maps-utils:2.3.0'
-    implementation 'org.jsoup:jsoup:1.15.3'
+//    implementation 'org.jsoup:jsoup:1.15.3'
     implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
     implementation 'com.google.firebase:firebase-database:20.0.4'// 크롤링 - jsoup plugin
     testImplementation 'junit:junit:4.13.2'
@@ -65,4 +66,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-database-ktx'
 
     implementation 'com.google.maps.android:android-maps-utils:1.1.0' //지도
+
+
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1' //json 데이터
+
+    implementation fileTree(include: ['*.jar'], dir:'libs')
+    implementation files('libs/libDaumMapAndroid.jar')
 }

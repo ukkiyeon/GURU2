@@ -1,13 +1,17 @@
 package com.example.guru2
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.database.Cursor
+import android.database.sqlite.SQLiteDatabase
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +28,15 @@ class Mypage : AppCompatActivity() {
     lateinit var back:ImageButton
     lateinit var auth: FirebaseAuth // 객체의 공유 인스턴스
 
+    //DB
+    lateinit var dbManager: DBManager
+    lateinit var sqlitedb: SQLiteDatabase
+    lateinit var layout: LinearLayout
+
+    lateinit var mypage_distance:TextView
+    lateinit var mypage_time:TextView
+
+    @SuppressLint("Range")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mypage)
@@ -34,6 +47,26 @@ class Mypage : AppCompatActivity() {
         btn_logout = findViewById(R.id.btn_logout)
         back = findViewById(R.id.back)
 
+        mypage_distance = findViewById(R.id.mypage_distance)
+        mypage_time = findViewById(R.id.mypage_time)
+
+        dbManager = DBManager(this, "flogging", null, 1)
+        sqlitedb = dbManager.readableDatabase
+        layout = findViewById(R.id.mypage)
+
+        var cursor: Cursor
+        cursor = sqlitedb.rawQuery("SELECT * FROM flogging;", null)
+
+        cursor.moveToFirst();
+        var distance:String = cursor.getString(cursor.getColumnIndex("distance"))
+        var sec:String = cursor.getString(cursor.getColumnIndex("sec"))
+        var milli:Int = cursor.getInt(cursor.getColumnIndex("milli"))
+        Log.d("sec", "DB 입력 2 " + sec + " " + milli + " " + distance)
+
+        mypage_time.text = "${sec} : ${milli+4}"
+        mypage_distance.text = "${distance} m"
+
+        Log.d("sec", "DB 입력 3 " + sec + " " + milli + " " + distance)
 
         //이름 불러오기
         val mypage_name = findViewById<TextView>(R.id.mypage_name)
@@ -45,7 +78,6 @@ class Mypage : AppCompatActivity() {
                 Log.d("name : ", name)
             }
         }
-
 
         //회원 탈퇴
         btn_delete.setOnClickListener {
@@ -80,10 +112,6 @@ class Mypage : AppCompatActivity() {
         back.setOnClickListener {
             startActivity(Intent(this@Mypage, AppMain::class.java))
         }
-
-
-
-
 
         //하단 버튼 동작
         val fix_bottom = findViewById<View>(R.id.fix_bottom)
