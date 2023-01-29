@@ -13,6 +13,7 @@
         android:layout_height="match_parent"
         android:gravity="bottom"
         android:id="@+id/map_trash"
+        class="com.google.android.gms.maps.SupportMapFragment"
         android:orientation="vertical">
 <!--        <fragment-->
 <!--            android:visibility="visible"-->
