@@ -34,7 +34,7 @@
             android:layout_margin="8dp"/>
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/postphoto_edit_explain"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_margin="8dp"
