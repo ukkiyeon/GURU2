@@ -89,7 +89,7 @@ class Walk (addr:String) {
                 name.add(storeName)
                 lats.add(lat)
                 lngs.add(lng)
-                adapter.addItem(storeName, remain_stat)
+//                adapter.addItem(storeName, remain_stat)
 
             }
         } catch (e: JSONException) {

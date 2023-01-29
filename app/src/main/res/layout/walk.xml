@@ -14,23 +14,29 @@
         android:gravity="bottom"
         android:id="@+id/map_walk"
         android:orientation="vertical">
-        <fragment
-            android:visibility="visible"
-            android:layout_width="380dp"
-            android:layout_gravity="center"
-            android:layout_height="260dp"
-            android:layout_marginBottom="20dp"
-            class="com.google.android.gms.maps.SupportMapFragment"/>
+<!--        <fragment-->
+<!--            android:visibility="visible"-->
+<!--            android:layout_width="380dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_height="260dp"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:id="@+id/map"/>-->
 
-        <!--    <androidx.fragment.app.FragmentContainerView-->
-        <!--        android:visibility="gone"-->
-        <!--        android:id="@+id/map_walk"-->
-        <!--        android:layout_width="380dp"-->
-        <!--        android:layout_gravity="center"-->
-        <!--        map:mapId="map_walk"-->
-        <!--        android:layout_height="260dp"-->
-        <!--        android:layout_marginBottom="20dp"-->
-        <!--        class="com.google.android.gms.maps.SupportMapFragment"/>-->
+<!--            <androidx.fragment.app.FragmentContainerView-->
+<!--                android:visibility="gone"-->
+<!--                android:layout_width="380dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_height="260dp"-->
+<!--                android:layout_marginBottom="20dp"-->
+<!--                class="com.google.android.gms.maps.SupportMapFragment"-->
+<!--                tools:layout="@layout/app_main" />-->
+
+<!--        <androidx.fragment.app.FragmentContainerView-->
+<!--            android:visibility="gone"-->
+<!--            android:layout_width="380dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_height="260dp"-->
+<!--            android:layout_marginBottom="20dp"/>-->
     </LinearLayout>
 
 </LinearLayout>
