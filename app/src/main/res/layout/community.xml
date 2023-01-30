@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Community"
-    >
+    tools:context=".Community">
 
     <!--상단 고정-->
     <LinearLayout
@@ -454,7 +453,6 @@
                     android:drawableLeft="@drawable/drawable_left_img_customise_comment"
                     android:text=" 1"
                     android:textSize="15dp"
-
                     />
 
                 <TextView
@@ -488,8 +486,6 @@
             android:text="글쓰기" />
 
     </LinearLayout>
-
-
 
     <include
         layout="@layout/fix_bottom"

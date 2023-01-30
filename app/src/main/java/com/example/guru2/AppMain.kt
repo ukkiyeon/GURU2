@@ -5,18 +5,27 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteOpenHelper
+import android.media.tv.TvContract.Programs.Genres.encode
 import android.net.Uri
+import android.net.Uri.encode
 import android.os.Build
 import android.os.Bundle
+import android.util.Base64.encode
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.inflate
+import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ColorStateListInflaterCompat.inflate
 import androidx.fragment.app.FragmentContainerView
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
@@ -25,7 +34,10 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.google.maps.android.PolyUtil.encode
 import com.google.maps.android.clustering.ClusterManager
+import java.net.URLEncoder.encode
+import java.security.MessageDigest
 import java.util.*
 import kotlin.concurrent.timer
 
@@ -39,6 +51,8 @@ class AppMain : AppCompatActivity() {
     private var time = 0
     private var distance = 0
     private var timerTask : Timer?=null
+    private var sec = 0
+    private var milli = 0
 
     //버튼 3개
     lateinit var btn_walk: LinearLayout
@@ -61,8 +75,6 @@ class AppMain : AppCompatActivity() {
     var pro: AlertDialog? = null
 
     lateinit var main_weather : LinearLayout
-    lateinit var map_walk: FragmentContainerView
-    lateinit var map_trash: FragmentContainerView
 
     lateinit var btn_mypage:ImageButton
 
@@ -71,16 +83,9 @@ class AppMain : AppCompatActivity() {
     val TAG: String = "로그"
     private val REQUEST_PERMISSION_LOCATION = 10
 
-
-    data class Place(
-        val name: String,
-        val latLng: LatLng,
-        val address: LatLng,
-        val rating: Float
-    )
-//    private val places: List<Place> by lazy {
-//        PlacesReader(this).read()
-//    }
+    //DB
+    lateinit var myHelper: myDBHelper
+    lateinit var sqlDB: SQLiteDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,23 +106,6 @@ class AppMain : AppCompatActivity() {
             val name = user.displayName
             mypage_name.text = name+"님 안녕하세요"
         }
-
-        //지도
-//        val mapFragment = supportFragmentManager.findFragmentById(
-//            R.id.map_walk
-//        ) as? SupportMapFragment
-//        mapFragment?.getMapAsync { googleMap ->
-////            addMarkers(googleMap)
-//        }
-////        mMap.setInfoWindowAdapter(MarkerInfoWindowAdapter(this))
-//
-//        mapFragment?.getMapAsync { googleMap ->
-////            addMarkers(googleMap)
-////            addClusteredMarkers(googleMap)
-//
-//            // Set custom info window adapter.
-//             googleMap.setInfoWindowAdapter(MarkerInfoWindowAdapter(this))
-//        }
 
         //하단 버튼 동작
         val fix_bottom = findViewById<View>(R.id.fix_bottom)
@@ -160,10 +148,9 @@ class AppMain : AppCompatActivity() {
         btn_9 = findViewById(R.id.btn_9)
 
         val walk = findViewById<View>(R.id.walk)
+
         val trash = findViewById<View>(R.id.trash)
         main_weather = findViewById(R.id.main_weather)
-//        map_walk = walk.findViewById(R.id.map_walk)
-//        map_trash = findViewById(R.id.map_trash)
 
         btn_1.setOnClickListener {
             main_weather.visibility = View.VISIBLE
@@ -202,6 +189,7 @@ class AppMain : AppCompatActivity() {
             btn_walk.visibility = View.VISIBLE
             btn_trash.visibility = View.GONE
             checkPermissionForLocation(this)
+//            startActivity(Intent(this@AppMain, MapsActivity::class.java))
         }
         btn_5.setOnClickListener {
             main_weather.visibility = View.GONE
@@ -212,6 +200,7 @@ class AppMain : AppCompatActivity() {
             btn_walk.visibility = View.VISIBLE
             btn_trash.visibility = View.GONE
             checkPermissionForLocation(this)
+//            startActivity(Intent(this@AppMain, MapsActivity::class.java))
         }
         btn_8.setOnClickListener {
             main_weather.visibility = View.GONE
@@ -222,6 +211,7 @@ class AppMain : AppCompatActivity() {
             btn_walk.visibility = View.VISIBLE
             btn_trash.visibility = View.GONE
             checkPermissionForLocation(this)
+//            startActivity(Intent(this@AppMain, MapsActivity::class.java))
         }
 
         btn_3.setOnClickListener {
@@ -274,6 +264,22 @@ class AppMain : AppCompatActivity() {
         btn_mypage.setOnClickListener{
             startActivity(Intent(this@AppMain, Mypage::class.java))
         }
+
+        //DB
+        myHelper = myDBHelper(this)
+
+    }
+
+    //DB
+    inner class myDBHelper(context : Context) : SQLiteOpenHelper(context, "flogging", null, 1) {
+        override fun onCreate(db: SQLiteDatabase?) {
+            db!!.execSQL("CREATE TABLE flogging (sec text, milli text, distance text);")
+        }
+
+        override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+            db!!.execSQL("DROP TABLE IF EXISTS flogging")
+            onCreate(db)
+        }
     }
 
     //타이머 시작
@@ -284,8 +290,9 @@ class AppMain : AppCompatActivity() {
         timerTask = timer(period = 10) {
             time ++
 
-            var sec = time/100
-            var milli = time%100
+            sec = time/100
+            milli = time%100
+
 
             runOnUiThread {
                 flogging_time.text = "${sec} : ${milli}"
@@ -296,18 +303,25 @@ class AppMain : AppCompatActivity() {
             }
             //이동 거리
             if(sec >= 2 && milli == 0) {
-                Log.d("sec", "sec : " + sec)
                 distance += 1
             }
         }
         flogging_start.setOnClickListener { //시작 클릭
             btn_share.visibility = View.VISIBLE
+
+            sqlDB = myHelper.writableDatabase
+            myHelper.onUpgrade(sqlDB, 1, 2)
+            sqlDB.execSQL("INSERT INTO flogging VALUES('"+sec.toString()+"','"+milli.toString()+"','"+distance.toString()+"');")
+            Log.d("sec", "DB 입력 2 " + sec + " " + milli + " " + distance)
+            sqlDB.close()
+
             flogging_stop()
         }
     }
 
     fun flogging_stop() {  //타이머 종료
         flogging_start.setText("초기화")
+
         timerTask?.cancel()
 
         flogging_start.setOnClickListener {  //값 초기화
@@ -327,18 +341,18 @@ class AppMain : AppCompatActivity() {
         }
     }
 
-    fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
-        val SEOUL = LatLng(37.56, 126.97)
-        val markerOptions = MarkerOptions() // 마커 생성
-        markerOptions.position(SEOUL)
-        markerOptions.title("서울") // 마커 제목
-        markerOptions.snippet("한국의 수도") // 마커 설명
-        mMap.addMarker(markerOptions)
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL)) // 초기 위치
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(15f)) // 줌의 정도
-        googleMap.mapType = GoogleMap.MAP_TYPE_HYBRID // 지도 유형 설정
-    }
+//    fun onMapReady(googleMap: GoogleMap) {
+//        mMap = googleMap
+//        val SEOUL = LatLng(37.56, 126.97)
+//        val markerOptions = MarkerOptions() // 마커 생성
+//        markerOptions.position(SEOUL)
+//        markerOptions.title("서울") // 마커 제목
+//        markerOptions.snippet("한국의 수도") // 마커 설명
+//        mMap.addMarker(markerOptions)
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL)) // 초기 위치
+//        mMap.animateCamera(CameraUpdateFactory.zoomTo(15f)) // 줌의 정도
+//        googleMap.mapType = GoogleMap.MAP_TYPE_HYBRID // 지도 유형 설정
+//    }
 
     // 위치 권한이 있는지 확인하는 메서드
     fun checkPermissionForLocation(context: Context): Boolean {
@@ -420,12 +434,3 @@ class AppMain : AppCompatActivity() {
 //        }
 //    }
 }
-
-//private operator fun <T> Lazy<T>.getValue(appMain: AppMain, property: KProperty<T?>): List<AppMain.Place> {
-//
-//}
-//
-//
-//class KProperty<T> {
-//
-//}

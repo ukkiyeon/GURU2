@@ -73,7 +73,7 @@ class Tip : AppCompatActivity() {
         }
 
         btn_communityPage.setOnClickListener {
-            startActivity(Intent(this, Community::class.java))
+            startActivity(Intent(this, PostCommunity::class.java))
         }
 
 

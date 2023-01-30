@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.community_writing.*
+// 에러 import kotlinx.android.synthetic.main.community_writing.*
 
 class CommunityWriting : AppCompatActivity() {
     lateinit var backBtn: ImageButton
@@ -32,33 +32,33 @@ class CommunityWriting : AppCompatActivity() {
     lateinit var firebaseDatabase: FirebaseDatabase
     lateinit var databaseReference: DatabaseReference
     lateinit var mArrayList : ArrayList<DataModel>
-    lateinit var mAdapter: DataAdapter
+    // 에러 lateinit var mAdapter: DataAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.community_writing)
 
         mArrayList = arrayListOf<DataModel>()
-        mAdapter = DataAdapter(mArrayList)
+        // 에러 mAdapter = DataAdapter(mArrayList)
 
         /*et_title = findViewById(R.id.title_text_form)
         et_content =findViewById(R.id.content_text_form)*/
 
-
-        CommunityWriting.layoutManager = LinearLayoutManager(this)
-        CommunityWriting.adapter = mAdapter
-        CommunityWriting.addItemDecoration(
+        /* 에러
+        layoutManager = LinearLayoutManager(this)
+        adapter = mAdapter
+        addItemDecoration(
             DividerItemDecoration(
                 applicationContext,
                 LinearLayoutManager(this).orientation
             )
-        )
+        )*/
 
         mArrayList.clear()
-        mAdapter.notifyDataSetChanged()
+        // 에러 mAdapter.notifyDataSetChanged()
 
         initDatabase()
-
+        /*에러
         form_button.setOnClickListener {
             val title = title_text_form.text.toString()
             val content = content_text_form.text.toString()
@@ -69,7 +69,7 @@ class CommunityWriting : AppCompatActivity() {
 
             title_text_form.setText("")
             content_text_form.setText("")
-        }
+        }*/
 
         /*뒤로가기 버튼 기능*/
         backBtn = findViewById(R.id.back)
@@ -129,12 +129,12 @@ class CommunityWriting : AppCompatActivity() {
         )
         monthAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item)
         monthSpinner.adapter = monthAdapter*/
-    companion object {
+    /* 에러companion object {
             fun addItemDecoration(dividerItemDecoration: DividerItemDecoration) {
 
             }
 
             lateinit var adapter: DataAdapter
             lateinit var layoutManager: LinearLayoutManager
-    }
+    } */
 }

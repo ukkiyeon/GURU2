@@ -309,7 +309,7 @@
                 android:orientation="horizontal">
                 <!--글씨-->
                 <LinearLayout
-                    android:layout_width="133dp"
+                    android:layout_width="110dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
@@ -319,7 +319,7 @@
                         android:id="@+id/weather_temp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="5도"
+                        android:text="5 °"
                         android:textColor="@color/black"
                         android:textSize="30sp"></TextView>
 
@@ -333,11 +333,11 @@
 
                 <ImageView
                     android:id="@+id/weather_img"
-                    android:layout_width="70dp"
-                    android:layout_height="65dp"
+                    android:layout_width="80dp"
+                    android:layout_height="75dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:src="@drawable/logo"></ImageView>
+                    android:src="@drawable/weather"></ImageView>
             </LinearLayout>
 
             <View
@@ -359,7 +359,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="10dp"
-                    android:text="어제                                 2도 3도"
+                    android:text="월                                   - 2 °   6 °"
                     android:textColor="@color/black"
                     android:textSize="18sp"></TextView>
 
@@ -367,7 +367,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="10dp"
-                    android:text="어제                                 2도 3도"
+                    android:text="화                                     0 °   4 °"
                     android:textColor="@color/black"
                     android:textSize="18sp"></TextView>
 
@@ -375,7 +375,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="10dp"
-                    android:text="어제                                 2도 3도"
+                    android:text="수                                     1 °   5 °"
                     android:textColor="@color/black"
                     android:textSize="18sp"></TextView>
 
@@ -383,14 +383,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="10dp"
-                    android:text="어제                                 2도 3도"
+                    android:text="목                                   - 3 °   0 °"
                     android:textColor="@color/black"
                     android:textSize="18sp"></TextView>
             </LinearLayout>
         </LinearLayout>
 
         <include
-            layout="@layout/walk"
+            layout="@layout/activity_maps"
             android:id="@+id/walk"
             android:visibility="gone"/>
 

@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "82394092320",
+    "firebase_url": "https://guru2-a602e-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "guru2-a602e",
     "storage_bucket": "guru2-a602e.appspot.com"
   },
@@ -14,11 +15,35 @@
       },
       "oauth_client": [
         {
+          "client_id": "82394092320-n77e1b04tdbde2hq0stn3g3j8qu4eems.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.guru2",
+            "certificate_hash": "da0074935a96ae8e0d14a720ae6683cd2a84aef9"
+          }
+        },
+        {
+          "client_id": "82394092320-ns1s42desool4lu80pvj87ju8rdurs5u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.guru2",
+            "certificate_hash": "03e8fb857847fd034185039e762c23da244165f3"
+          }
+        },
+        {
           "client_id": "82394092320-ord307kscbdk2676c7p1t0bq9775u4l1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.guru2",
             "certificate_hash": "21fb7335be30f62197ed6f7e39ab0a0799429182"
+          }
+        },
+        {
+          "client_id": "82394092320-rbev0kl2go2ukmnmg9jda1jbf5o2j52e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.guru2",
+            "certificate_hash": "4e2ec117efe5c5e9530fc799088162bd9f384e55"
           }
         },
         {
