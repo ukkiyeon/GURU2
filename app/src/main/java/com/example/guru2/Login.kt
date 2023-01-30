@@ -32,6 +32,8 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
 
+        var sign_in_button = findViewById<SignInButton>(R.id.sign_in_button)
+        setGoogleButtonText(sign_in_button,"Google 계정으로 로그인")
 
         auth = FirebaseAuth.getInstance() // 바꿈
 
