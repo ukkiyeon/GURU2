@@ -1,233 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <!-- 뒤로가기 버튼 -->
-        <ImageButton
-            android:id="@+id/back"
-            android:layout_width="40dp"
-            android:layout_height="55dp"
-            android:paddingLeft="13dp"
-            android:adjustViewBounds="true"
-            android:background="@android:color/transparent"
-            android:contentDescription="뒤로가기"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/back" />
-        <!-- 텍스트 -->
+        <!-- 로고 부분 -->
+        <ImageView
+            android:layout_width="179dp"
+            android:layout_height="171dp"
+            android:layout_marginStart="123dp"
+            android:layout_marginTop="88dp"
+            android:layout_marginEnd="96dp"
+            android:layout_marginBottom="28dp"
+            app:srcCompat="@drawable/logo" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="130dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/drawable_left_img_customise_plant" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/black"
+                android:text="에코런 시작하기"
+                android:textSize="40px"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/drawable_left_img_customise_plant" />
+
+        </LinearLayout>
+
         <TextView
-            android:id="@+id/textVieww"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:paddingLeft="20dp"
-            android:paddingTop="14dp"
-            android:textSize="20dp"
-            android:textColor="@color/black"
-            android:text="회원가입" />
-
-    </LinearLayout>
-
-    <!-- 밑줄 -->
-    <View
-        android:background="@color/black"
-        android:layout_width="match_parent"
-        android:layout_height="3px"></View>
-    <!-- 이메일 입력 부분 -->
-    <EditText
-        android:id="@+id/Email_text"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="66dp"
-        android:layout_marginEnd="66dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/border"
-        android:layout_gravity="center"
-        android:paddingLeft="15dp"
-        android:hint="이메일"
-        android:inputType="textEmailAddress" />
-
-    <!-- 인증번호 발송 버튼 부분 -->
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/tip_event01_btn"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:background="@drawable/border"
-        android:layout_gravity="center"
-        android:textSize="18dp"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/green_2"
-        android:text="인증번호 발송" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:orientation="horizontal">
-
-        <!-- 인증번호 입력 부분 -->
-        <EditText
-            android:id="@+id/num_text"
-            android:layout_width="262dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="31dp"
-            android:background="@drawable/border"
-            android:paddingLeft="15dp"
-            android:hint="인증번호 입력"
-            android:inputType="number" />
-
-        <!-- 인증번호 확인 버튼 부분 -->
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/num_submit"
-            android:layout_width="70dp"
-            android:layout_height="50dp"
-            android:background="@drawable/border"
-            android:layout_marginLeft="17dp"
-            android:textSize="18dp"
-            android:textColor="@color/black"
-            android:backgroundTint="@color/green_1"
-            android:text="확인" />
-    </LinearLayout>
-
-    <!-- 비밀번호 입력 부분 -->
-    <EditText
-        android:id="@+id/pwd_text2"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="66dp"
-        android:layout_marginEnd="66dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/border"
-        android:layout_gravity="center"
-        android:paddingLeft="15dp"
-        android:hint="비밀번호"
-        android:inputType="textPassword" />
-
-    <!-- 비밀번호 확인 입력 부분 -->
-    <EditText
-        android:id="@+id/chpwd_text"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="66dp"
-        android:layout_marginEnd="66dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/border"
-        android:layout_gravity="center"
-        android:paddingLeft="15dp"
-        android:hint="비밀번호 확인"
-        android:inputType="textPassword" />
-
-    <!-- 이름 입력 부분 -->
-    <EditText
-        android:id="@+id/join_name"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="66dp"
-        android:layout_marginEnd="66dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/border"
-        android:layout_gravity="center"
-        android:paddingLeft="15dp"
-        android:hint="이름"
-        android:inputType="textPersonName" />
-
-    <!-- 출생년도 입력 부분 -->
-    <EditText
-        android:id="@+id/birth_year"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="66dp"
-        android:layout_marginEnd="66dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/border"
-        android:layout_gravity="center"
-        android:paddingLeft="15dp"
-        android:hint="출생년도"
-        android:inputType="number" />
-
-    <!-- 초록색 밑줄 부분 -->
-    <View
-        android:background="@color/green_2"
-        android:layout_width="346dp"
-        android:layout_gravity="center"
-        android:layout_height="3px"></View>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal">
-
-        <!-- 이용약관 동의 부분 -->
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="200dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="31dp"
-            android:textSize="13dp"
-            android:text="이용약관 동의 (필수)" />
-
-        <!-- 이용약관 확인 부분 -->
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/clause"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="76dp"
-            android:background="#00ff0000"
-            android:textSize="13dp"
-            android:textColor="@color/black"
-            android:text="@string/underlined_button" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:textSize="30px"
+            android:text="시작하기 전 이용약관과 개인정보 처리방침에 동의해 주세요." />
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <!-- 이용약관 동의 부분 -->
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:textSize="12dp"
+                android:text="이용약관 동의 (필수)" />
+
+            <!-- 이용약관 확인 부분 -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/clause"
+                android:layout_width="52dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="43dp"
+                android:background="#00ff0000"
+                android:textSize="12dp"
+                android:textColor="@color/black"
+                android:text="@string/underlined_button" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <!-- 개인정보 처리방침 동의 부분 -->
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:textSize="12dp"
+                android:text="개인정보 처리방침 동의 (필수)" />
+
+            <!-- 개인정보 처리방침 약관 확인 부분 -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/clause2"
+                android:layout_width="52dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="43dp"
+                android:background="#00ff0000"
+                android:textSize="12dp"
+                android:textColor="@color/black"
+                android:text="@string/underlined_button" />
+
+        </LinearLayout>
+
+
+
+        <!-- 구글 버튼 부분 -->
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button2"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="28dp">
+        </com.google.android.gms.common.SignInButton>
+
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <!-- 개인정보 처리방침 동의 부분 -->
-        <CheckBox
-            android:id="@+id/checkBox2"
-            android:layout_width="200dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="31dp"
-            android:textSize="13dp"
-            android:text="개인정보 처리방침 동의 (필수)" />
-
-        <!-- 개인정보 처리방침 약관 확인 부분 -->
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/clause2"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="76dp"
-            android:background="#00ff0000"
-            android:textSize="13dp"
-            android:textColor="@color/black"
-            android:text="@string/underlined_button" />
-
-    </LinearLayout>
-
-    <!-- 회원가입 버튼 부분 -->
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/join_submit"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="7dp"
-        android:background="@drawable/border"
-        android:layout_gravity="center"
-        android:textSize="18dp"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/green_2"
-        android:text="회원가입" />
-
-</LinearLayout>
+</layout>

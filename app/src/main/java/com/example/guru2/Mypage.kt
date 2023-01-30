@@ -16,6 +16,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -88,8 +90,9 @@ class Mypage : AppCompatActivity() {
 
             builder.setPositiveButton("네", DialogInterface.OnClickListener { dialog, which ->
                 auth?.currentUser?.delete()
+                finish()
                 Toast.makeText(this, "회원탈퇴 되었습니다.", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, Login::class.java)
+                val intent = Intent(this, Join::class.java)
                 startActivity(intent)
             })
             builder.setNegativeButton("아니요", DialogInterface.OnClickListener { dialog, which ->
