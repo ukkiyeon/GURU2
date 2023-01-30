@@ -40,7 +40,6 @@ import java.net.URLEncoder.encode
 import java.security.MessageDigest
 import java.util.*
 import kotlin.concurrent.timer
-import net.daum.mf.map.api.MapView
 
 class AppMain : AppCompatActivity() {
 
@@ -190,7 +189,7 @@ class AppMain : AppCompatActivity() {
             btn_walk.visibility = View.VISIBLE
             btn_trash.visibility = View.GONE
             checkPermissionForLocation(this)
-            startActivity(Intent(this@AppMain, MapsActivity::class.java))
+//            startActivity(Intent(this@AppMain, MapsActivity::class.java))
         }
         btn_5.setOnClickListener {
             main_weather.visibility = View.GONE
@@ -201,7 +200,7 @@ class AppMain : AppCompatActivity() {
             btn_walk.visibility = View.VISIBLE
             btn_trash.visibility = View.GONE
             checkPermissionForLocation(this)
-            startActivity(Intent(this@AppMain, MapsActivity::class.java))
+//            startActivity(Intent(this@AppMain, MapsActivity::class.java))
         }
         btn_8.setOnClickListener {
             main_weather.visibility = View.GONE
@@ -212,7 +211,7 @@ class AppMain : AppCompatActivity() {
             btn_walk.visibility = View.VISIBLE
             btn_trash.visibility = View.GONE
             checkPermissionForLocation(this)
-            startActivity(Intent(this@AppMain, MapsActivity::class.java))
+//            startActivity(Intent(this@AppMain, MapsActivity::class.java))
         }
 
         btn_3.setOnClickListener {
