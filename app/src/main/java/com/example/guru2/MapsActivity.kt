@@ -24,11 +24,11 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.*
 import org.json.JSONObject
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+//import retrofit2.Call
+//import retrofit2.Callback
+//import retrofit2.Response
+//import retrofit2.Retrofit
+//import retrofit2.converter.gson.GsonConverterFactory
 import java.security.MessageDigest
 
 
@@ -154,23 +154,23 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 //    }
 
     fun loadWalks() {
-        // 02~05는 여기에 입력합니다.
-        val retrofit = Retrofit.Builder()
-            .baseUrl(WalkOpenApi.DOMAIN)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val walkOpenService = retrofit.create(WalkOpenService::class.java)
-
-        walkOpenService.getWalk(WalkOpenApi.API_KEY).enqueue(object : Callback<Walk> {
-            override fun onResponse(call: Call<Walk>, response: Response<Walk>) {
-                showWalk(response.body() as Data)
-            }
-
-            override fun onFailure(call: Call<Walk>, t: Throwable) {
-                Toast.makeText(baseContext, "서버에서 데이터를 가져올 수 없습니다.", Toast.LENGTH_LONG).show()
-            }
-        })
+//        // 02~05는 여기에 입력합니다.
+//        val retrofit = Retrofit.Builder()
+//            .baseUrl(WalkOpenApi.DOMAIN)
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
+//
+//        val walkOpenService = retrofit.create(WalkOpenService::class.java)
+//
+//        walkOpenService.getWalk(WalkOpenApi.API_KEY).enqueue(object : Callback<Walk> {
+//            override fun onResponse(call: Call<Walk>, response: Response<Walk>) {
+//                showWalk(response.body() as Data)
+//            }
+//
+//            override fun onFailure(call: Call<Walk>, t: Throwable) {
+//                Toast.makeText(baseContext, "서버에서 데이터를 가져올 수 없습니다.", Toast.LENGTH_LONG).show()
+//            }
+//        })
     }
 
     fun showWalk(walks: Data) {
