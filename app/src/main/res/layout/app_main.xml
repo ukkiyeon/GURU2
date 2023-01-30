@@ -300,7 +300,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="gone">
             <!--위-->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -389,10 +389,142 @@
             </LinearLayout>
         </LinearLayout>
 
-        <include
-            layout="@layout/activity_maps"
-            android:id="@+id/walk"
-            android:visibility="gone"/>
+<!--        <include-->
+<!--            layout="@layout/activity_maps"-->
+<!--            android:id="@+id/walk_map"-->
+<!--            android:visibility="gone"/>-->
+
+        <LinearLayout
+            android:layout_width="380dp"
+            android:layout_height="270dp"
+            android:visibility="visible"
+            android:layout_gravity="center"
+            android:id="@+id/walk_map"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border">
+                <LinearLayout
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/walks_num1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="1번       중랑구 묵1동 동1로"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/walks_num2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="1번       중랑구 묵1동 동1로"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/walks_num3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="1번       중랑구 묵1동 동1로"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/walks_num4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="1번       중랑구 묵1동 동1로"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/walks_num5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="1번       중랑구 묵1동 동1로"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/walks_num6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="1번       중랑구 묵1동 동1로"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/walks_num7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="1번       중랑구 묵1동 동1로"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/walks_num8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="1번       중랑구 묵1동 동1로"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/walks_num9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="1번       중랑구 묵1동 동1로"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/walks_num10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="1번       중랑구 묵1동 동1로"
+                        android:textSize="18dp" />
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
 
         <include
             layout="@layout/trash"

@@ -70,6 +70,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-database-ktx'
 
     implementation 'com.google.maps.android:android-maps-utils:1.1.0' //지도
+    implementation files('libs/libDaumMapAndroid')
+
+    implementation fileTree(include: ['*.jar'], dir : 'jniLibs')
+    implementation files('libs/libDaumMapAndroid.jar')
 
     implementation 'com.google.firebase:firebase-storage:20.1.0' // 사진 업로드하는 스토리지
     implementation 'com.google.firebase:firebase-firestore:24.4.2' // firestore
