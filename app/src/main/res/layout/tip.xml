@@ -25,7 +25,8 @@
         android:layout_width="150dp"
         android:layout_height="100dp"
         android:layout_marginStart="36dp"
-        android:src="@drawable/plant"
+        android:src="@drawable/uguide"
+        android:background="@color/green_1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageButton2"
         android:contentDescription="어플 사용 가이드"/>
@@ -36,7 +37,8 @@
         android:layout_height="100dp"
         android:layout_marginTop="120dp"
         android:layout_marginEnd="36dp"
-        android:src="@drawable/plant"
+        android:src="@drawable/recyclebag"
+        android:background="@color/green_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:contentDescription="분리 배출 가이드"/>
@@ -47,7 +49,8 @@
         android:layout_height="100dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="36dp"
-        android:src="@drawable/plant"
+        android:src="@drawable/plogging"
+        android:background="@color/green_1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18"
         android:contentDescription="플로깅 행사"/>
@@ -58,7 +61,8 @@
         android:layout_height="100dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="36dp"
-        android:src="@drawable/plant"
+        android:src="@drawable/running"
+        android:background="@color/green_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView20"
         android:contentDescription="플로깅 TIP"/>
@@ -69,7 +73,8 @@
         android:layout_height="100dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="36dp"
-        android:src="@drawable/plant"
+        android:src="@drawable/newspaper"
+        android:background="@color/green_1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21"
         android:contentDescription="환경 뉴스"/>
@@ -80,7 +85,8 @@
         android:layout_height="100dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="36dp"
-        android:src="@drawable/plant"
+        android:src="@drawable/recycle"
+        android:background="@color/green_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22"
         android:contentDescription="제로 웨이스트"/>

@@ -58,9 +58,32 @@
         android:background="@drawable/flogging_round"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/zerowaste_desc1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:text="플로깅(plogging)이란?"
+            android:textColor="@color/green_700"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/zerowaste_desc2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+
+            android:text="플로깅은 줍다라는 뜻의 스웨던어 plocka upp와 영어 단어 조깅 jogging의 합성어로 조깅을 하면서 쓰레기를 줍는 것을 의미합니다.\n"
+            android:textColor="@color/green_2" />
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -81,6 +104,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"
                         android:text="필수 준비물"
+                        android:textColor="@color/white"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -121,7 +145,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginTop="10dp"
-                        android:text="미끄러지지 않고 건강하게 운동하기!"
+                        android:text="미끄러지지 않고 건강하게 운동하기 위해선 러닝화는 필수!"
                         android:textSize="13sp" />
                 </LinearLayout>
 
@@ -152,7 +176,7 @@
                         android:layout_height="135dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"
-                        app:srcCompat="@drawable/running_shoes" />
+                        app:srcCompat="@drawable/sportswear" />
 
                     <TextView
                         android:id="@+id/tip_clothes_desc"
@@ -192,7 +216,7 @@
                         android:layout_height="135dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"
-                        app:srcCompat="@drawable/running_shoes" />
+                        app:srcCompat="@drawable/bag" />
 
                     <TextView
                         android:id="@+id/tip_bag_desc"
@@ -204,6 +228,186 @@
                         android:text="미끄러지지 않고 건강하게 운동하기!"
                         android:textSize="13sp" />
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@color/green_2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/main_example_title1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text="준비 운동"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tip_warmUp1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="심호흡 하기"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/tip_warmUp1_pic"
+                        android:layout_width="200dp"
+                        android:layout_height="135dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        app:srcCompat="@drawable/warmup1" />
+
+                    <TextView
+                        android:id="@+id/tip_warmUp1_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:text="바른 자세로 앉아 눈을 감고 심호흡하기! 호흡하면서 운동할 준비를 해요."
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tip_warmUp2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="비둘기 자세"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/tip_warmUp2_pic"
+                        android:layout_width="200dp"
+                        android:layout_height="135dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        app:srcCompat="@drawable/warmup2" />
+
+                    <TextView
+                        android:id="@+id/tip_warmUp2_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:text="이 자세는 둔근, 치골, 골반을 스트레칭 해요. 이때, 골반과 바닥이 사각형이 되게 해 몸이 한쪽으로 치우치지 않게 하는 것이 중요합니다! "
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tip_warmUp3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="다운독 자세"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/tip_warmUp3_pic"
+                        android:layout_width="200dp"
+                        android:layout_height="135dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        app:srcCompat="@drawable/warmup3" />
+
+                    <TextView
+                        android:id="@+id/tip_warmUp3_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:text="이 자세는 어깨, 등 그리고 다리를 스트레칭 해요. 이때, 어깨에 힘을 너무 주지 않아야 합니다! "
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tip_warmUp4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="아기 자세"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/tip_warmUp4_pic"
+                        android:layout_width="200dp"
+                        android:layout_height="135dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        app:srcCompat="@drawable/warmup4" />
+
+                    <TextView
+                        android:id="@+id/tip_warmUp4_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:text="이 자세는 허리와 골반을 스트레칭합니다.\n여기있는 스트레칭 외에도 필요에 따라 손목/발목 등을 충분히 풀어주는게 좋아요!"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+
 
             </LinearLayout>
         </ScrollView>

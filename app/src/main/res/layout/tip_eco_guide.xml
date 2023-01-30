@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TipEcoGuide">
+    android:orientation="vertical"
+    tools:context=".Community">
 
+    <!--상단 고정-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="56dp"
+        android:orientation="horizontal">
 
         <!-- 뒤로가기 버튼 -->
         <ImageButton
@@ -38,26 +37,38 @@
 
     </LinearLayout>
 
-    <View
-        android:id="@+id/tip_view3"
-        android:layout_width="match_parent"
-        android:layout_height="3px"
-        android:layout_marginTop="55dp"
-        android:background="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></View>
-
+    <!--스크롤뷰-->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="56dp"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/recycle_desc1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:text="분리 배출 가이드"
+                android:textColor="@color/green_700"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/recycle_desc2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+
+                android:text="길에서 많이 보이는 쓰레기들의 분리 배출 방법을 알려드립니다."
+                android:textColor="@color/green_2" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -66,18 +77,19 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/main_example_plant"
+                    android:id="@+id/main_example_plant1"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="30dp"
                     app:srcCompat="@drawable/plant" />
 
                 <TextView
-                    android:id="@+id/main_example_title"
+                    android:id="@+id/main_example_title1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="5dp"
+                    android:textStyle="bold"
                     android:text="과자 봉지"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -89,14 +101,14 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/main_example_image"
+                    android:id="@+id/main_example_image1"
                     android:layout_width="200dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"
                     app:srcCompat="@drawable/snack" />
 
                 <TextView
-                    android:id="@+id/main_example_description"
+                    android:id="@+id/main_example_description1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
@@ -105,7 +117,123 @@
                     android:textSize="12sp" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/main_example_plant2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    app:srcCompat="@drawable/plant" />
+
+                <TextView
+                    android:id="@+id/main_example_title2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:text="종이컵"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/main_example_image2"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/papercup" />
+
+                <TextView
+                    android:id="@+id/main_example_description2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:text="재활용 가능 / 종이팩\n- 음료나 이물질이 묻어있지 않은 상태로 배출\n- 음료를 마신 후 종이컵 안쪽을 물로 깨끗이 헹궈낸 뒤 종이팩으로 배출"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/main_example_plant3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    app:srcCompat="@drawable/plant" />
+
+                <TextView
+                    android:id="@+id/main_example_title3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:text="라이터"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/main_example_image3"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/lighter" />
+
+                <TextView
+                    android:id="@+id/main_example_description3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:text="재활용 불가능 / 일반쓰레기\n- 라이터 내부에 소량의 가스만 남아있다면 그냥 버리면 되고,\n가스가 많이 남아있다면 최대한 소진한 후 배출"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--하단 글쓰기 버튼 고정-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/recycle_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/green_2"
+            android:text="다른 쓰레기의 분리 배출 방법이 궁금하다면?" />
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/fix_bottom"
+        android:id="@+id/fix_bottom" />
+
+</LinearLayout>

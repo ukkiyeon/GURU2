@@ -64,12 +64,26 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tip_event_count"
-                android:layout_width="match_parent"
+                android:id="@+id/plogging_desc1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:text="총 n개" />
+                android:layout_marginRight="20dp"
+                android:text="플로깅 행사"
+                android:textColor="@color/green_700"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/plogging_desc2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+
+                android:text="플로깅 행사 외에 마라톤, 걷기 대회와 같은 행사도 소개합니다."
+                android:textColor="@color/green_2" />
 
             <Button
                 android:id="@+id/tip_event01_btn"
@@ -79,8 +93,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="20dp"
                 android:backgroundTint="@color/green_2"
-                android:drawableLeft="@drawable/tip_flogging_event_imagesize"
-                android:text="제주바다 살리기\n\n지역: 제주\n기간: ~ 10/6" />
+                android:drawableLeft="@drawable/event1"
+                android:text="거리정화 플로깅\n\n위치: 서울 강남\n일시: 23.01.28." />
 
             <Button
                 android:id="@+id/tip_event02_btn"
@@ -90,8 +104,8 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginRight="20dp"
                 android:backgroundTint="@color/green_2"
-                android:drawableLeft="@drawable/tip_flogging_event_imagesize"
-                android:text="제주바다 살리기\n\n지역: 제주\n기간: ~ 10/6" />
+                android:drawableLeft="@drawable/event2"
+                android:text="2023 챌린지 레이스\n\n위치: 서울 여의도\n일시: 23.02.26." />
 
             <Button
                 android:id="@+id/tip_event03_btn"
@@ -101,8 +115,8 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginRight="20dp"
                 android:backgroundTint="@color/green_2"
-                android:drawableLeft="@drawable/tip_flogging_event_imagesize"
-                android:text="제주바다 살리기\n\n지역: 제주\n기간: ~ 10/6" />
+                android:drawableLeft="@drawable/event3"
+                android:text="경기국제하프\n마라톤대회\n\n위치: 경기도 수원시\n일시: 23.02.26." />
 
             <Button
                 android:id="@+id/tip_event04_btn"
@@ -112,8 +126,8 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginRight="20dp"
                 android:backgroundTint="@color/green_2"
-                android:drawableLeft="@drawable/tip_flogging_event_imagesize"
-                android:text="제주바다 살리기\n\n지역: 제주\n기간: ~ 10/6" />
+                android:drawableLeft="@drawable/event4"
+                android:text="제20회 태화강 \n국제 마라톤 대회\n\n위치: 울산 중구\n일시: 23.03.25" />
 
         </LinearLayout>
     </ScrollView>
