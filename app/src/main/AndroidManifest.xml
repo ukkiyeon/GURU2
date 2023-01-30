@@ -55,6 +55,9 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAThw4etbSYJMUA_GpVxyKNqRwKW6gU1lA" />
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="5ec590fd7a4c0f6e22d3d64fef3a0578"/>
 
         <activity
             android:name=".Login"

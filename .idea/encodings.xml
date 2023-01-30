@@ -2,6 +2,6 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/app/src/main/assets/map_walk.json" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/res/raw/map_walk.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/raw/json_trash.json" charset="UTF-8" />
   </component>
 </project>
