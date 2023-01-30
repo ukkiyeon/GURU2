@@ -7,37 +7,25 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.media.tv.TvContract.Programs.Genres.encode
 import android.net.Uri
-import android.net.Uri.encode
 import android.os.Build
 import android.os.Bundle
-import android.util.Base64.encode
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.inflate
-import android.view.ViewGroup
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.res.ColorStateListInflaterCompat.inflate
-import androidx.fragment.app.FragmentContainerView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.gms.maps.CameraUpdateFactory
+import androidx.recyclerview.widget.RecyclerView
+import com.example.guru2.databinding.ActivityMapsBinding
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.BitmapDescriptor
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
+import com.google.api.Distribution.BucketOptions.Linear
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.google.maps.android.PolyUtil.encode
-import com.google.maps.android.clustering.ClusterManager
-import java.net.URLEncoder.encode
-import java.security.MessageDigest
+import org.json.JSONArray
 import java.util.*
 import kotlin.concurrent.timer
 
@@ -68,6 +56,8 @@ class AppMain : AppCompatActivity() {
     lateinit var btn_8 :AppCompatButton
     lateinit var btn_9 :AppCompatButton
 
+    lateinit var btn_mypage:ImageButton
+
     //팝업
     lateinit var popup_time :TextView
     lateinit var popup_distance:TextView
@@ -75,29 +65,58 @@ class AppMain : AppCompatActivity() {
     var pro: AlertDialog? = null
 
     lateinit var main_weather : LinearLayout
-
-    lateinit var btn_mypage:ImageButton
+    lateinit var main_walk:LinearLayout
+    lateinit var walks_num1:TextView
+    lateinit var walks_num2:TextView
+    lateinit var walks_num3:TextView
+    lateinit var walks_num4:TextView
+    lateinit var walks_num5:TextView
+    lateinit var walks_num6:TextView
+    lateinit var walks_num7:TextView
+    lateinit var walks_num8:TextView
+    lateinit var walks_num9:TextView
+    lateinit var walks_num10:TextView
 
     //지도
     private lateinit var mMap: GoogleMap
     val TAG: String = "로그"
     private val REQUEST_PERMISSION_LOCATION = 10
 
+    private lateinit var binding: ActivityMapsBinding
+    val itemList = arrayListOf<WalkData>()
+    lateinit var walkAdapter : RecycleAdapter
+
     //DB
     lateinit var myHelper: myDBHelper
     lateinit var sqlDB: SQLiteDatabase
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.app_main)
+
+        //카카오 해시값
+//        try {
+//            val info = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
+//            for (signature in info.signatures) {
+//                val md: MessageDigest = MessageDigest.getInstance("SHA")
+//                md.update(signature.toByteArray())
+//                Log.d("키해시는 :", Base64.encodeToString(md.digest(), Base64.DEFAULT))
+//            }
+//        } catch (e: PackageManager.NameNotFoundException) {
+//            e.printStackTrace()
+//        } catch (e: NoSuchAlgorithmException) {
+//            e.printStackTrace()
+//        }
 
         flogging_start = findViewById(R.id.flogging_start)
         flogging_start.setText("시작")
         flogging_time = findViewById(R.id.flogging_time)
         btn_share = findViewById(R.id.btn_share)
         flogging_distance = findViewById(R.id.flogging_distance)
-
         btn_mypage = findViewById(R.id.btn_mypage)
+        main_weather = findViewById(R.id.main_weather)
+        main_walk = findViewById(R.id.walk_map)
 
         //이름 불러오기
         val mypage_name = findViewById<TextView>(R.id.mypage_name2)
@@ -147,23 +166,63 @@ class AppMain : AppCompatActivity() {
         btn_8 = findViewById(R.id.btn_8)
         btn_9 = findViewById(R.id.btn_9)
 
-        val walk = findViewById<View>(R.id.walk)
-
         val trash = findViewById<View>(R.id.trash)
-        main_weather = findViewById(R.id.main_weather)
+        walks_num1 = findViewById(R.id.walks_num1)
+        walks_num2 = findViewById(R.id.walks_num2)
+        walks_num3 = findViewById(R.id.walks_num3)
+        walks_num4 = findViewById(R.id.walks_num4)
+        walks_num5 = findViewById(R.id.walks_num5)
+        walks_num6 = findViewById(R.id.walks_num6)
+        walks_num7 = findViewById(R.id.walks_num7)
+        walks_num8 = findViewById(R.id.walks_num8)
+        walks_num9 = findViewById(R.id.walks_num9)
+        walks_num10 = findViewById(R.id.walks_num10)
+
+        val jsonString = assets.open("map_walk.json").reader().readText();
+//        Log.d("JSON STR", jsonString)
+
+        val jsonArray = JSONArray(jsonString)
+        var str1 :String
+
+//        for (i in 0 until jsonArray.length()) {
+        str1 = jsonArray.getJSONObject(0).getString("연번") + " " +jsonArray.getJSONObject(0).getString("도로명") + " " +jsonArray.getJSONObject(0).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(0).getString("해당 동")
+        walks_num1.text = str1
+        str1 = jsonArray.getJSONObject(1).getString("연번") + " " +jsonArray.getJSONObject(1).getString("도로명") + " " +jsonArray.getJSONObject(1).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(1).getString("해당 동")
+        walks_num2.text = str1
+        str1 = jsonArray.getJSONObject(2).getString("연번") + " " +jsonArray.getJSONObject(2).getString("도로명") + " " +jsonArray.getJSONObject(2).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(2).getString("해당 동")
+        walks_num3.text = str1
+        str1 = jsonArray.getJSONObject(3).getString("연번") + " " +jsonArray.getJSONObject(3).getString("도로명") + " " +jsonArray.getJSONObject(3).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(3).getString("해당 동")
+        walks_num4.text = str1
+        str1 = jsonArray.getJSONObject(4).getString("연번") + " " +jsonArray.getJSONObject(4).getString("도로명") + " " +jsonArray.getJSONObject(4).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(4).getString("해당 동")
+        walks_num5.text = str1
+        str1 = jsonArray.getJSONObject(5).getString("연번") + " " +jsonArray.getJSONObject(5).getString("도로명") + " " +jsonArray.getJSONObject(5).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(5).getString("해당 동")
+        walks_num6.text = str1
+        str1 = jsonArray.getJSONObject(6).getString("연번") + " " +jsonArray.getJSONObject(6).getString("도로명") + " " +jsonArray.getJSONObject(6).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(6).getString("해당 동")
+        walks_num7.text = str1
+        str1 = jsonArray.getJSONObject(7).getString("연번") + " " +jsonArray.getJSONObject(7).getString("도로명") + " " +jsonArray.getJSONObject(7).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(7).getString("해당 동")
+        walks_num8.text = str1
+        str1 = jsonArray.getJSONObject(7).getString("연번") + " " +jsonArray.getJSONObject(8).getString("도로명") + " " +jsonArray.getJSONObject(8).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(8).getString("해당 동")
+        walks_num9.text = str1
+        str1 = jsonArray.getJSONObject(9).getString("연번") + " " +jsonArray.getJSONObject(9).getString("도로명") + " " +jsonArray.getJSONObject(9).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(9).getString("해당 동")
+        walks_num10.text = str1
+//        var str2 = jsonArray.getJSONObject(i).getString("도로명")
+//        var str3 = jsonArray.getJSONObject(i).getString("세부번지(도로명)")
+//        var str4 = jsonArray.getJSONObject(i).getString("해당 동")
+        Log.d("jsonObject", str1)
+//        }
 
         btn_1.setOnClickListener {
             main_weather.visibility = View.VISIBLE
-            walk.visibility = View.GONE
+            main_walk.visibility = View.GONE
             trash.visibility = View.GONE
 
             btn_weather.visibility = View.VISIBLE
-            btn_walk.visibility = View.GONE
+            main_walk.visibility = View.GONE
             btn_trash.visibility = View.GONE
         }
         btn_4.setOnClickListener {
             main_weather.visibility = View.VISIBLE
-            walk.visibility = View.GONE
+            main_walk.visibility = View.GONE
             trash.visibility = View.GONE
 
             btn_weather.visibility = View.VISIBLE
@@ -172,7 +231,7 @@ class AppMain : AppCompatActivity() {
         }
         btn_7.setOnClickListener {
             main_weather.visibility = View.VISIBLE
-            walk.visibility = View.GONE
+            main_walk.visibility = View.GONE
             trash.visibility = View.GONE
 
             btn_weather.visibility = View.VISIBLE
@@ -182,41 +241,44 @@ class AppMain : AppCompatActivity() {
 
         btn_2.setOnClickListener {
             main_weather.visibility = View.GONE
-            walk.visibility = View.VISIBLE
+            main_walk.visibility = View.VISIBLE
             trash.visibility = View.GONE
             //버튼 색상 변경
             btn_weather.visibility = View.GONE
             btn_walk.visibility = View.VISIBLE
             btn_trash.visibility = View.GONE
-            checkPermissionForLocation(this)
-//            startActivity(Intent(this@AppMain, MapsActivity::class.java))
+//            checkPermissionForLocation(this)
+//            binding = ActivityMapsBinding.inflate(layoutInflater)
+//            setContentView(binding.root)
         }
         btn_5.setOnClickListener {
             main_weather.visibility = View.GONE
-            walk.visibility = View.VISIBLE
+            main_walk.visibility = View.VISIBLE
             trash.visibility = View.GONE
             //버튼 색상 변경
             btn_weather.visibility = View.GONE
             btn_walk.visibility = View.VISIBLE
             btn_trash.visibility = View.GONE
-            checkPermissionForLocation(this)
-//            startActivity(Intent(this@AppMain, MapsActivity::class.java))
+//            checkPermissionForLocation(this)
+//            binding = ActivityMapsBinding.inflate(layoutInflater)
+//            setContentView(binding.root)
         }
         btn_8.setOnClickListener {
             main_weather.visibility = View.GONE
-            walk.visibility = View.VISIBLE
+            main_walk.visibility = View.VISIBLE
             trash.visibility = View.GONE
             //버튼 색상 변경
             btn_weather.visibility = View.GONE
             btn_walk.visibility = View.VISIBLE
             btn_trash.visibility = View.GONE
-            checkPermissionForLocation(this)
-//            startActivity(Intent(this@AppMain, MapsActivity::class.java))
+//            checkPermissionForLocation(this)
+//            binding = ActivityMapsBinding.inflate(layoutInflater)
+//            setContentView(binding.root)
         }
 
         btn_3.setOnClickListener {
             main_weather.visibility = View.GONE
-            walk.visibility = View.GONE
+            main_walk.visibility = View.GONE
             trash.visibility = View.VISIBLE
             //버튼 색상 변경
             btn_weather.visibility = View.GONE
@@ -225,7 +287,7 @@ class AppMain : AppCompatActivity() {
         }
         btn_6.setOnClickListener {
             main_weather.visibility = View.GONE
-            walk.visibility = View.GONE
+            main_walk.visibility = View.GONE
             trash.visibility = View.VISIBLE
             //버튼 색상 변경
             btn_weather.visibility = View.GONE
@@ -234,7 +296,7 @@ class AppMain : AppCompatActivity() {
         }
         btn_9.setOnClickListener {
             main_weather.visibility = View.GONE
-            walk.visibility = View.GONE
+            main_walk.visibility = View.GONE
             trash.visibility = View.VISIBLE
             //버튼 색상 변경
             btn_weather.visibility = View.GONE
@@ -269,7 +331,6 @@ class AppMain : AppCompatActivity() {
         myHelper = myDBHelper(this)
 
     }
-
     //DB
     inner class myDBHelper(context : Context) : SQLiteOpenHelper(context, "flogging", null, 1) {
         override fun onCreate(db: SQLiteDatabase?) {
@@ -277,6 +338,7 @@ class AppMain : AppCompatActivity() {
         }
 
         override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+            db!!.execSQL("INSERT INTO flogging VALUES('"+"0"+"','"+"0"+"','"+"0"+"');")
             db!!.execSQL("DROP TABLE IF EXISTS flogging")
             onCreate(db)
         }

@@ -63,7 +63,7 @@ class Mypage : AppCompatActivity() {
         var milli:Int = cursor.getInt(cursor.getColumnIndex("milli"))
         Log.d("sec", "DB 입력 2 " + sec + " " + milli + " " + distance)
 
-        mypage_time.text = "${sec} : ${milli+4}"
+        mypage_time.text = "${sec} : ${milli+3}"
         mypage_distance.text = "${distance} m"
 
         Log.d("sec", "DB 입력 3 " + sec + " " + milli + " " + distance)
