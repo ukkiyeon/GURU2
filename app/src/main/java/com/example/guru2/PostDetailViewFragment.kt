@@ -24,13 +24,14 @@ class PostDetailViewFragment : Fragment() {
         var view = LayoutInflater.from(activity).inflate(R.layout.post_detail_view_fragment, container, false)
         firestore = FirebaseFirestore.getInstance() // 파이어스토어 객체 초기화
 
-        view.detailviewfragment_recyclerview.adapter = DetailViewRecyclerViewAdapter()
-        view.detailviewfragment_recyclerview.layoutManager = LinearLayoutManager(activity)
+        view.detailviewfragment_recyclerview.adapter = DetailViewRecyclerViewAdapter() // 아래 정의된 메소드
+        view.detailviewfragment_recyclerview.layoutManager = LinearLayoutManager(activity) // 화면을 세로로 배치
         return view
     }
 
     //////////////////////////////////////////////////
 
+    // 어댑터 (데이터를 아이템 레이아웃으로 만듦)
     inner class DetailViewRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         var contentDTOs : ArrayList<ContentDTO> = arrayListOf()
         var contentUidList : ArrayList<String> = arrayListOf()
@@ -51,7 +52,7 @@ class PostDetailViewFragment : Fragment() {
             }
         }
 
-        // xml 파일을 inflate해서 ViewHolder를 생성
+        // 메소드 1. 뷰 홀더 생성(레이아웃 생성, xml 파일을 inflate해서 ViewHolder를 생성)
         override fun onCreateViewHolder(p0: ViewGroup, p1: Int): RecyclerView.ViewHolder {
             var view = LayoutInflater.from(p0.context).inflate(R.layout.post_item,p0,false)
             return CustomViewHolder(view)
@@ -64,7 +65,7 @@ class PostDetailViewFragment : Fragment() {
             return contentDTOs.size
         }
 
-        // onCreateViewHolder에서 만든 view와 실제 데이터를 연결
+        // 뷰홀더가 재활용될 때 실행됨(onCreateViewHolder에서 만든 view와 실제 데이터를 연결)
         override fun onBindViewHolder(p0: RecyclerView.ViewHolder, p1: Int) {
             var viewholder = (p0 as CustomViewHolder).itemView // p0을 CustomViewHolder로 캐스팅
 

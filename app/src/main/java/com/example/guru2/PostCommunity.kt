@@ -24,13 +24,6 @@ class PostCommunity : AppCompatActivity() {
     lateinit var button : Button
     lateinit var maincontent : FrameLayout
     var firestore : FirebaseFirestore? = null // DB 접근을 위함
-    var postDetailViewFragment = PostDetailViewFragment() // 프래그먼트 받아오기
-
-    val fragmentManager = supportFragmentManager
-    // fragmentManager.beginTransaction().replace(R.id.main_content, PostDetailViewFragment).commit()
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,10 +43,13 @@ class PostCommunity : AppCompatActivity() {
             }
 
             // 메인 화면이 뜨면 detailview fragment 뜨도록?
-
         }
 
+        var postDetailViewFragment = PostDetailViewFragment() // 프래그먼트 받아오기
+        // val fragmentManager = supportFragmentManager // 프래그먼트 매니저 획득
 
+        // 프래그먼트매니저로 트랜잭션 실행 (프래그먼트를 올리거나 교체)
+        supportFragmentManager.beginTransaction().replace(R.id.main_content, postDetailViewFragment).commit() // 프래그먼트를 FrameLayout의 자식으로 등록하고 commit하면 프래그먼트가 화면에 보임
     }
 
 
