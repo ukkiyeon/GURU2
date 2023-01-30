@@ -159,6 +159,7 @@
             android:textColor="@color/black"
             android:background="@drawable/btn_round"
             android:layout_marginTop="40dp"
+            android:textSize="15dp"
             android:text="로그아웃">
         </androidx.appcompat.widget.AppCompatButton>
 
@@ -171,6 +172,7 @@
             android:backgroundTint="@color/green_2"
             android:textColor="@color/white"
             android:background="@drawable/btn_round"
+            android:textSize="15dp"
             android:text="회원 탈퇴"/>
     </LinearLayout>
 
