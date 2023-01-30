@@ -7,23 +7,41 @@
     android:layout_height="match_parent"
     tools:context=".PostCommunity">
 
-    <Button
-        android:id="@+id/addbutton"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_margin="10dp"
-        android:text="글쓰기" />
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="10dp"
+        android:text="커뮤니티"
+        android:textSize="34sp"
+        android:textStyle="bold"/>
 
+    <!--리사이클러뷰 위치 -->
     <FrameLayout
         android:id="@+id/main_content"
         android:layout_width="match_parent"
-
-        android:layout_height="match_parent">
+        android:layout_height="470dp">
     </FrameLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical">
 
+        <Button
+            android:id="@+id/write_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/green_2"
+            android:text="글쓰기" />
 
-
+        <include
+            android:id="@+id/fix_bottom"
+            layout="@layout/fix_bottom" />
+    </LinearLayout>
     
 </LinearLayout>
