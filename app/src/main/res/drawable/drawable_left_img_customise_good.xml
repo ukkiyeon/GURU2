@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <!--drawable left 크기 맞추려고-->
     <item
-        android:drawable="@drawable/good"
+        android:drawable="@drawable/like_filled"
         android:width="20dp"
         android:height="25dp"
         android:layout_marginLeft="10dp"
