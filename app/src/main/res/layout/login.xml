@@ -37,9 +37,10 @@
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="3dp"
+            android:textColor="@color/black"
             android:text="에코런 시작하기"
-            android:textSize="35px"
+            android:textSize="40px"
             android:textStyle="bold"/>
 
         <ImageView

@@ -13,7 +13,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.splash)
 
         Handler().postDelayed({
-            val intent = Intent(this, Login::class.java)
+            val intent = Intent(this, Join::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
             finish()
