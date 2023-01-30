@@ -18,11 +18,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.app.ActivityCompat
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.guru2.databinding.ActivityMapsBinding
 import com.google.android.gms.maps.GoogleMap
-import com.google.api.Distribution.BucketOptions.Linear
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import org.json.JSONArray
@@ -66,6 +62,17 @@ class AppMain : AppCompatActivity() {
 
     lateinit var main_weather : LinearLayout
     lateinit var main_walk:LinearLayout
+    lateinit var trash_num1:TextView
+    lateinit var trash_num2:TextView
+    lateinit var trash_num3:TextView
+    lateinit var trash_num4:TextView
+    lateinit var trash_num5:TextView
+    lateinit var trash_num6:TextView
+    lateinit var trash_num7:TextView
+    lateinit var trash_num8:TextView
+    lateinit var trash_num9:TextView
+    lateinit var trash_num10:TextView
+    
     lateinit var walks_num1:TextView
     lateinit var walks_num2:TextView
     lateinit var walks_num3:TextView
@@ -75,16 +82,7 @@ class AppMain : AppCompatActivity() {
     lateinit var walks_num7:TextView
     lateinit var walks_num8:TextView
     lateinit var walks_num9:TextView
-    lateinit var walks_num10:TextView
-
-    //지도
-    private lateinit var mMap: GoogleMap
-    val TAG: String = "로그"
-    private val REQUEST_PERMISSION_LOCATION = 10
-
-    private lateinit var binding: ActivityMapsBinding
-    val itemList = arrayListOf<WalkData>()
-    lateinit var walkAdapter : RecycleAdapter
+    lateinit var walks_more:TextView
 
     //DB
     lateinit var myHelper: myDBHelper
@@ -95,20 +93,6 @@ class AppMain : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.app_main)
 
-        //카카오 해시값
-//        try {
-//            val info = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
-//            for (signature in info.signatures) {
-//                val md: MessageDigest = MessageDigest.getInstance("SHA")
-//                md.update(signature.toByteArray())
-//                Log.d("키해시는 :", Base64.encodeToString(md.digest(), Base64.DEFAULT))
-//            }
-//        } catch (e: PackageManager.NameNotFoundException) {
-//            e.printStackTrace()
-//        } catch (e: NoSuchAlgorithmException) {
-//            e.printStackTrace()
-//        }
-
         flogging_start = findViewById(R.id.flogging_start)
         flogging_start.setText("시작")
         flogging_time = findViewById(R.id.flogging_time)
@@ -116,7 +100,7 @@ class AppMain : AppCompatActivity() {
         flogging_distance = findViewById(R.id.flogging_distance)
         btn_mypage = findViewById(R.id.btn_mypage)
         main_weather = findViewById(R.id.main_weather)
-        main_walk = findViewById(R.id.walk_map)
+        main_walk = findViewById(R.id.layout_2)
 
         //이름 불러오기
         val mypage_name = findViewById<TextView>(R.id.mypage_name2)
@@ -145,13 +129,15 @@ class AppMain : AppCompatActivity() {
         }
 
         btn_communityPage.setOnClickListener {
-            startActivity(Intent(this@AppMain, Community::class.java))
+            startActivity(Intent(this@AppMain, PostCommunity::class.java))
         }
 
+        //플로깅 시작 버튼 클릭
         flogging_start.setOnClickListener {
             flogging_start()
         }
 
+        //버튼 3개
         btn_walk = findViewById(R.id.btn_walk)
         btn_trash = findViewById(R.id.btn_trash)
         btn_weather = findViewById(R.id.btn_weather)
@@ -167,6 +153,20 @@ class AppMain : AppCompatActivity() {
         btn_9 = findViewById(R.id.btn_9)
 
         val trash = findViewById<View>(R.id.trash)
+
+        //쓰레기통 목록 변수
+        trash_num1 = findViewById(R.id.trash_num1)
+        trash_num2 = findViewById(R.id.trash_num2)
+        trash_num3 = findViewById(R.id.trash_num3)
+        trash_num4 = findViewById(R.id.trash_num4)
+        trash_num5 = findViewById(R.id.trash_num5)
+        trash_num6 = findViewById(R.id.trash_num6)
+        trash_num7 = findViewById(R.id.trash_num7)
+        trash_num8 = findViewById(R.id.trash_num8)
+        trash_num9 = findViewById(R.id.trash_num9)
+        trash_num10 = findViewById(R.id.trash_num10)
+
+        //산책로 목록 변수
         walks_num1 = findViewById(R.id.walks_num1)
         walks_num2 = findViewById(R.id.walks_num2)
         walks_num3 = findViewById(R.id.walks_num3)
@@ -176,46 +176,68 @@ class AppMain : AppCompatActivity() {
         walks_num7 = findViewById(R.id.walks_num7)
         walks_num8 = findViewById(R.id.walks_num8)
         walks_num9 = findViewById(R.id.walks_num9)
-        walks_num10 = findViewById(R.id.walks_num10)
+        walks_more = findViewById(R.id.walks_more)
+        walks_more.setOnClickListener {
+            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://data.seoul.go.kr/dataList/OA-394/S/1/datasetView.do"))
+            startActivity(intent)
+        }
 
-        val jsonString = assets.open("map_walk.json").reader().readText();
-//        Log.d("JSON STR", jsonString)
+        //공공 데이터 연결
+        val jsonString_w = assets.open("json_walk.json").reader().readText();
+        val jsonString_t = assets.open("json_trash.json").reader().readText();
+//        Log.d("JSON walk", jsonString_w)
+//        Log.d("JSON trash", jsonString_t)
 
-        val jsonArray = JSONArray(jsonString)
+        val jsonArray_w = JSONArray(jsonString_w)
+        val jsonArray_t = JSONArray(jsonString_t)
         var str1 :String
 
-//        for (i in 0 until jsonArray.length()) {
-        str1 = jsonArray.getJSONObject(0).getString("연번") + " " +jsonArray.getJSONObject(0).getString("도로명") + " " +jsonArray.getJSONObject(0).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(0).getString("해당 동")
+        str1 = jsonArray_w.getJSONObject(0).getString("p_park") + " (" + jsonArray_w.getJSONObject(0).getString("p_addr") + ")"
         walks_num1.text = str1
-        str1 = jsonArray.getJSONObject(1).getString("연번") + " " +jsonArray.getJSONObject(1).getString("도로명") + " " +jsonArray.getJSONObject(1).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(1).getString("해당 동")
+        str1 = jsonArray_w.getJSONObject(1).getString("p_park") + " (" + jsonArray_w.getJSONObject(1).getString("p_addr") + ")"
         walks_num2.text = str1
-        str1 = jsonArray.getJSONObject(2).getString("연번") + " " +jsonArray.getJSONObject(2).getString("도로명") + " " +jsonArray.getJSONObject(2).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(2).getString("해당 동")
+        str1 = jsonArray_w.getJSONObject(2).getString("p_park") + " (" + jsonArray_w.getJSONObject(2).getString("p_addr") + ")"
         walks_num3.text = str1
-        str1 = jsonArray.getJSONObject(3).getString("연번") + " " +jsonArray.getJSONObject(3).getString("도로명") + " " +jsonArray.getJSONObject(3).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(3).getString("해당 동")
+        str1 = jsonArray_w.getJSONObject(3).getString("p_park") + " (" + jsonArray_w.getJSONObject(3).getString("p_addr") + ")"
         walks_num4.text = str1
-        str1 = jsonArray.getJSONObject(4).getString("연번") + " " +jsonArray.getJSONObject(4).getString("도로명") + " " +jsonArray.getJSONObject(4).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(4).getString("해당 동")
+        str1 = jsonArray_w.getJSONObject(4).getString("p_park") + " (" + jsonArray_w.getJSONObject(4).getString("p_addr") + ")"
         walks_num5.text = str1
-        str1 = jsonArray.getJSONObject(5).getString("연번") + " " +jsonArray.getJSONObject(5).getString("도로명") + " " +jsonArray.getJSONObject(5).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(5).getString("해당 동")
+        str1 = jsonArray_w.getJSONObject(5).getString("p_park") + " (" + jsonArray_w.getJSONObject(5).getString("p_addr") + ")"
         walks_num6.text = str1
-        str1 = jsonArray.getJSONObject(6).getString("연번") + " " +jsonArray.getJSONObject(6).getString("도로명") + " " +jsonArray.getJSONObject(6).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(6).getString("해당 동")
+        str1 = jsonArray_w.getJSONObject(6).getString("p_park") + " (" + jsonArray_w.getJSONObject(6).getString("p_addr") + ")"
         walks_num7.text = str1
-        str1 = jsonArray.getJSONObject(7).getString("연번") + " " +jsonArray.getJSONObject(7).getString("도로명") + " " +jsonArray.getJSONObject(7).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(7).getString("해당 동")
+        str1 = jsonArray_w.getJSONObject(7).getString("p_park") + " (" + jsonArray_w.getJSONObject(7).getString("p_addr") + ")"
         walks_num8.text = str1
-        str1 = jsonArray.getJSONObject(7).getString("연번") + " " +jsonArray.getJSONObject(8).getString("도로명") + " " +jsonArray.getJSONObject(8).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(8).getString("해당 동")
+        str1 = jsonArray_w.getJSONObject(8).getString("p_park") + " (" + jsonArray_w.getJSONObject(8).getString("p_addr") + ")"
         walks_num9.text = str1
-        str1 = jsonArray.getJSONObject(9).getString("연번") + " " +jsonArray.getJSONObject(9).getString("도로명") + " " +jsonArray.getJSONObject(9).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(9).getString("해당 동")
-        walks_num10.text = str1
-//        var str2 = jsonArray.getJSONObject(i).getString("도로명")
-//        var str3 = jsonArray.getJSONObject(i).getString("세부번지(도로명)")
-//        var str4 = jsonArray.getJSONObject(i).getString("해당 동")
-        Log.d("jsonObject", str1)
-//        }
 
+        str1 = jsonArray_t.getJSONObject(0).getString("연번") + " " +jsonArray_t.getJSONObject(0).getString("도로명") + " " +jsonArray_t.getJSONObject(0).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(0).getString("해당 동")
+        trash_num1.text = str1
+        str1 = jsonArray_t.getJSONObject(1).getString("연번") + " " +jsonArray_t.getJSONObject(1).getString("도로명") + " " +jsonArray_t.getJSONObject(1).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(1).getString("해당 동")
+        trash_num2.text = str1
+        str1 = jsonArray_t.getJSONObject(2).getString("연번") + " " +jsonArray_t.getJSONObject(2).getString("도로명") + " " +jsonArray_t.getJSONObject(2).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(2).getString("해당 동")
+        trash_num3.text = str1
+        str1 = jsonArray_t.getJSONObject(3).getString("연번") + " " +jsonArray_t.getJSONObject(3).getString("도로명") + " " +jsonArray_t.getJSONObject(3).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(3).getString("해당 동")
+        trash_num4.text = str1
+        str1 = jsonArray_t.getJSONObject(4).getString("연번") + " " +jsonArray_t.getJSONObject(4).getString("도로명") + " " +jsonArray_t.getJSONObject(4).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(4).getString("해당 동")
+        trash_num5.text = str1
+        str1 = jsonArray_t.getJSONObject(5).getString("연번") + " " +jsonArray_t.getJSONObject(5).getString("도로명") + " " +jsonArray_t.getJSONObject(5).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(5).getString("해당 동")
+        trash_num6.text = str1
+        str1 = jsonArray_t.getJSONObject(6).getString("연번") + " " +jsonArray_t.getJSONObject(6).getString("도로명") + " " +jsonArray_t.getJSONObject(6).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(6).getString("해당 동")
+        trash_num7.text = str1
+        str1 = jsonArray_t.getJSONObject(7).getString("연번") + " " +jsonArray_t.getJSONObject(7).getString("도로명") + " " +jsonArray_t.getJSONObject(7).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(7).getString("해당 동")
+        trash_num8.text = str1
+        str1 = jsonArray_t.getJSONObject(7).getString("연번") + " " +jsonArray_t.getJSONObject(8).getString("도로명") + " " +jsonArray_t.getJSONObject(8).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(8).getString("해당 동")
+        trash_num9.text = str1
+        str1 = jsonArray_t.getJSONObject(9).getString("연번") + " " +jsonArray_t.getJSONObject(9).getString("도로명") + " " +jsonArray_t.getJSONObject(9).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(9).getString("해당 동")
+        trash_num10.text = str1
+
+        //버튼 색상 변경, view 숨기기/보여지게 하기
         btn_1.setOnClickListener {
             main_weather.visibility = View.VISIBLE
             main_walk.visibility = View.GONE
             trash.visibility = View.GONE
-
+            //버튼 색상 변경
             btn_weather.visibility = View.VISIBLE
             main_walk.visibility = View.GONE
             btn_trash.visibility = View.GONE
@@ -224,7 +246,7 @@ class AppMain : AppCompatActivity() {
             main_weather.visibility = View.VISIBLE
             main_walk.visibility = View.GONE
             trash.visibility = View.GONE
-
+            //버튼 색상 변경
             btn_weather.visibility = View.VISIBLE
             btn_walk.visibility = View.GONE
             btn_trash.visibility = View.GONE
@@ -233,7 +255,7 @@ class AppMain : AppCompatActivity() {
             main_weather.visibility = View.VISIBLE
             main_walk.visibility = View.GONE
             trash.visibility = View.GONE
-
+            //버튼 색상 변경
             btn_weather.visibility = View.VISIBLE
             btn_walk.visibility = View.GONE
             btn_trash.visibility = View.GONE
@@ -247,9 +269,6 @@ class AppMain : AppCompatActivity() {
             btn_weather.visibility = View.GONE
             btn_walk.visibility = View.VISIBLE
             btn_trash.visibility = View.GONE
-//            checkPermissionForLocation(this)
-//            binding = ActivityMapsBinding.inflate(layoutInflater)
-//            setContentView(binding.root)
         }
         btn_5.setOnClickListener {
             main_weather.visibility = View.GONE
@@ -259,9 +278,6 @@ class AppMain : AppCompatActivity() {
             btn_weather.visibility = View.GONE
             btn_walk.visibility = View.VISIBLE
             btn_trash.visibility = View.GONE
-//            checkPermissionForLocation(this)
-//            binding = ActivityMapsBinding.inflate(layoutInflater)
-//            setContentView(binding.root)
         }
         btn_8.setOnClickListener {
             main_weather.visibility = View.GONE
@@ -271,9 +287,6 @@ class AppMain : AppCompatActivity() {
             btn_weather.visibility = View.GONE
             btn_walk.visibility = View.VISIBLE
             btn_trash.visibility = View.GONE
-//            checkPermissionForLocation(this)
-//            binding = ActivityMapsBinding.inflate(layoutInflater)
-//            setContentView(binding.root)
         }
 
         btn_3.setOnClickListener {
@@ -316,7 +329,7 @@ class AppMain : AppCompatActivity() {
             // Dialog만들기
             mBuilder.setView(mDialogView).show()
         }
-
+        //인스타 그램 이미지 클릭 시 이동
         instagram.setOnClickListener{
             var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com"))
             startActivity(intent)
@@ -355,7 +368,6 @@ class AppMain : AppCompatActivity() {
             sec = time/100
             milli = time%100
 
-
             runOnUiThread {
                 flogging_time.text = "${sec} : ${milli}"
                 popup_time.text = "시간  ${sec} : ${milli}"
@@ -388,7 +400,7 @@ class AppMain : AppCompatActivity() {
 
         flogging_start.setOnClickListener {  //값 초기화
             flogging_time.text = "00 : 00"
-            flogging_distance.text = "00 m"
+            flogging_distance.text = "0 m"
             flogging_start.setText("시작")
             btn_share.visibility = View.INVISIBLE
             flogging_restart()
@@ -402,97 +414,4 @@ class AppMain : AppCompatActivity() {
             flogging_start()
         }
     }
-
-//    fun onMapReady(googleMap: GoogleMap) {
-//        mMap = googleMap
-//        val SEOUL = LatLng(37.56, 126.97)
-//        val markerOptions = MarkerOptions() // 마커 생성
-//        markerOptions.position(SEOUL)
-//        markerOptions.title("서울") // 마커 제목
-//        markerOptions.snippet("한국의 수도") // 마커 설명
-//        mMap.addMarker(markerOptions)
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL)) // 초기 위치
-//        mMap.animateCamera(CameraUpdateFactory.zoomTo(15f)) // 줌의 정도
-//        googleMap.mapType = GoogleMap.MAP_TYPE_HYBRID // 지도 유형 설정
-//    }
-
-    // 위치 권한이 있는지 확인하는 메서드
-    fun checkPermissionForLocation(context: Context): Boolean {
-        Log.d(TAG, "checkPermissionForLocation()")
-        Log.d(TAG, context.toString())
-        // Android 6.0 Marshmallow 이상에서는 지리 확보(위치) 권한에 추가 런타임 권한이 필요합니다.
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (context.checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                Log.d(TAG, "checkPermissionForLocation() 권한 상태 : O")
-                true
-            } else {
-                // 권한이 없으므로 권한 요청 알림 보내기
-                Log.d(TAG, "checkPermissionForLocation() 권한 상태 : X")
-                ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_PERMISSION_LOCATION)
-                false
-            }
-        } else {
-            true
-        }
-    }
-    // 사용자에게 권한 요청 후 결과에 대한 처리 로직
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        Log.d(TAG, "onRequestPermissionsResult()")
-        if (requestCode == REQUEST_PERMISSION_LOCATION) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Log.d(TAG, "onRequestPermissionsResult() _ 권한 허용 클릭")
-                //startLocationUpdates()
-            } else {
-                Log.d(TAG, "onRequestPermissionsResult() _ 권한 허용 거부")
-                Toast.makeText(this@AppMain, "권한이 없어 해당 기능을 실행할 수 없습니다.", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
-//    private val mapIcon: BitmapDescriptor by lazy {
-//        val color = ContextCompat.getColor(this, R.color.green_2)
-////        BitmapHelper.vectorToBitmap(this, R.drawable.mapIcon, color)
-//    }
-
-//    private fun addMarkers(googleMap: GoogleMap) {
-//        places.forEach { place ->
-//            val marker = googleMap.addMarker(
-//                MarkerOptions()
-//                    .title(place.name)
-//                    .position(place.latLng)
-//                    .icon(mapIcon)
-//            )
-//
-//            // Set place as the tag on the marker object so it can be referenced within
-//            // MarkerInfoWindowAdapter
-//            if (marker != null) {
-//                marker.tag = place
-//            }
-//        }
-//    }
-
-//    private fun addClusteredMarkers(googleMap: GoogleMap) {
-//        // Create the ClusterManager class and set the custom renderer.
-//        val clusterManager = ClusterManager<Place>(this, googleMap)
-//        clusterManager.renderer =
-//            PlacesReader(
-//                this,
-//                googleMap,
-//                clusterManager
-//            )
-//
-//        // Set custom info window adapter
-//        clusterManager.markerCollection.setInfoWindowAdapter(MarkerInfoWindowAdapter(this))
-//
-//        // Add the places to the ClusterManager.
-//        clusterManager.addItems(places)
-//        clusterManager.cluster()
-//
-//        // Set ClusterManager as the OnCameraIdleListener so that it
-//        // can re-cluster when zooming in and out.
-//        googleMap.setOnCameraIdleListener {
-//            clusterManager.onCameraIdle()
-//        }
-//    }
 }
