@@ -52,13 +52,9 @@
              project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
              "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
         -->
-        <!--<meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAThw4etbSYJMUA_GpVxyKNqRwKW6gU1lA" />-->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyC3Hld3avVcqSCBOewG2n0dWRiEk2BOThM"/>
-
+            android:value="AIzaSyAThw4etbSYJMUA_GpVxyKNqRwKW6gU1lA" />
 
         <activity
             android:name=".Login"
@@ -156,14 +152,6 @@
         <activity
             android:name=".Fix_bottom"
             android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-
-        <activity
-            android:name=".Trash"
-            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
