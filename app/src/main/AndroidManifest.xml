@@ -64,30 +64,8 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Clause2"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".UserModify"
             android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Clause"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Join"
-            android:exported="false"
-            android:parentActivityName=".Login">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -157,21 +135,16 @@
         </activity>
         <activity
             android:name=".SplashActivity"
-            android:exported="true"> <!-- false로 변경했음 아래 주석처리랑 -->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
-        <activity
-            android:name=".AppMain"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+           </intent-filter>
+        </activity>
+        <activity
+            android:name=".AppMain"
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

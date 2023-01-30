@@ -9,27 +9,57 @@
     android:orientation="vertical">
 
     <!-- 로고 부분 -->
-
-
-    <!-- 구글 버튼 부분 -->
     <ImageView
         android:id="@+id/logo_img"
-        android:layout_width="183dp"
-        android:layout_height="234dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="54dp"
+        android:layout_width="179dp"
+        android:layout_height="171dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="88dp"
         android:layout_marginEnd="96dp"
         android:layout_marginBottom="28dp"
         app:srcCompat="@drawable/logo" />
 
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            app:srcCompat="@drawable/drawable_left_img_customise_plant" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="에코런 시작하기"
+            android:textSize="35px"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            app:srcCompat="@drawable/drawable_left_img_customise_plant" />
+
+    </LinearLayout>
+
+
+    <!-- 구글 버튼 부분 -->
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
-        android:layout_width="309dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="28dp" />
-
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="28dp">
+    </com.google.android.gms.common.SignInButton>
 
 </LinearLayout>
 </layout>

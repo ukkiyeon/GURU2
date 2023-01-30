@@ -83,17 +83,17 @@ class Mypage : AppCompatActivity() {
         btn_delete.setOnClickListener {
             val builder = AlertDialog.Builder(this)
             //val builder = AlertDialog.Builder(this, R.style.MyDialogTheme)
-            builder.setTitle("회원 탈퇴 확인창")
+            builder.setTitle("에코런 회원 탈퇴")
             builder.setMessage("정말 회원탈퇴 하시겠습니까?")
 
             builder.setPositiveButton("네", DialogInterface.OnClickListener { dialog, which ->
                 auth?.currentUser?.delete()
-                Toast.makeText(this, "회원 탈퇴 되었습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "회원탈퇴 되었습니다.", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, Login::class.java)
                 startActivity(intent)
             })
             builder.setNegativeButton("아니요", DialogInterface.OnClickListener { dialog, which ->
-                Toast.makeText(this, "회원탈퇴 취소", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "회원탈퇴 취소되었습니다.", Toast.LENGTH_SHORT).show()
             })
 
             builder.create()
