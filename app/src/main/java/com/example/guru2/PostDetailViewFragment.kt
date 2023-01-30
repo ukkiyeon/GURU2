@@ -34,12 +34,10 @@ class PostDetailViewFragment : Fragment() {
 
     //////////////////////////////////////////////////
 
-
     // 어댑터 (데이터를 아이템 레이아웃으로 만듦)
     inner class DetailViewRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         var contentDTOs : ArrayList<ContentDTO> = arrayListOf()
         var contentUidList : ArrayList<String> = arrayListOf()
-
 
         // 생성자 (DB 접근해서 데이터 받아오는 쿼리)
         init {
@@ -57,26 +55,23 @@ class PostDetailViewFragment : Fragment() {
             }
         }
 
-
         // 메소드 1. 뷰 홀더 생성(레이아웃 생성, xml 파일을 inflate해서 ViewHolder를 생성)
         override fun onCreateViewHolder(p0: ViewGroup, p1: Int): RecyclerView.ViewHolder {
-            var view = LayoutInflater.from(p0.context).inflate(R.layout.post_item,p0,false)
+            var view = LayoutInflater.from(p0.context).inflate(R.layout.post_item,p0,false) // post_item으로 뷰 생성
             return CustomViewHolder(view)
         }
 
-
+        // post_item 뷰로 CustomViewHolder 생성
         inner class CustomViewHolder(view: View) : RecyclerView.ViewHolder(view)
-
 
         // 메소드 2. 리사이클러뷰의 아이템 총 개수 반환
         override fun getItemCount(): Int {
             return contentDTOs.size
         }
 
-
         // 메소드 3. 뷰홀더가 재활용될 때 실행됨(onCreateViewHolder에서 만든 view와 실제 데이터를 연결)
         override fun onBindViewHolder(p0: RecyclerView.ViewHolder, p1: Int) {
-            var viewholder = (p0 as CustomViewHolder).itemView // p0을 CustomViewHolder로 캐스팅
+            var viewholder = (p0 as CustomViewHolder).itemView // CustomViewHolder로 캐스팅
 
             //UserId
             viewholder.detailviewitem_profile_textview.text = contentDTOs!![p1].userId
@@ -91,41 +86,35 @@ class PostDetailViewFragment : Fragment() {
             viewholder.detailviewitem_favoritecounter_textview.text = "Likes " + contentDTOs!![p1].favoriteCount
 
             //profile image
-            Glide.with(p0.itemView.context).load(contentDTOs!![p1].imageUrl).into(viewholder.detailviewitem_profile_image)
+            // Glide.with(p0.itemView.context).load(contentDTOs!![p1].imageUrl).into(viewholder.detailviewitem_profile_image)
 
-            // 좋아요 버튼 클릭 이벤트
-            viewholder.detailviewitem_comment_imageview.setOnClickListener {
-                favoriteEvent(p1)
+            // 좋아요 버튼 클릭
+            viewholder.detailviewitem_favorite_imageview.setOnClickListener {
+                favoriteEvent(p1) // 포지션 값 전달
             }
-
-            if(contentDTOs!![p1].favorites.containsKey(uid)) {
-                viewholder.detailviewitem_favorite_imageview.setImageResource(R.drawable.plant)
-
-            } else {
-                // 좋아요 클릭이 아직 안된 상태
-                viewholder.detailviewitem_favorite_imageview.setImageResource(R.drawable.good)
-
+            if(contentDTOs!![p1].favorites.containsKey(uid)) { // 채워진
+                viewholder.detailviewitem_favorite_imageview.setImageResource(R.drawable.like_filled)
+            } else { // 빈
+                viewholder.detailviewitem_favorite_imageview.setImageResource(R.drawable.like_empty)
             }
         }
 
 
-        // 좋아요 이벤트 메소드
+
+        // 좋아요 이벤트 메소드 (버튼 눌리면 발생)
         fun favoriteEvent(position : Int) { // 포지션 파라미터
 
             var tsDoc = firestore?.collection("images")?.document(contentUidList[position]) // 선택한 이미지 UID 받아오기
 
             // 데이터 입력을 위해 트랜잭션 불러오기
             firestore?.runTransaction { transaction ->
-
-
                 var contentDTO = transaction.get(tsDoc!!).toObject(ContentDTO::class.java) // 트랜잭션 데이터를 contentDTO로 캐스팅
 
-               // 이미 좋아요 되어있을 때
-                if(contentDTO!!.favorites.containsKey(uid)) {
-                    contentDTO?.favoriteCount = contentDTO?.favoriteCount?.minus(1)!!
+                if(contentDTO!!.favorites.containsKey(uid)) { // 이미 좋아요 되어있을 때 -> -1
+                    contentDTO?.favoriteCount = contentDTO?.favoriteCount!! - 1
                     contentDTO?.favorites?.remove(uid)
-                } else {
-                    contentDTO?.favoriteCount = contentDTO?.favoriteCount?.plus(1)!! // 좋아요 되어 있지 않을 때 -> +1
+                } else { // 좋아요 되어 있지 않을 때 -> +1
+                    contentDTO?.favoriteCount = contentDTO?.favoriteCount!! + 1
                     contentDTO?.favorites?.set(uid!!, true)
                 }
 

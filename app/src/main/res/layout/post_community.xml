@@ -17,12 +17,19 @@
         android:textSize="34sp"
         android:textStyle="bold"/>
 
-    <!--리사이클러뷰 위치 -->
-    <FrameLayout
-        android:id="@+id/main_content"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="470dp">
-    </FrameLayout>
+
+        <!--리사이클러뷰 위치 -->
+        <FrameLayout
+            android:id="@+id/main_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </FrameLayout>
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

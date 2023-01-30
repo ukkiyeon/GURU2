@@ -26,9 +26,9 @@ class PostCommunity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.post_community)
 
-        write_btn = findViewById(R.id.write_btn) // 어디에 넣어야 하쥐 ................????????????
+        write_btn = findViewById(R.id.write_btn)
 
-        //버튼 클릭 시 화면 이동 => 어디에 넣어야 하지 ...
+        // 글쓰기 버튼 클릭
         write_btn.setOnClickListener {
 
             // 갤러리 권한 받기
@@ -43,7 +43,6 @@ class PostCommunity : AppCompatActivity() {
         }
 
         var postDetailViewFragment = PostDetailViewFragment() // 프래그먼트 받아오기
-        // val fragmentManager = supportFragmentManager // 프래그먼트 매니저 획득
 
         // 프래그먼트매니저로 트랜잭션 실행 (프래그먼트를 올리거나 교체)
         supportFragmentManager.beginTransaction().replace(R.id.main_content, postDetailViewFragment).commit() // 프래그먼트를 FrameLayout의 자식으로 등록하고 commit하면 프래그먼트가 화면에 보임
@@ -52,7 +51,6 @@ class PostCommunity : AppCompatActivity() {
         val fix_bottom = findViewById<View>(R.id.fix_bottom)
         var btn_tipPage: ImageButton
         var btn_homePage: ImageButton
-
 
         btn_tipPage = fix_bottom.findViewById(R.id.btn_tipPage)
         btn_homePage = fix_bottom.findViewById(R.id.btn_homePage)

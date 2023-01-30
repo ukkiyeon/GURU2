@@ -38,21 +38,20 @@ class PostPhoto : AppCompatActivity() {
 
         // 파이어베이스 관련 초기화
         storage = FirebaseStorage.getInstance()
-        auth = FirebaseAuth.getInstance() // 2.
-        firestore = FirebaseFirestore.getInstance() // 2.
+        auth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
 
         // 앨범 열기
         var photoPickerIntent = Intent(Intent.ACTION_PICK)
         photoPickerIntent.type = "image/*"
         startActivityForResult(photoPickerIntent, PICK_IMAGE_FROM_ALBUM)
 
-        // 버튼에 이미지 업로드 이벤트
+        // UPLOAD 버튼 클릭
         postphoto_btn_upload.setOnClickListener {
             contentUpload() // 만들어둔 업로드 메소드 실행
         }
-
-
     }
+
     // 선택한 이미지 받기
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -83,32 +82,22 @@ class PostPhoto : AppCompatActivity() {
             return@continueWithTask storageRef.downloadUrl // 이미지 주소를 리턴함
         }?.addOnSuccessListener { uri ->
 
-            // DB 입력해주는 코드들
+            // DB 입력 시작
             var contentDTO = ContentDTO() // 이미지 주소를 받아오자마자 데이터 모델 만들기 시작. contentDTO 선언
 
-            // Insert downloadUrl of image
-            contentDTO.imageUrl = uri.toString()
-
-            // Insert uid of user
-            contentDTO.uid = auth?.currentUser?.uid
-
-            // Insert userId (이메일)
-            contentDTO.userId = auth?.currentUser?.email
-
-            // Insert explain of content
-            contentDTO.explain = postphoto_edit_explain.text.toString()
-
-            // Insert timestamp
-            contentDTO.timestamp = System.currentTimeMillis()
+            contentDTO.imageUrl = uri.toString() // 이미지 다운로드 url
+            contentDTO.uid = auth?.currentUser?.uid // uid
+            contentDTO.userId = auth?.currentUser?.displayName // 이름
+            contentDTO.explain = postphoto_edit_explain.text.toString() // 이미지 설명
+            contentDTO.timestamp = System.currentTimeMillis() // timestamp
 
             firestore?.collection("images")?.document()?.set(contentDTO)
 
             setResult(Activity.RESULT_OK) // 정상적으로 닫혔다고 RESULT_OK 넘김
-
-            finish() // 업로드 완료되면 창 닫음
+            finish() // DB 업로드 후 창 닫기기
         }
 
-        /* 1번쨰 방법 파일 업로드? 콜백 메소드 ...
+        /* 다른 방법
         storageRef?.putFile(photoUri!!)?.addOnSuccessListener {
             // 성공시 메시지
             Toast.makeText(this, getString(R.string.upload_success), Toast.LENGTH_LONG).show()
@@ -134,9 +123,7 @@ class PostPhoto : AppCompatActivity() {
                 firestore?.collection("images")?.document()?.set(contentDTO)
 
                 setResult(Activity.RESULT_OK)
-
                 finish()
-
             }
         }*/
 

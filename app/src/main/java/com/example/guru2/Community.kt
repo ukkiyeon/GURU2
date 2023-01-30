@@ -25,7 +25,7 @@ class Community : AppCompatActivity() {
 
         // 버튼 클릭 시 화면 이동
         writingBtn.setOnClickListener {
-            startActivity(Intent(this@Community, CommunityWriting::class.java))
+            startActivity(Intent(this@Community, PostCommunity::class.java))
         }
 
         viewBtn.setOnClickListener {

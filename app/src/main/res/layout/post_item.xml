@@ -48,10 +48,11 @@
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_marginHorizontal="5dp"
-        android:layout_height="50dp">
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/detailviewitem_favorite_imageview"
-            android:src="@drawable/good"
+            android:src="@drawable/like_filled"
             android:layout_marginRight="5dp"
             android:layout_width="35dp"
             android:layout_height="35dp"/>
