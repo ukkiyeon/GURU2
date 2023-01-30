@@ -2,9 +2,7 @@ package com.example.guru2
 
 import android.content.Context
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import java.io.InputStream
-import java.io.InputStreamReader
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.clustering.ClusterItem
 
@@ -31,7 +29,7 @@ class map_walk(private val context: Context) {
 
     // InputStream representing places.json
     private val inputStream: InputStream
-        get() = context.resources.openRawResource(R.raw.map_walk)
+        get() = context.resources.openRawResource(R.raw.json_trash)
 
     /**
      * Reads the list of place JSON objects in the file places.json
