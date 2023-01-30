@@ -18,10 +18,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.app.ActivityCompat
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.maps.GoogleMap
-import com.google.api.Distribution.BucketOptions.Linear
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import org.json.JSONArray
@@ -75,6 +72,16 @@ class AppMain : AppCompatActivity() {
     lateinit var walks_num8:TextView
     lateinit var walks_num9:TextView
     lateinit var walks_num10:TextView
+    lateinit var walks_num11:TextView
+    lateinit var walks_num12:TextView
+    lateinit var walks_num13:TextView
+    lateinit var walks_num14:TextView
+    lateinit var walks_num15:TextView
+    lateinit var walks_num16:TextView
+    lateinit var walks_num17:TextView
+    lateinit var walks_num18:TextView
+    lateinit var walks_num19:TextView
+    lateinit var walks_num20:TextView
 
     //지도
     private lateinit var mMap: GoogleMap
@@ -175,33 +182,74 @@ class AppMain : AppCompatActivity() {
         walks_num8 = findViewById(R.id.walks_num8)
         walks_num9 = findViewById(R.id.walks_num9)
         walks_num10 = findViewById(R.id.walks_num10)
+        walks_num11 = findViewById(R.id.walks_num11)
+        walks_num12 = findViewById(R.id.walks_num12)
+        walks_num13 = findViewById(R.id.walks_num13)
+        walks_num14 = findViewById(R.id.walks_num14)
+//        walks_num15 = findViewById(R.id.walks_num15)
+//        walks_num16 = findViewById(R.id.walks_num16)
+//        walks_num17 = findViewById(R.id.walks_num17)
+//        walks_num18 = findViewById(R.id.walks_num18)
+//        walks_num19 = findViewById(R.id.walks_num19)
+//        walks_num20 = findViewById(R.id.walks_num20)
 
-        val jsonString = assets.open("json_walk.json").reader().readText();
-        Log.d("JSON STR", jsonString)
+        val jsonString_w = assets.open("json_walk.json").reader().readText();
+        val jsonString_t = assets.open("json_trash.json").reader().readText();
+        Log.d("JSON walk", jsonString_w)
+//        Log.d("JSON trash", jsonString_t)
 
-        val jsonArray = JSONArray(jsonString)
+        val jsonArray_w = JSONArray(jsonString_w)
+        val jsonArray_t = JSONArray(jsonString_t)
         var str1 :String
 
+        str1 = jsonArray_w.getJSONObject(0).getString("num") + ". " + jsonArray_w.getJSONObject(0).getString("p_park") + " (" + jsonArray_w.getJSONObject(0).getString("p_addr") + ")"
+        walks_num1.text = str1
+        str1 = jsonArray_w.getJSONObject(1).getString("num") + ". " + jsonArray_w.getJSONObject(1).getString("p_park") + " (" + jsonArray_w.getJSONObject(1).getString("p_addr") + ")"
+        walks_num2.text = str1
+        str1 = jsonArray_w.getJSONObject(2).getString("num") + ". " + jsonArray_w.getJSONObject(2).getString("p_park") + " (" + jsonArray_w.getJSONObject(2).getString("p_addr") + ")"
+        walks_num3.text = str1
+        str1 = jsonArray_w.getJSONObject(3).getString("num") + ". " + jsonArray_w.getJSONObject(3).getString("p_park") + " (" + jsonArray_w.getJSONObject(3).getString("p_addr") + ")"
+        walks_num4.text = str1
+        str1 = jsonArray_w.getJSONObject(4).getString("num") + ". " + jsonArray_w.getJSONObject(4).getString("p_park") + " (" + jsonArray_w.getJSONObject(4).getString("p_addr") + ")"
+        walks_num5.text = str1
+        str1 = jsonArray_w.getJSONObject(5).getString("num") + ". " + jsonArray_w.getJSONObject(5).getString("p_park") + " (" + jsonArray_w.getJSONObject(5).getString("p_addr") + ")"
+        walks_num6.text = str1
+        str1 = jsonArray_w.getJSONObject(6).getString("num") + ". " + jsonArray_w.getJSONObject(6).getString("p_park") + " (" + jsonArray_w.getJSONObject(6).getString("p_addr") + ")"
+        walks_num7.text = str1
+        str1 = jsonArray_w.getJSONObject(7).getString("num") + ". " + jsonArray_w.getJSONObject(7).getString("p_park") + " (" + jsonArray_w.getJSONObject(7).getString("p_addr") + ")"
+        walks_num8.text = str1
+        str1 = jsonArray_w.getJSONObject(8).getString("num") + ". " + jsonArray_w.getJSONObject(8).getString("p_park") + " (" + jsonArray_w.getJSONObject(8).getString("p_addr") + ")"
+        walks_num9.text = str1
+        str1 = jsonArray_w.getJSONObject(9).getString("num") + ". " + jsonArray_w.getJSONObject(9).getString("p_park") + " (" + jsonArray_w.getJSONObject(9).getString("p_addr") + ")"
+        walks_num10.text = str1
+        str1 = jsonArray_w.getJSONObject(10).getString("num") + ". " + jsonArray_w.getJSONObject(10).getString("p_park") + " (" + jsonArray_w.getJSONObject(10).getString("p_addr") + ")"
+        walks_num11.text = str1
+        str1 = jsonArray_w.getJSONObject(11).getString("num") + ". " + jsonArray_w.getJSONObject(11).getString("p_name") + " (" + jsonArray_w.getJSONObject(11).getString("p_addr") + ")"
+        walks_num12.text = str1
+        str1 = jsonArray_w.getJSONObject(12).getString("num") + ". " + jsonArray_w.getJSONObject(12).getString("p_park") + " (" + jsonArray_w.getJSONObject(12).getString("p_addr") + ")"
+        walks_num13.text = str1
+        str1 = jsonArray_w.getJSONObject(13).getString("num") + ". " + jsonArray_w.getJSONObject(13).getString("p_park") + " (" + jsonArray_w.getJSONObject(13).getString("p_addr") + ")"
+        walks_num14.text = str1
 //        for (i in 0 until jsonArray.length()) {
-//        str1 = jsonArray.getJSONObject(0).getString("연번") + " " +jsonArray.getJSONObject(0).getString("도로명") + " " +jsonArray.getJSONObject(0).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(0).getString("해당 동")
+//        str1 = jsonArray_t.getJSONObject(0).getString("연번") + " " +jsonArray_t.getJSONObject(0).getString("도로명") + " " +jsonArray_t.getJSONObject(0).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(0).getString("해당 동")
 //        walks_num1.text = str1
-//        str1 = jsonArray.getJSONObject(1).getString("연번") + " " +jsonArray.getJSONObject(1).getString("도로명") + " " +jsonArray.getJSONObject(1).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(1).getString("해당 동")
+//        str1 = jsonArray_t.getJSONObject(1).getString("연번") + " " +jsonArray_t.getJSONObject(1).getString("도로명") + " " +jsonArray_t.getJSONObject(1).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(1).getString("해당 동")
 //        walks_num2.text = str1
-//        str1 = jsonArray.getJSONObject(2).getString("연번") + " " +jsonArray.getJSONObject(2).getString("도로명") + " " +jsonArray.getJSONObject(2).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(2).getString("해당 동")
+//        str1 = jsonArray_t.getJSONObject(2).getString("연번") + " " +jsonArray_t.getJSONObject(2).getString("도로명") + " " +jsonArray_t.getJSONObject(2).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(2).getString("해당 동")
 //        walks_num3.text = str1
-//        str1 = jsonArray.getJSONObject(3).getString("연번") + " " +jsonArray.getJSONObject(3).getString("도로명") + " " +jsonArray.getJSONObject(3).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(3).getString("해당 동")
+//        str1 = jsonArray_t.getJSONObject(3).getString("연번") + " " +jsonArray_t.getJSONObject(3).getString("도로명") + " " +jsonArray_t.getJSONObject(3).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(3).getString("해당 동")
 //        walks_num4.text = str1
-//        str1 = jsonArray.getJSONObject(4).getString("연번") + " " +jsonArray.getJSONObject(4).getString("도로명") + " " +jsonArray.getJSONObject(4).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(4).getString("해당 동")
+//        str1 = jsonArray_t.getJSONObject(4).getString("연번") + " " +jsonArray_t.getJSONObject(4).getString("도로명") + " " +jsonArray_t.getJSONObject(4).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(4).getString("해당 동")
 //        walks_num5.text = str1
-//        str1 = jsonArray.getJSONObject(5).getString("연번") + " " +jsonArray.getJSONObject(5).getString("도로명") + " " +jsonArray.getJSONObject(5).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(5).getString("해당 동")
+//        str1 = jsonArray_t.getJSONObject(5).getString("연번") + " " +jsonArray_t.getJSONObject(5).getString("도로명") + " " +jsonArray_t.getJSONObject(5).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(5).getString("해당 동")
 //        walks_num6.text = str1
-//        str1 = jsonArray.getJSONObject(6).getString("연번") + " " +jsonArray.getJSONObject(6).getString("도로명") + " " +jsonArray.getJSONObject(6).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(6).getString("해당 동")
+//        str1 = jsonArray_t.getJSONObject(6).getString("연번") + " " +jsonArray_t.getJSONObject(6).getString("도로명") + " " +jsonArray_t.getJSONObject(6).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(6).getString("해당 동")
 //        walks_num7.text = str1
-//        str1 = jsonArray.getJSONObject(7).getString("연번") + " " +jsonArray.getJSONObject(7).getString("도로명") + " " +jsonArray.getJSONObject(7).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(7).getString("해당 동")
+//        str1 = jsonArray_t.getJSONObject(7).getString("연번") + " " +jsonArray_t.getJSONObject(7).getString("도로명") + " " +jsonArray_t.getJSONObject(7).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(7).getString("해당 동")
 //        walks_num8.text = str1
-//        str1 = jsonArray.getJSONObject(7).getString("연번") + " " +jsonArray.getJSONObject(8).getString("도로명") + " " +jsonArray.getJSONObject(8).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(8).getString("해당 동")
+//        str1 = jsonArray_t.getJSONObject(7).getString("연번") + " " +jsonArray_t.getJSONObject(8).getString("도로명") + " " +jsonArray_t.getJSONObject(8).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(8).getString("해당 동")
 //        walks_num9.text = str1
-//        str1 = jsonArray.getJSONObject(9).getString("연번") + " " +jsonArray.getJSONObject(9).getString("도로명") + " " +jsonArray.getJSONObject(9).getString("세부번지(도로명)") + " " +jsonArray.getJSONObject(9).getString("해당 동")
+//        str1 = jsonArray_t.getJSONObject(9).getString("연번") + " " +jsonArray_t.getJSONObject(9).getString("도로명") + " " +jsonArray_t.getJSONObject(9).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(9).getString("해당 동")
 //        walks_num10.text = str1
 //        var str2 = jsonArray.getJSONObject(i).getString("도로명")
 //        var str3 = jsonArray.getJSONObject(i).getString("세부번지(도로명)")

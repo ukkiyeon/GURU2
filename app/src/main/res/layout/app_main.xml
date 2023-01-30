@@ -300,7 +300,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
             <!--위-->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -397,7 +397,7 @@
         <LinearLayout
             android:layout_width="380dp"
             android:layout_height="270dp"
-            android:visibility="visible"
+            android:visibility="gone"
             android:layout_gravity="center"
             android:id="@+id/walk_map"
             android:orientation="vertical">
@@ -425,7 +425,7 @@
                         android:gravity="center"
                         android:text="1번       중랑구 묵1동 동1로"
                         android:textColor="@color/black"
-                        android:textSize="18dp" />
+                        android:textSize="15dp" />
 
                     <TextView
                         android:id="@+id/walks_num2"
@@ -437,7 +437,7 @@
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:text="1번       중랑구 묵1동 동1로"
-                        android:textSize="18dp" />
+                        android:textSize="15dp" />
 
                     <TextView
                         android:id="@+id/walks_num4"
@@ -449,7 +449,7 @@
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:text="1번       중랑구 묵1동 동1로"
-                        android:textSize="18dp" />
+                        android:textSize="15dp" />
 
                     <TextView
                         android:id="@+id/walks_num5"
@@ -461,7 +461,7 @@
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:text="1번       중랑구 묵1동 동1로"
-                        android:textSize="18dp" />
+                        android:textSize="15dp" />
 
                     <TextView
                         android:id="@+id/walks_num3"
@@ -473,7 +473,7 @@
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:text="1번       중랑구 묵1동 동1로"
-                        android:textSize="18dp" />
+                        android:textSize="15dp" />
 
                     <TextView
                         android:id="@+id/walks_num6"
@@ -485,7 +485,7 @@
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:text="1번       중랑구 묵1동 동1로"
-                        android:textSize="18dp" />
+                        android:textSize="15dp" />
 
                     <TextView
                         android:id="@+id/walks_num7"
@@ -497,7 +497,7 @@
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:text="1번       중랑구 묵1동 동1로"
-                        android:textSize="18dp" />
+                        android:textSize="15dp" />
 
                     <TextView
                         android:id="@+id/walks_num8"
@@ -509,7 +509,7 @@
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:text="1번       중랑구 묵1동 동1로"
-                        android:textSize="18dp" />
+                        android:textSize="15dp" />
 
                     <TextView
                         android:id="@+id/walks_num9"
@@ -521,7 +521,7 @@
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:text="1번       중랑구 묵1동 동1로"
-                        android:textSize="18dp" />
+                        android:textSize="15dp" />
 
                     <TextView
                         android:id="@+id/walks_num10"
@@ -533,7 +533,187 @@
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:text="1번       중랑구 묵1동 동1로"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/walks_num11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:text="1번       중랑구 묵1동 동1로"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/walks_num12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:text="1번       중랑구 묵1동 동1로"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/walks_num13"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:text="1번       중랑구 묵1동 동1로"
                         android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/walks_num14"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:text="1번       중랑구 묵1동 동1로"
+                        android:textSize="15dp" />
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/walks_num15"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="5dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:gravity="center"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:text="1번       중랑구 묵1동 동1로"-->
+<!--                        android:textSize="15dp" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/walks_num16"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="5dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:gravity="center"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:text="1번       중랑구 묵1동 동1로"-->
+<!--                        android:textSize="15dp" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/walks_num17"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="5dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:gravity="center"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:text="1번       중랑구 묵1동 동1로"-->
+<!--                        android:textSize="15dp" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/walks_num18"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="5dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:gravity="center"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:text="1번       중랑구 묵1동 동1로"-->
+<!--                        android:textSize="15dp" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/walks_num19"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="5dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:gravity="center"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:text="1번       중랑구 묵1동 동1로"-->
+<!--                        android:textSize="15dp" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/walks_num20"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="5dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:gravity="center"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:text="1번       중랑구 묵1동 동1로"-->
+<!--                        android:textSize="15dp" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/walks_num21"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="5dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:gravity="center"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:text="1번       중랑구 묵1동 동1로"-->
+<!--                        android:textSize="15dp" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/walks_num22"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="5dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:gravity="center"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:text="1번       중랑구 묵1동 동1로"-->
+<!--                        android:textSize="15dp" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/walks_num23"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="5dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:gravity="center"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:text="1번       중랑구 묵1동 동1로"-->
+<!--                        android:textSize="15dp" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/walks_num24"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="5dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:gravity="center"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:text="1번       중랑구 묵1동 동1로"-->
+<!--                        android:textSize="15dp" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/walks_num25"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="5dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:gravity="center"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:text="1번       중랑구 묵1동 동1로"-->
+<!--                        android:textSize="15dp" />-->
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>

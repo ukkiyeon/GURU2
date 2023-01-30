@@ -28,8 +28,8 @@ class map_walk(private val context: Context) {
     private val gson = Gson()
 
     // InputStream representing places.json
-    private val inputStream: InputStream
-        get() = context.resources.openRawResource(R.raw.json_trash)
+//    private val inputStream: InputStream
+//        get() = context.resources.openRawResource(R.raw.json_trash)
 
     /**
      * Reads the list of place JSON objects in the file places.json

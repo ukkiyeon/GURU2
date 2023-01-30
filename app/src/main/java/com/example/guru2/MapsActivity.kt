@@ -35,7 +35,7 @@ class MapsActivity : AppCompatActivity() {
         walks_num = walk.findViewById(R.id.walks_num)
         walks_addr = walk.findViewById(R.id.walks_addr)
 
-        val jsonString = assets.open("map_walk.json").reader().readText();
+        val jsonString = assets.open("json_trash.json").reader().readText();
 //        Log.d("JSON STR", jsonString)
 
         val jsonArray = JSONArray(jsonString)
