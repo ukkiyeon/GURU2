@@ -54,6 +54,10 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4' // 코루틴 plugin
     implementation 'com.google.code.gson:gson:2.8.6' // gson
     implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
+    implementation 'com.google.firebase:firebase-auth:21.1.0'
+    implementation 'com.google.android.gms:play-services-auth:20.4.1'
+    implementation 'com.google.firebase:firebase-messaging:23.1.1'
+    implementation 'com.google.firebase:firebase-core:21.1.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -64,4 +68,5 @@ dependencies {
     implementation 'com.google.maps.android:android-maps-utils:1.1.0' //지도
 
     implementation 'com.google.firebase:firebase-storage:20.1.0' // 사진 업로드하는 스토리지
+    implementation 'com.google.firebase:firebase-firestore:24.4.2' // firestore
 }

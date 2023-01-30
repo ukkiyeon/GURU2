@@ -8,7 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import androidx.core.app.ActivityCompat
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.UploadTask
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -16,9 +20,12 @@ class PostPhoto : AppCompatActivity() {
     var PICK_IMAGE_FROM_ALBUM = 0
     var storage : FirebaseStorage? = null
     var photoUri : Uri? = null
+    var auth : FirebaseAuth? = null //2. 유저 정보 가져올 수 있도록
+    var firestore : FirebaseFirestore? = null //2. db 사용할 수 있도록
+
     lateinit var postphoto_btn_upload : Button
     lateinit var postphoto_image : ImageView
-    lateinit var editText : EditText
+    lateinit var postphoto_edit_explain : EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,10 +34,12 @@ class PostPhoto : AppCompatActivity() {
         // 위젯 변수 연결
         postphoto_btn_upload = findViewById(R.id.postphoto_btn_upload)
         postphoto_image = findViewById(R.id.postphoto_image)
-        editText = findViewById(R.id.editText)
+        postphoto_edit_explain = findViewById(R.id.postphoto_edit_explain)
 
-        // 스토리지 초기화
+        // 파이어베이스 관련 초기화
         storage = FirebaseStorage.getInstance()
+        auth = FirebaseAuth.getInstance() // 2.
+        firestore = FirebaseFirestore.getInstance() // 2.
 
         // 앨범 열기
         var photoPickerIntent = Intent(Intent.ACTION_PICK)
@@ -39,7 +48,7 @@ class PostPhoto : AppCompatActivity() {
 
         // 버튼에 이미지 업로드 이벤트
         postphoto_btn_upload.setOnClickListener {
-            contentUpload() // 메소드 실행
+            contentUpload() // 만들어둔 업로드 메소드 실행
         }
 
 
@@ -62,16 +71,74 @@ class PostPhoto : AppCompatActivity() {
 
     // 업로드 할 때 실행되는 메소드
     fun contentUpload() {
-        // 파일명 만들어주는 코드
-        var timestamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-        var imageFileName = "IMAGE_" + timestamp + "_.png"
-        var storageRef = storage?.reference?.child("images")?.child(imageFileName)
 
-        // 파일 업로드
+        // 파이어베이스에 올라갈 이미지 이름 만들어주는 코드
+        var timestamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+        var imageFileName = "IMAGE_" + timestamp + "_.png" // 파일명
+
+        var storageRef = storage?.reference?.child("images")?.child(imageFileName) // images라는 폴더에 파일명으로 저장
+
+        // 2번째 방법: Promise method (권장)
+        storageRef?.putFile(photoUri!!)?.continueWithTask { task: Task<UploadTask.TaskSnapshot> ->
+            return@continueWithTask storageRef.downloadUrl // 이미지 주소를 리턴함
+        }?.addOnSuccessListener { uri ->
+
+            // DB 입력해주는 코드들
+            var contentDTO = ContentDTO() // 이미지 주소를 받아오자마자 데이터 모델 만들기 시작. contentDTO 선언
+
+            // Insert downloadUrl of image
+            contentDTO.imageUrl = uri.toString()
+
+            // Insert uid of user
+            contentDTO.uid = auth?.currentUser?.uid
+
+            // Insert userId (이메일)
+            contentDTO.userId = auth?.currentUser?.email
+
+            // Insert explain of content
+            contentDTO.explain = postphoto_edit_explain.text.toString()
+
+            // Insert timestamp
+            contentDTO.timestamp = System.currentTimeMillis()
+
+            firestore?.collection("images")?.document()?.set(contentDTO)
+
+            setResult(Activity.RESULT_OK) // 정상적으로 닫혔다고 RESULT_OK 넘김
+
+            finish() // 업로드 완료되면 창 닫음
+        }
+
+        /* 1번쨰 방법 파일 업로드? 콜백 메소드 ...
         storageRef?.putFile(photoUri!!)?.addOnSuccessListener {
             // 성공시 메시지
             Toast.makeText(this, getString(R.string.upload_success), Toast.LENGTH_LONG).show()
-        }
+
+            storageRef.downloadUrl.addOnSuccessListener { uri ->
+                var contentDTO = ContentDTO()
+
+                // Insert downloadUrl of image
+                contentDTO.imageUrl = uri.toString()
+
+                // Insert uid of user
+                contentDTO.uid = auth?.currentUser?.uid
+
+                // Insert userId
+                contentDTO.userId = auth?.currentUser?.email
+
+                // Insert explain of content
+                contentDTO.explain = addphoto_edit_explain.text.toString()
+
+                // Insert timestamp
+                contentDTO.timestamp = System.currentTimeMillis()
+
+                firestore?.collection("images")?.document()?.set(contentDTO)
+
+                setResult(Activity.RESULT_OK)
+
+                finish()
+
+            }
+        }*/
 
     }
 }
