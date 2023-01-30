@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
     id 'kotlin-android-extensions'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin' //google maps
 }
 
 android {
@@ -74,4 +75,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:24.4.2' // firestore
 
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+    //google maps
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:20.0.0'
 }
