@@ -170,7 +170,7 @@
                 android:textColor="@color/white"></Button>
         </LinearLayout>
 
-        <!--오늘의 날씨-->
+        <!--오늘의 날씨 버튼-->
         <LinearLayout
             android:layout_width="380dp"
             android:id="@+id/btn_weather"
@@ -197,7 +197,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
-                android:text="추천 산책로"
+                android:text="참고 위치"
                 android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
 
             <androidx.appcompat.widget.AppCompatButton
@@ -207,11 +207,11 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:backgroundTint="@color/green_1"
-                android:text="쓰레기통 위치"
+                android:text="현위치"
                 android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
         </LinearLayout>
 
-        <!--추천 산책로-->
+        <!--참고 위치 버튼 -->
         <LinearLayout
             android:layout_width="380dp"
             android:layout_height="wrap_content"
@@ -238,7 +238,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
-                android:text="추천 산책로"
+                android:text="참고 위치"
                 android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
 
             <androidx.appcompat.widget.AppCompatButton
@@ -248,11 +248,11 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:backgroundTint="@color/green_1"
-                android:text="쓰레기통 위치"
+                android:text="현위치"
                 android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
         </LinearLayout>
 
-        <!--쓰레기통 위치-->
+        <!--현위치 버튼 -->
         <LinearLayout
             android:layout_width="380dp"
             android:layout_height="wrap_content"
@@ -279,7 +279,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
-                android:text="추천 산책로"
+                android:text="참고 위치"
                 android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
 
             <androidx.appcompat.widget.AppCompatButton
@@ -289,7 +289,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
                 android:backgroundTint="@color/green_2"
-                android:text="쓰레기통 위치"
+                android:text="현위치"
                 android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
         </LinearLayout>
 
@@ -386,26 +386,32 @@
                     android:text="목                                   - 3 °   0 °"
                     android:textColor="@color/black"
                     android:textSize="18sp"></TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:text="금                                    - 2 °   2 °"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"></TextView>
             </LinearLayout>
         </LinearLayout>
 
-<!--        <include-->
-<!--            layout="@layout/activity_maps"-->
-<!--            android:id="@+id/walk_map"-->
-<!--            android:visibility="gone"/>-->
-
         <LinearLayout
             android:layout_width="380dp"
-            android:layout_height="270dp"
+            android:layout_height="300dp"
             android:visibility="gone"
             android:layout_gravity="center"
-            android:id="@+id/walk_map"
+            android:layout_marginTop="10dp"
+            android:id="@+id/layout_2"
             android:orientation="vertical">
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="48dp"
+                android:layout_weight="1"
                 android:layout_gravity="center"
+                android:id="@+id/map_trash"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/btn_round">
 
@@ -415,15 +421,141 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/trash_num1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
 
                     <TextView
+                        android:id="@+id/trash_num2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/trash_num4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/trash_num5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/trash_num3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/trash_num6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/trash_num7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/trash_num8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/trash_num9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/trash_num10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+                </LinearLayout>
+            </ScrollView>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:id="@+id/map_walk"
+                android:background="@drawable/btn_round">
+
+                <LinearLayout
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+                    <TextView
                         android:id="@+id/walks_num1"
+                        android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="1번       중랑구 묵1동 동1로"
                         android:textColor="@color/black"
                         android:textSize="15dp" />
 
@@ -436,7 +568,6 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:text="1번       중랑구 묵1동 동1로"
                         android:textSize="15dp" />
 
                     <TextView
@@ -448,7 +579,6 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:text="1번       중랑구 묵1동 동1로"
                         android:textSize="15dp" />
 
                     <TextView
@@ -460,7 +590,6 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:text="1번       중랑구 묵1동 동1로"
                         android:textSize="15dp" />
 
                     <TextView
@@ -472,7 +601,6 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:text="1번       중랑구 묵1동 동1로"
                         android:textSize="15dp" />
 
                     <TextView
@@ -484,7 +612,6 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:text="1번       중랑구 묵1동 동1로"
                         android:textSize="15dp" />
 
                     <TextView
@@ -496,7 +623,6 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:text="1번       중랑구 묵1동 동1로"
                         android:textSize="15dp" />
 
                     <TextView
@@ -508,7 +634,6 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:text="1번       중랑구 묵1동 동1로"
                         android:textSize="15dp" />
 
                     <TextView
@@ -520,200 +645,19 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:text="1번       중랑구 묵1동 동1로"
                         android:textSize="15dp" />
 
                     <TextView
-                        android:id="@+id/walks_num10"
+                        android:id="@+id/walks_more"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:textColor="@color/black"
-                        android:text="1번       중랑구 묵1동 동1로"
+                        android:textColor="@color/gray"
+                        android:text="산책로 더보기"
                         android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/walks_num11"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:text="1번       중랑구 묵1동 동1로"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/walks_num12"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:text="1번       중랑구 묵1동 동1로"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/walks_num13"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:text="1번       중랑구 묵1동 동1로"
-                        android:textSize="18dp" />
-
-                    <TextView
-                        android:id="@+id/walks_num14"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:text="1번       중랑구 묵1동 동1로"
-                        android:textSize="15dp" />
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/walks_num15"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="5dp"-->
-<!--                        android:layout_marginTop="10dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:gravity="center"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:text="1번       중랑구 묵1동 동1로"-->
-<!--                        android:textSize="15dp" />-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/walks_num16"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="5dp"-->
-<!--                        android:layout_marginTop="10dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:gravity="center"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:text="1번       중랑구 묵1동 동1로"-->
-<!--                        android:textSize="15dp" />-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/walks_num17"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="5dp"-->
-<!--                        android:layout_marginTop="10dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:gravity="center"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:text="1번       중랑구 묵1동 동1로"-->
-<!--                        android:textSize="15dp" />-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/walks_num18"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="5dp"-->
-<!--                        android:layout_marginTop="10dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:gravity="center"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:text="1번       중랑구 묵1동 동1로"-->
-<!--                        android:textSize="15dp" />-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/walks_num19"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="5dp"-->
-<!--                        android:layout_marginTop="10dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:gravity="center"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:text="1번       중랑구 묵1동 동1로"-->
-<!--                        android:textSize="15dp" />-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/walks_num20"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="5dp"-->
-<!--                        android:layout_marginTop="10dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:gravity="center"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:text="1번       중랑구 묵1동 동1로"-->
-<!--                        android:textSize="15dp" />-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/walks_num21"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="5dp"-->
-<!--                        android:layout_marginTop="10dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:gravity="center"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:text="1번       중랑구 묵1동 동1로"-->
-<!--                        android:textSize="15dp" />-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/walks_num22"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="5dp"-->
-<!--                        android:layout_marginTop="10dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:gravity="center"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:text="1번       중랑구 묵1동 동1로"-->
-<!--                        android:textSize="15dp" />-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/walks_num23"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="5dp"-->
-<!--                        android:layout_marginTop="10dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:gravity="center"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:text="1번       중랑구 묵1동 동1로"-->
-<!--                        android:textSize="15dp" />-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/walks_num24"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="5dp"-->
-<!--                        android:layout_marginTop="10dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:gravity="center"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:text="1번       중랑구 묵1동 동1로"-->
-<!--                        android:textSize="15dp" />-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/walks_num25"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="5dp"-->
-<!--                        android:layout_marginTop="10dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:gravity="center"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:text="1번       중랑구 묵1동 동1로"-->
-<!--                        android:textSize="15dp" />-->
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
@@ -722,6 +666,7 @@
             layout="@layout/trash"
             android:id="@+id/trash"
             android:visibility="gone"/>
+
     </LinearLayout>
 
     <include

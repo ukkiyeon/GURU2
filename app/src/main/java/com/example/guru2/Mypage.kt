@@ -50,6 +50,7 @@ class Mypage : AppCompatActivity() {
         mypage_distance = findViewById(R.id.mypage_distance)
         mypage_time = findViewById(R.id.mypage_time)
 
+        //flogging 테이블에서 데이터 불러오기
         dbManager = DBManager(this, "flogging", null, 1)
         sqlitedb = dbManager.readableDatabase
         layout = findViewById(R.id.mypage)
