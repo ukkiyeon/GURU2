@@ -133,7 +133,7 @@ class Mypage : AppCompatActivity() {
         }
 
         btn_communityPage.setOnClickListener {
-            startActivity(Intent(this@Mypage, Community::class.java))
+            startActivity(Intent(this@Mypage, PostCommunity::class.java))
         }
 
     }

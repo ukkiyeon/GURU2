@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebChromeClient.CustomViewCallback
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -32,14 +33,28 @@ class PostCommunity : AppCompatActivity() {
         write_btn.setOnClickListener {
 
             // 갤러리 권한 받기
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)
+            // ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)
 
-            // 권한 확인
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            // 권한이 부여되었는지 확인
+            // 권한 허용 X
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+
+                if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                    // 1. 이전에 거부한 적이 있는 경우 -> 설명창
+                    var dlg = AlertDialog.Builder(this)
+                    dlg.setTitle("권한이 필요한 이유")
+                    dlg.setMessage("사진 정보를 얻기 위해서 외부 저장소 권한이 필수로 필요합니다.")
+                    dlg.setPositiveButton("확인"){ dialog, which -> ActivityCompat.requestPermissions(this@PostCommunity,
+                                                        arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)}
+                    dlg.setNegativeButton("취소", null)
+                    dlg.show()
+                } else {
+                    // 2. 처음 권한 요청하는 경우
+                    ActivityCompat.requestPermissions(this@PostCommunity, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)
+                }
+            } else { // 권한 허용 O
                 startActivity(Intent(this, PostPhoto::class.java))
             }
-
-            // 메인 화면이 뜨면 detailview fragment 뜨도록?
         }
 
         var postDetailViewFragment = PostDetailViewFragment() // 프래그먼트 받아오기

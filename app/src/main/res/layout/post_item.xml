@@ -56,12 +56,13 @@
             android:layout_marginRight="5dp"
             android:layout_width="35dp"
             android:layout_height="35dp"/>
+        <!-- 댓글
         <ImageView
             android:id="@+id/detailviewitem_comment_imageview"
             android:src="@drawable/comment"
             android:layout_width="35dp"
             android:layout_marginRight="5dp"
-            android:layout_height="35dp"/>
+            android:layout_height="35dp"/> -->
 
         <TextView
             android:id="@+id/detailviewitem_explain_textview"
@@ -77,7 +78,7 @@
         android:id="@+id/detailviewitem_favoritecounter_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="5dp"
+        android:layout_marginHorizontal="8dp"
         android:text="like 0"
         android:layout_marginBottom="10dp"
         android:textSize="12sp" />
