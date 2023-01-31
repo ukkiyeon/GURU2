@@ -116,7 +116,7 @@ class TipEcoNews : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO + job).launch {
 
             val returnList = async { crawlEcoNews() } // crawlEcoNews()의 반환값을 넘김 (items)
-            val titleList = returnList.await() // 뉴스 제목 리스트 반환
+            val titleList = returnList.await() // 뉴스 리스트 반환
 
             // 잠시 메인 스레드로 전환해서 제목 출력
             withContext(Dispatchers.Main) {
