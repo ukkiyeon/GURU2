@@ -107,7 +107,13 @@ class AppMain : AppCompatActivity() {
         val user = Firebase.auth.currentUser
         user?.let {
             val name = user.displayName
-            mypage_name.text = name+"님 안녕하세요"
+//            Log.d("username" + name.toString())
+//            if(name != null) {
+                mypage_name.text = name+"님 안녕하세요"
+//            } else {
+//                mypage_name.text = "먼저 로그인 하세요."
+//                startActivity(Intent(this@AppMain, Login::class.java))
+//            }
         }
 
         //하단 버튼 동작
@@ -185,8 +191,6 @@ class AppMain : AppCompatActivity() {
         //공공 데이터 연결
         val jsonString_w = assets.open("json_walk.json").reader().readText();
         val jsonString_t = assets.open("json_trash.json").reader().readText();
-//        Log.d("JSON walk", jsonString_w)
-//        Log.d("JSON trash", jsonString_t)
 
         val jsonArray_w = JSONArray(jsonString_w)
         val jsonArray_t = JSONArray(jsonString_t)
@@ -342,16 +346,18 @@ class AppMain : AppCompatActivity() {
 
         //DB
         myHelper = myDBHelper(this)
+        sqlDB = myHelper.writableDatabase
+        myHelper.onUpgrade(sqlDB, 1, 2)
 
     }
+
     //DB
     inner class myDBHelper(context : Context) : SQLiteOpenHelper(context, "flogging", null, 1) {
         override fun onCreate(db: SQLiteDatabase?) {
-            db!!.execSQL("CREATE TABLE flogging (sec text, milli text, distance text);")
+            db!!.execSQL("CREATE TABLE flogging (sec Integer, milli Integer, distance Integer);")
         }
 
         override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-            db!!.execSQL("INSERT INTO flogging VALUES('"+"0"+"','"+"0"+"','"+"0"+"');")
             db!!.execSQL("DROP TABLE IF EXISTS flogging")
             onCreate(db)
         }
@@ -367,7 +373,6 @@ class AppMain : AppCompatActivity() {
 
             sec = time/100
             milli = time%100
-
             runOnUiThread {
                 flogging_time.text = "${sec} : ${milli}"
                 popup_time.text = "시간  ${sec} : ${milli}"
@@ -375,28 +380,26 @@ class AppMain : AppCompatActivity() {
                 flogging_distance.text = "${distance} m"
                 popup_distance.text = "이동거리  ${distance} m"
             }
-            //이동 거리
+            //이동 거리 증가
             if(sec >= 2 && milli == 0) {
                 distance += 1
             }
         }
-        flogging_start.setOnClickListener { //시작 클릭
+        //타이머 종료 클릭
+        flogging_start.setOnClickListener {
             btn_share.visibility = View.VISIBLE
-
-            sqlDB = myHelper.writableDatabase
-            myHelper.onUpgrade(sqlDB, 1, 2)
-            sqlDB.execSQL("INSERT INTO flogging VALUES('"+sec.toString()+"','"+milli.toString()+"','"+distance.toString()+"');")
-            Log.d("sec", "DB 입력 2 " + sec + " " + milli + " " + distance)
-            sqlDB.close()
-
             flogging_stop()
         }
     }
 
-    fun flogging_stop() {  //타이머 종료
+    //타이머 종료
+    fun flogging_stop() {
         flogging_start.setText("초기화")
-
+        //타이머 멈추기
         timerTask?.cancel()
+        //DB에 시간, 이동거리 넣기
+        sqlDB.execSQL("INSERT INTO flogging VALUES('"+sec+"','"+milli+"','"+distance+"');")
+        sqlDB.close()
 
         flogging_start.setOnClickListener {  //값 초기화
             flogging_time.text = "00 : 00"
@@ -407,7 +410,8 @@ class AppMain : AppCompatActivity() {
         }
     }
 
-    fun flogging_restart() {  //재시작
+    //타이머 재시작
+    fun flogging_restart() {
         timerTask?.cancel()
 
         flogging_start.setOnClickListener {  //값 초기화

@@ -52,7 +52,7 @@ class Mypage : AppCompatActivity() {
         mypage_distance = findViewById(R.id.mypage_distance)
         mypage_time = findViewById(R.id.mypage_time)
 
-        //flogging 테이블에서 데이터 불러오기
+        //DB - flogging 테이블에서 데이터 불러오기
         dbManager = DBManager(this, "flogging", null, 1)
         sqlitedb = dbManager.readableDatabase
         layout = findViewById(R.id.mypage)
@@ -61,15 +61,12 @@ class Mypage : AppCompatActivity() {
         cursor = sqlitedb.rawQuery("SELECT * FROM flogging;", null)
 
         cursor.moveToFirst();
-        var distance:String = cursor.getString(cursor.getColumnIndex("distance"))
-        var sec:String = cursor.getString(cursor.getColumnIndex("sec"))
+        var distance:Int = cursor.getInt(cursor.getColumnIndex("distance"))
+        var sec:Int = cursor.getInt(cursor.getColumnIndex("sec"))
         var milli:Int = cursor.getInt(cursor.getColumnIndex("milli"))
-        Log.d("sec", "DB 입력 2 " + sec + " " + milli + " " + distance)
-
-        mypage_time.text = "${sec} : ${milli+3}"
+        //가져온 데이터 넣기
+        mypage_time.text = "${sec} : ${milli}"
         mypage_distance.text = "${distance} m"
-
-        Log.d("sec", "DB 입력 3 " + sec + " " + milli + " " + distance)
 
         //이름 불러오기
         val mypage_name = findViewById<TextView>(R.id.mypage_name)
