@@ -1,10 +1,13 @@
 # 🌱ECO RUN🏃:환경도 지키고 건강도 지키는 플로깅 어플
 플로깅을 하고 싶은데, 혼자 실천이 어렵거나 관련 정보를 찾기 어려우셨다면 이제 ECO RUN을 사용해보세요!
+
 ![icon](https://user-images.githubusercontent.com/63574818/215716733-81640b7a-ad64-4fce-b0f0-034f03608d88.png)
 
 # 우리 팀은!
 - sedddi
-- 
+- ukkiyeon
+- so-heekim
+- hhyem
 
 # 프로젝트 기간
 2023.01.17. ~ 2023.01.31.
