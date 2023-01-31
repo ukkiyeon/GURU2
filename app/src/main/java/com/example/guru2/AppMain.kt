@@ -143,11 +143,6 @@ class AppMain : AppCompatActivity() {
             startActivity(Intent(this@AppMain, PostCommunity::class.java))
         }
 
-        //플로깅 시작 버튼 클릭
-        plogging_start.setOnClickListener {
-            plogging_start()
-        }
-
         //버튼 3개
         btn_walk = findViewById(R.id.btn_walk)
         btn_trash = findViewById(R.id.btn_trash)
@@ -320,6 +315,11 @@ class AppMain : AppCompatActivity() {
             btn_weather.visibility = View.GONE
             btn_walk.visibility = View.GONE
             btn_trash.visibility = View.VISIBLE
+        }
+
+        //플로깅 시작 버튼 클릭
+        plogging_start.setOnClickListener {
+            plogging_start()
         }
 
         //팝업
