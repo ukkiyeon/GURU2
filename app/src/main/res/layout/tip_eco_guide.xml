@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Community">
+    tools:context=".TipEcoGuide">
 
     <!--상단 고정-->
     <LinearLayout
@@ -230,10 +230,6 @@
             android:backgroundTint="@color/green_2"
             android:text="다른 쓰레기의 분리 배출 방법이 궁금하다면?" />
 
-    </LinearLayout>
-
-    <include
-        layout="@layout/fix_bottom"
-        android:id="@+id/fix_bottom" />
+    </LinearLayout>`
 
 </LinearLayout>
