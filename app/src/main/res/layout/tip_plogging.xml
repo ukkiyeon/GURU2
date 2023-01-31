@@ -185,7 +185,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="20dp"
-                        android:text="미끄러지지 않고 건강하게 운동하기!"
+                        android:text="플로깅은 환경 뿐만 아니라 운동까지 되는 활동으로써 운동복은 필수!"
                         android:textSize="13sp" />
                 </LinearLayout>
 
@@ -225,7 +225,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="20dp"
-                        android:text="미끄러지지 않고 건강하게 운동하기!"
+                        android:text="플로깅을 하며 주운 쓰레기는 처리까지 깔끔하게 하는게 좋겠죠? 그러니 쓰레기를 넣을 가방은 필수!"
                         android:textSize="13sp" />
                 </LinearLayout>
 
