@@ -55,7 +55,6 @@ class Mypage : AppCompatActivity() {
         //DB - plogging 테이블에서 데이터 불러오기
         dbManager = DBManager(this, "plogging", null, 1)
         sqlitedb = dbManager.readableDatabase
-        layout = findViewById(R.id.mypage)
 
         var cursor: Cursor
         cursor = sqlitedb.rawQuery("SELECT * FROM plogging;", null)

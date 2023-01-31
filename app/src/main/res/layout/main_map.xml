@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/trash"
-    tools:context=".Trash">
+    android:id="@+id/main_map"
+    tools:context=".Main_Map">
 
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom"
-        android:id="@+id/trashmap"
+        android:id="@+id/mainmap"
         class="com.google.android.gms.maps.SupportMapFragment"
         android:orientation="vertical">
     </fragment>

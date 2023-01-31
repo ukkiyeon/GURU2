@@ -215,7 +215,7 @@
         <LinearLayout
             android:layout_width="380dp"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_walk"
+            android:id="@+id/btn_info"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:visibility="gone"
@@ -260,7 +260,7 @@
             android:layout_marginTop="20dp"
             android:visibility="gone"
             android:gravity="center"
-            android:id="@+id/btn_trash"
+            android:id="@+id/btn_map"
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
@@ -399,34 +399,32 @@
 
         <LinearLayout
             android:layout_width="380dp"
-            android:layout_height="300dp"
+            android:layout_height="310dp"
             android:visibility="gone"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:id="@+id/layout_2"
+            android:layout_marginTop="3dp"
+            android:id="@+id/main_info"
             android:orientation="vertical">
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="55dp"
                 android:layout_weight="1"
                 android:layout_gravity="center"
                 android:id="@+id/map_trash"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/btn_round">
-
                 <LinearLayout
                     android:layout_width="370dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
                     android:orientation="vertical">
                     <TextView
                         android:id="@+id/trash_num"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="쓰레기통 위치"
@@ -438,120 +436,73 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="8dp"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/trash_num4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/trash_num5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
+                        android:textSize="13dp" />
 
                     <TextView
                         android:id="@+id/trash_num3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="8dp"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="15dp" />
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:id="@+id/trash_num4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:id="@+id/trash_num5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="13dp" />
 
                     <TextView
                         android:id="@+id/trash_num6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="8dp"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/trash_num7"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/trash_num8"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/trash_num9"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/trash_num10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
+                        android:textSize="13dp" />
                 </LinearLayout>
             </ScrollView>
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="55dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:id="@+id/map_walk"
                 android:background="@drawable/btn_round">
-
                 <LinearLayout
                     android:layout_width="370dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
                     android:orientation="vertical">
                     <TextView
                         android:id="@+id/walks_num"
-                        android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
@@ -566,107 +517,73 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="6dp"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/walks_num4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/walks_num5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
+                        android:textSize="13dp" />
 
                     <TextView
                         android:id="@+id/walks_num3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="6dp"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="15dp" />
+                        android:textSize="13dp" />
 
                     <TextView
-                        android:id="@+id/walks_num6"
+                        android:id="@+id/walks_num4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="6dp"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="15dp" />
+                        android:textSize="13dp" />
 
                     <TextView
-                        android:id="@+id/walks_num7"
+                        android:id="@+id/walks_num5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="6dp"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="15dp" />
+                        android:textSize="13dp" />
 
-                    <TextView
-                        android:id="@+id/walks_num8"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/walks_num9"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
-
+<!--                    <TextView-->
+<!--                        android:id="@+id/walks_num6"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="5dp"-->
+<!--                        android:layout_marginTop="6dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:gravity="center"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="13dp" />-->
                     <TextView
                         android:id="@+id/walks_more"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="6dp"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:textColor="@color/gray"
                         android:text="산책로 더보기"
-                        android:textSize="15dp" />
+                        android:textSize="13dp" />
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
 
         <include
-            layout="@layout/trash"
-            android:id="@+id/trash"
+            layout="@layout/main_map"
+            android:id="@+id/main_map"
             android:visibility="gone"/>
 
     </LinearLayout>

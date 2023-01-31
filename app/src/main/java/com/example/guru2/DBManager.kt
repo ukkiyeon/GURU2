@@ -11,8 +11,11 @@ class DBManager (context: Context,
 ): SQLiteOpenHelper(context, name, factory, version) {
     override fun onCreate(db: SQLiteDatabase?) {
         db!!.execSQL("CREATE TABLE plogging (sec INTEGER, milli INTEGER, distance INTEGER)")
+        db!!.execSQL("INSERT INTO plogging VALUES('"+0+"','"+0+"','"+0+"');")
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        db!!.execSQL("DROP TABLE IF EXISTS plogging")
+        onCreate(db)
     }
 }

@@ -1,10 +1,8 @@
 package com.example.guru2
 
-import android.Manifest
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.net.Uri
@@ -17,8 +15,6 @@ import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.app.ActivityCompat
-import com.google.android.gms.maps.GoogleMap
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import org.json.JSONArray
@@ -39,8 +35,8 @@ class AppMain : AppCompatActivity() {
     private var milli = 0
 
     //버튼 3개
-    lateinit var btn_walk: LinearLayout
-    lateinit var btn_trash:LinearLayout
+    lateinit var btn_info: LinearLayout
+    lateinit var btn_map:LinearLayout
     lateinit var btn_weather:LinearLayout
     lateinit var btn_1 :AppCompatButton
     lateinit var btn_2 :AppCompatButton
@@ -61,27 +57,20 @@ class AppMain : AppCompatActivity() {
     var pro: AlertDialog? = null
 
     lateinit var main_weather : LinearLayout
-    lateinit var main_walk:LinearLayout
+    lateinit var main_info:LinearLayout
     lateinit var trash_num1:TextView
     lateinit var trash_num2:TextView
     lateinit var trash_num3:TextView
     lateinit var trash_num4:TextView
     lateinit var trash_num5:TextView
     lateinit var trash_num6:TextView
-    lateinit var trash_num7:TextView
-    lateinit var trash_num8:TextView
-    lateinit var trash_num9:TextView
-    lateinit var trash_num10:TextView
-    
+
     lateinit var walks_num1:TextView
     lateinit var walks_num2:TextView
     lateinit var walks_num3:TextView
     lateinit var walks_num4:TextView
     lateinit var walks_num5:TextView
     lateinit var walks_num6:TextView
-    lateinit var walks_num7:TextView
-    lateinit var walks_num8:TextView
-    lateinit var walks_num9:TextView
     lateinit var walks_more:TextView
 
     //DB
@@ -100,20 +89,14 @@ class AppMain : AppCompatActivity() {
         plogging_distance = findViewById(R.id.plogging_distance)
         btn_mypage = findViewById(R.id.btn_mypage)
         main_weather = findViewById(R.id.main_weather)
-        main_walk = findViewById(R.id.layout_2)
+        main_info = findViewById(R.id.main_info)
 
         //이름 불러오기
         val mypage_name = findViewById<TextView>(R.id.mypage_name2)
         val user = Firebase.auth.currentUser
         user?.let {
             val name = user.displayName
-//            Log.d("username" + name.toString())
-//            if(name != null) {
-                mypage_name.text = name+"님 안녕하세요"
-//            } else {
-//                mypage_name.text = "먼저 로그인 하세요."
-//                startActivity(Intent(this@AppMain, Login::class.java))
-//            }
+            mypage_name.text = name+"님 안녕하세요"
         }
 
         //DB
@@ -143,22 +126,7 @@ class AppMain : AppCompatActivity() {
             startActivity(Intent(this@AppMain, PostCommunity::class.java))
         }
 
-        //버튼 3개
-        btn_walk = findViewById(R.id.btn_walk)
-        btn_trash = findViewById(R.id.btn_trash)
-        btn_weather = findViewById(R.id.btn_weather)
-
-        btn_1 = findViewById(R.id.btn_1)
-        btn_2 = findViewById(R.id.btn_2)
-        btn_3 = findViewById(R.id.btn_3)
-        btn_4 = findViewById(R.id.btn_4)
-        btn_5 = findViewById(R.id.btn_5)
-        btn_6 = findViewById(R.id.btn_6)
-        btn_7 = findViewById(R.id.btn_7)
-        btn_8 = findViewById(R.id.btn_8)
-        btn_9 = findViewById(R.id.btn_9)
-
-        val trash = findViewById<View>(R.id.trash)
+        val main_map = findViewById<View>(R.id.main_map)
 
         //쓰레기통 목록 변수
         trash_num1 = findViewById(R.id.trash_num)
@@ -167,10 +135,6 @@ class AppMain : AppCompatActivity() {
         trash_num4 = findViewById(R.id.trash_num4)
         trash_num5 = findViewById(R.id.trash_num5)
         trash_num6 = findViewById(R.id.trash_num6)
-        trash_num7 = findViewById(R.id.trash_num7)
-        trash_num8 = findViewById(R.id.trash_num8)
-        trash_num9 = findViewById(R.id.trash_num9)
-        trash_num10 = findViewById(R.id.trash_num10)
 
         //산책로 목록 변수
         walks_num1 = findViewById(R.id.walks_num)
@@ -178,10 +142,6 @@ class AppMain : AppCompatActivity() {
         walks_num3 = findViewById(R.id.walks_num3)
         walks_num4 = findViewById(R.id.walks_num4)
         walks_num5 = findViewById(R.id.walks_num5)
-        walks_num6 = findViewById(R.id.walks_num6)
-        walks_num7 = findViewById(R.id.walks_num7)
-        walks_num8 = findViewById(R.id.walks_num8)
-        walks_num9 = findViewById(R.id.walks_num9)
         walks_more = findViewById(R.id.walks_more)
         walks_more.setOnClickListener {
             var intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://data.seoul.go.kr/dataList/OA-394/S/1/datasetView.do"))
@@ -204,14 +164,8 @@ class AppMain : AppCompatActivity() {
         walks_num4.text = str1
         str1 = jsonArray_w.getJSONObject(3).getString("p_park") + " (" + jsonArray_w.getJSONObject(3).getString("p_addr") + ")"
         walks_num5.text = str1
-        str1 = jsonArray_w.getJSONObject(4).getString("p_park") + " (" + jsonArray_w.getJSONObject(4).getString("p_addr") + ")"
-        walks_num6.text = str1
-        str1 = jsonArray_w.getJSONObject(5).getString("p_park") + " (" + jsonArray_w.getJSONObject(5).getString("p_addr") + ")"
-        walks_num7.text = str1
-        str1 = jsonArray_w.getJSONObject(6).getString("p_park") + " (" + jsonArray_w.getJSONObject(6).getString("p_addr") + ")"
-        walks_num8.text = str1
-        str1 = jsonArray_w.getJSONObject(7).getString("p_park") + " (" + jsonArray_w.getJSONObject(7).getString("p_addr") + ")"
-        walks_num9.text = str1
+//        str1 = jsonArray_w.getJSONObject(4).getString("p_park") + " (" + jsonArray_w.getJSONObject(4).getString("p_addr") + ")"
+//        walks_num6.text = str1
 
         str1 = jsonArray_t.getJSONObject(0).getString("연번") + " " +jsonArray_t.getJSONObject(0).getString("도로명") + " " +jsonArray_t.getJSONObject(0).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(0).getString("해당 동")
         trash_num2.text = str1
@@ -223,98 +177,105 @@ class AppMain : AppCompatActivity() {
         trash_num5.text = str1
         str1 = jsonArray_t.getJSONObject(4).getString("연번") + " " +jsonArray_t.getJSONObject(4).getString("도로명") + " " +jsonArray_t.getJSONObject(4).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(4).getString("해당 동")
         trash_num6.text = str1
-        str1 = jsonArray_t.getJSONObject(5).getString("연번") + " " +jsonArray_t.getJSONObject(5).getString("도로명") + " " +jsonArray_t.getJSONObject(5).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(5).getString("해당 동")
-        trash_num7.text = str1
-        str1 = jsonArray_t.getJSONObject(6).getString("연번") + " " +jsonArray_t.getJSONObject(6).getString("도로명") + " " +jsonArray_t.getJSONObject(6).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(6).getString("해당 동")
-        trash_num8.text = str1
-        str1 = jsonArray_t.getJSONObject(7).getString("연번") + " " +jsonArray_t.getJSONObject(7).getString("도로명") + " " +jsonArray_t.getJSONObject(7).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(7).getString("해당 동")
-        trash_num9.text = str1
-        str1 = jsonArray_t.getJSONObject(7).getString("연번") + " " +jsonArray_t.getJSONObject(8).getString("도로명") + " " +jsonArray_t.getJSONObject(8).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(8).getString("해당 동")
-        trash_num10.text = str1
+
+        //버튼 3개
+        btn_info = findViewById(R.id.btn_info)
+        btn_map = findViewById(R.id.btn_map)
+        btn_weather = findViewById(R.id.btn_weather)
+
+        btn_1 = findViewById(R.id.btn_1)
+        btn_2 = findViewById(R.id.btn_2)
+        btn_3 = findViewById(R.id.btn_3)
+        btn_4 = findViewById(R.id.btn_4)
+        btn_5 = findViewById(R.id.btn_5)
+        btn_6 = findViewById(R.id.btn_6)
+        btn_7 = findViewById(R.id.btn_7)
+        btn_8 = findViewById(R.id.btn_8)
+        btn_9 = findViewById(R.id.btn_9)
 
         //버튼 색상 변경, view 숨기기/보여지게 하기
         btn_1.setOnClickListener {
             main_weather.visibility = View.VISIBLE
-            main_walk.visibility = View.GONE
-            trash.visibility = View.GONE
+            main_info.visibility = View.GONE
+            main_map.visibility = View.GONE
             //버튼 색상 변경
             btn_weather.visibility = View.VISIBLE
-            main_walk.visibility = View.GONE
-            btn_trash.visibility = View.GONE
+            btn_info.visibility = View.GONE
+            btn_map.visibility = View.GONE
         }
         btn_4.setOnClickListener {
             main_weather.visibility = View.VISIBLE
-            main_walk.visibility = View.GONE
-            trash.visibility = View.GONE
+            main_info.visibility = View.GONE
+            main_map.visibility = View.GONE
             //버튼 색상 변경
             btn_weather.visibility = View.VISIBLE
-            btn_walk.visibility = View.GONE
-            btn_trash.visibility = View.GONE
+            btn_info.visibility = View.GONE
+            btn_map.visibility = View.GONE
         }
         btn_7.setOnClickListener {
             main_weather.visibility = View.VISIBLE
-            main_walk.visibility = View.GONE
-            trash.visibility = View.GONE
+            main_info.visibility = View.GONE
+            main_map.visibility = View.GONE
             //버튼 색상 변경
             btn_weather.visibility = View.VISIBLE
-            btn_walk.visibility = View.GONE
-            btn_trash.visibility = View.GONE
+            btn_info.visibility = View.GONE
+            btn_map.visibility = View.GONE
         }
 
         btn_2.setOnClickListener {
             main_weather.visibility = View.GONE
-            main_walk.visibility = View.VISIBLE
-            trash.visibility = View.GONE
+            main_info.visibility = View.VISIBLE
+            main_map.visibility = View.GONE
             //버튼 색상 변경
             btn_weather.visibility = View.GONE
-            btn_walk.visibility = View.VISIBLE
-            btn_trash.visibility = View.GONE
+            btn_info.visibility = View.VISIBLE
+            btn_map.visibility = View.GONE
         }
         btn_5.setOnClickListener {
             main_weather.visibility = View.GONE
-            main_walk.visibility = View.VISIBLE
-            trash.visibility = View.GONE
+            main_info.visibility = View.VISIBLE
+            main_map.visibility = View.GONE
             //버튼 색상 변경
             btn_weather.visibility = View.GONE
-            btn_walk.visibility = View.VISIBLE
-            btn_trash.visibility = View.GONE
+            btn_info.visibility = View.VISIBLE
+            btn_map.visibility = View.GONE
         }
         btn_8.setOnClickListener {
             main_weather.visibility = View.GONE
-            main_walk.visibility = View.VISIBLE
-            trash.visibility = View.GONE
+            main_info.visibility = View.VISIBLE
+            main_map.visibility = View.GONE
             //버튼 색상 변경
             btn_weather.visibility = View.GONE
-            btn_walk.visibility = View.VISIBLE
-            btn_trash.visibility = View.GONE
+            btn_info.visibility = View.VISIBLE
+            btn_map.visibility = View.GONE
         }
 
         btn_3.setOnClickListener {
             main_weather.visibility = View.GONE
-            main_walk.visibility = View.GONE
-            trash.visibility = View.VISIBLE
+            main_info.visibility = View.GONE
+            main_map.visibility = View.VISIBLE
             //버튼 색상 변경
             btn_weather.visibility = View.GONE
-            btn_walk.visibility = View.GONE
-            btn_trash.visibility = View.VISIBLE
+            btn_info.visibility = View.GONE
+            btn_map.visibility = View.VISIBLE
         }
         btn_6.setOnClickListener {
             main_weather.visibility = View.GONE
-            main_walk.visibility = View.GONE
-            trash.visibility = View.VISIBLE
+            main_info.visibility = View.GONE
+            main_map.visibility = View.VISIBLE
             //버튼 색상 변경
             btn_weather.visibility = View.GONE
-            btn_walk.visibility = View.GONE
-            btn_trash.visibility = View.VISIBLE
+            btn_info.visibility = View.GONE
+            btn_map.visibility = View.VISIBLE
         }
         btn_9.setOnClickListener {
             main_weather.visibility = View.GONE
-            main_walk.visibility = View.GONE
-            trash.visibility = View.VISIBLE
+            main_info.visibility = View.GONE
+            main_map.visibility = View.VISIBLE
             //버튼 색상 변경
             btn_weather.visibility = View.GONE
-            btn_walk.visibility = View.GONE
-            btn_trash.visibility = View.VISIBLE
+            btn_info.visibility = View.GONE
+            btn_map.visibility = View.VISIBLE
         }
 
         //플로깅 시작 버튼 클릭
@@ -349,13 +310,13 @@ class AppMain : AppCompatActivity() {
     //DB
     inner class myDBHelper(context : Context) : SQLiteOpenHelper(context, "plogging", null, 1) {
         override fun onCreate(db: SQLiteDatabase?) {
-            sqlDB.execSQL("CREATE TABLE plogging (sec Integer, milli Integer, distance Integer);")
-//            sqlDB.execSQL("INSERT INTO plogging VALUES('"+0+"','"+0+"','"+0+"');")
+            db!!.execSQL("CREATE TABLE plogging (sec Integer, milli Integer, distance Integer);")
+//            db!!.execSQL("INSERT INTO plogging VALUES('"+0+"','"+0+"','"+0+"');")
         }
 
         override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-            sqlDB.execSQL("DROP TABLE IF EXISTS plogging")
-            onCreate(sqlDB)
+            db!!.execSQL("DROP TABLE IF EXISTS plogging")
+            onCreate(db)
         }
     }
 
@@ -395,6 +356,7 @@ class AppMain : AppCompatActivity() {
         timerTask?.cancel()
         //DB에 시간, 이동거리 넣기
         sqlDB.execSQL("INSERT INTO plogging VALUES('"+sec+"','"+milli+"','"+distance+"');")
+        Log.d("DB : ", sec.toString() + " " + milli.toString() + " " + distance.toString())
         sqlDB.close()
 
         plogging_start.setOnClickListener {  //값 초기화
