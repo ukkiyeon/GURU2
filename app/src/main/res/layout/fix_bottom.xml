@@ -25,7 +25,7 @@
     <ImageButton
         android:id="@+id/btn_homePage"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_gravity="center_vertical"
         android:contentDescription="홈"
         android:layout_weight="1"
@@ -36,7 +36,7 @@
     <ImageButton
         android:id="@+id/btn_communityPage"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_gravity="center_vertical"
         android:contentDescription="커뮤니티"
         android:background="@android:color/transparent"
