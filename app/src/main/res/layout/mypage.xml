@@ -66,12 +66,12 @@
 
         <!-- 플로깅 레이아웃 -->
         <LinearLayout
-            android:id="@+id/flogging"
+            android:id="@+id/plogging"
             android:layout_width="380dp"
             android:layout_height="160dp"
             android:orientation="vertical"
             android:layout_gravity="center"
-            android:background="@drawable/flogging_round"
+            android:background="@drawable/plogging_round"
             android:layout_marginTop="30dp">
             <TextView
                 android:layout_width="match_parent"

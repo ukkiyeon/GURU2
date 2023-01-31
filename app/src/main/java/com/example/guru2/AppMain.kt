@@ -28,10 +28,10 @@ import kotlin.concurrent.timer
 class AppMain : AppCompatActivity() {
 
     //타이머
-    lateinit var flogging_start:Button
-    lateinit var flogging_time:TextView
+    lateinit var plogging_start:Button
+    lateinit var plogging_time:TextView
     lateinit var btn_share:ImageView
-    lateinit var flogging_distance:TextView
+    lateinit var plogging_distance:TextView
     private var time = 0
     private var distance = 0
     private var timerTask : Timer?=null
@@ -93,11 +93,11 @@ class AppMain : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.app_main)
 
-        flogging_start = findViewById(R.id.flogging_start)
-        flogging_start.setText("시작")
-        flogging_time = findViewById(R.id.flogging_time)
+        plogging_start = findViewById(R.id.plogging_start)
+        plogging_start.setText("시작")
+        plogging_time = findViewById(R.id.plogging_time)
         btn_share = findViewById(R.id.btn_share)
-        flogging_distance = findViewById(R.id.flogging_distance)
+        plogging_distance = findViewById(R.id.plogging_distance)
         btn_mypage = findViewById(R.id.btn_mypage)
         main_weather = findViewById(R.id.main_weather)
         main_walk = findViewById(R.id.layout_2)
@@ -139,8 +139,8 @@ class AppMain : AppCompatActivity() {
         }
 
         //플로깅 시작 버튼 클릭
-        flogging_start.setOnClickListener {
-            flogging_start()
+        plogging_start.setOnClickListener {
+            plogging_start()
         }
 
         //버튼 3개
@@ -161,7 +161,7 @@ class AppMain : AppCompatActivity() {
         val trash = findViewById<View>(R.id.trash)
 
         //쓰레기통 목록 변수
-        trash_num1 = findViewById(R.id.trash_num1)
+        trash_num1 = findViewById(R.id.trash_num)
         trash_num2 = findViewById(R.id.trash_num2)
         trash_num3 = findViewById(R.id.trash_num3)
         trash_num4 = findViewById(R.id.trash_num4)
@@ -173,7 +173,7 @@ class AppMain : AppCompatActivity() {
         trash_num10 = findViewById(R.id.trash_num10)
 
         //산책로 목록 변수
-        walks_num1 = findViewById(R.id.walks_num1)
+        walks_num1 = findViewById(R.id.walks_num)
         walks_num2 = findViewById(R.id.walks_num2)
         walks_num3 = findViewById(R.id.walks_num3)
         walks_num4 = findViewById(R.id.walks_num4)
@@ -197,43 +197,39 @@ class AppMain : AppCompatActivity() {
         var str1 :String
 
         str1 = jsonArray_w.getJSONObject(0).getString("p_park") + " (" + jsonArray_w.getJSONObject(0).getString("p_addr") + ")"
-        walks_num1.text = str1
-        str1 = jsonArray_w.getJSONObject(1).getString("p_park") + " (" + jsonArray_w.getJSONObject(1).getString("p_addr") + ")"
         walks_num2.text = str1
-        str1 = jsonArray_w.getJSONObject(2).getString("p_park") + " (" + jsonArray_w.getJSONObject(2).getString("p_addr") + ")"
+        str1 = jsonArray_w.getJSONObject(1).getString("p_park") + " (" + jsonArray_w.getJSONObject(1).getString("p_addr") + ")"
         walks_num3.text = str1
-        str1 = jsonArray_w.getJSONObject(3).getString("p_park") + " (" + jsonArray_w.getJSONObject(3).getString("p_addr") + ")"
+        str1 = jsonArray_w.getJSONObject(2).getString("p_park") + " (" + jsonArray_w.getJSONObject(2).getString("p_addr") + ")"
         walks_num4.text = str1
-        str1 = jsonArray_w.getJSONObject(4).getString("p_park") + " (" + jsonArray_w.getJSONObject(4).getString("p_addr") + ")"
+        str1 = jsonArray_w.getJSONObject(3).getString("p_park") + " (" + jsonArray_w.getJSONObject(3).getString("p_addr") + ")"
         walks_num5.text = str1
-        str1 = jsonArray_w.getJSONObject(5).getString("p_park") + " (" + jsonArray_w.getJSONObject(5).getString("p_addr") + ")"
+        str1 = jsonArray_w.getJSONObject(4).getString("p_park") + " (" + jsonArray_w.getJSONObject(4).getString("p_addr") + ")"
         walks_num6.text = str1
-        str1 = jsonArray_w.getJSONObject(6).getString("p_park") + " (" + jsonArray_w.getJSONObject(6).getString("p_addr") + ")"
+        str1 = jsonArray_w.getJSONObject(5).getString("p_park") + " (" + jsonArray_w.getJSONObject(5).getString("p_addr") + ")"
         walks_num7.text = str1
-        str1 = jsonArray_w.getJSONObject(7).getString("p_park") + " (" + jsonArray_w.getJSONObject(7).getString("p_addr") + ")"
+        str1 = jsonArray_w.getJSONObject(6).getString("p_park") + " (" + jsonArray_w.getJSONObject(6).getString("p_addr") + ")"
         walks_num8.text = str1
-        str1 = jsonArray_w.getJSONObject(8).getString("p_park") + " (" + jsonArray_w.getJSONObject(8).getString("p_addr") + ")"
+        str1 = jsonArray_w.getJSONObject(7).getString("p_park") + " (" + jsonArray_w.getJSONObject(7).getString("p_addr") + ")"
         walks_num9.text = str1
 
         str1 = jsonArray_t.getJSONObject(0).getString("연번") + " " +jsonArray_t.getJSONObject(0).getString("도로명") + " " +jsonArray_t.getJSONObject(0).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(0).getString("해당 동")
-        trash_num1.text = str1
-        str1 = jsonArray_t.getJSONObject(1).getString("연번") + " " +jsonArray_t.getJSONObject(1).getString("도로명") + " " +jsonArray_t.getJSONObject(1).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(1).getString("해당 동")
         trash_num2.text = str1
-        str1 = jsonArray_t.getJSONObject(2).getString("연번") + " " +jsonArray_t.getJSONObject(2).getString("도로명") + " " +jsonArray_t.getJSONObject(2).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(2).getString("해당 동")
+        str1 = jsonArray_t.getJSONObject(1).getString("연번") + " " +jsonArray_t.getJSONObject(1).getString("도로명") + " " +jsonArray_t.getJSONObject(1).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(1).getString("해당 동")
         trash_num3.text = str1
-        str1 = jsonArray_t.getJSONObject(3).getString("연번") + " " +jsonArray_t.getJSONObject(3).getString("도로명") + " " +jsonArray_t.getJSONObject(3).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(3).getString("해당 동")
+        str1 = jsonArray_t.getJSONObject(2).getString("연번") + " " +jsonArray_t.getJSONObject(2).getString("도로명") + " " +jsonArray_t.getJSONObject(2).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(2).getString("해당 동")
         trash_num4.text = str1
-        str1 = jsonArray_t.getJSONObject(4).getString("연번") + " " +jsonArray_t.getJSONObject(4).getString("도로명") + " " +jsonArray_t.getJSONObject(4).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(4).getString("해당 동")
+        str1 = jsonArray_t.getJSONObject(3).getString("연번") + " " +jsonArray_t.getJSONObject(3).getString("도로명") + " " +jsonArray_t.getJSONObject(3).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(3).getString("해당 동")
         trash_num5.text = str1
-        str1 = jsonArray_t.getJSONObject(5).getString("연번") + " " +jsonArray_t.getJSONObject(5).getString("도로명") + " " +jsonArray_t.getJSONObject(5).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(5).getString("해당 동")
+        str1 = jsonArray_t.getJSONObject(4).getString("연번") + " " +jsonArray_t.getJSONObject(4).getString("도로명") + " " +jsonArray_t.getJSONObject(4).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(4).getString("해당 동")
         trash_num6.text = str1
-        str1 = jsonArray_t.getJSONObject(6).getString("연번") + " " +jsonArray_t.getJSONObject(6).getString("도로명") + " " +jsonArray_t.getJSONObject(6).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(6).getString("해당 동")
+        str1 = jsonArray_t.getJSONObject(5).getString("연번") + " " +jsonArray_t.getJSONObject(5).getString("도로명") + " " +jsonArray_t.getJSONObject(5).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(5).getString("해당 동")
         trash_num7.text = str1
-        str1 = jsonArray_t.getJSONObject(7).getString("연번") + " " +jsonArray_t.getJSONObject(7).getString("도로명") + " " +jsonArray_t.getJSONObject(7).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(7).getString("해당 동")
+        str1 = jsonArray_t.getJSONObject(6).getString("연번") + " " +jsonArray_t.getJSONObject(6).getString("도로명") + " " +jsonArray_t.getJSONObject(6).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(6).getString("해당 동")
         trash_num8.text = str1
-        str1 = jsonArray_t.getJSONObject(7).getString("연번") + " " +jsonArray_t.getJSONObject(8).getString("도로명") + " " +jsonArray_t.getJSONObject(8).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(8).getString("해당 동")
+        str1 = jsonArray_t.getJSONObject(7).getString("연번") + " " +jsonArray_t.getJSONObject(7).getString("도로명") + " " +jsonArray_t.getJSONObject(7).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(7).getString("해당 동")
         trash_num9.text = str1
-        str1 = jsonArray_t.getJSONObject(9).getString("연번") + " " +jsonArray_t.getJSONObject(9).getString("도로명") + " " +jsonArray_t.getJSONObject(9).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(9).getString("해당 동")
+        str1 = jsonArray_t.getJSONObject(7).getString("연번") + " " +jsonArray_t.getJSONObject(8).getString("도로명") + " " +jsonArray_t.getJSONObject(8).getString("세부번지(도로명)") + " " +jsonArray_t.getJSONObject(8).getString("해당 동")
         trash_num10.text = str1
 
         //버튼 색상 변경, view 숨기기/보여지게 하기
@@ -322,7 +318,7 @@ class AppMain : AppCompatActivity() {
         }
 
         //팝업
-        val mDialogView = LayoutInflater.from(this).inflate(R.layout.flogging_popup, null)
+        val mDialogView = LayoutInflater.from(this).inflate(R.layout.plogging_popup, null)
         val mBuilder = AlertDialog.Builder(this)
 
         popup_time = mDialogView.findViewById(R.id.popup_time)
@@ -352,20 +348,20 @@ class AppMain : AppCompatActivity() {
     }
 
     //DB
-    inner class myDBHelper(context : Context) : SQLiteOpenHelper(context, "flogging", null, 1) {
+    inner class myDBHelper(context : Context) : SQLiteOpenHelper(context, "plogging", null, 1) {
         override fun onCreate(db: SQLiteDatabase?) {
-            db!!.execSQL("CREATE TABLE flogging (sec Integer, milli Integer, distance Integer);")
+            db!!.execSQL("CREATE TABLE plogging (sec Integer, milli Integer, distance Integer);")
         }
 
         override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-            db!!.execSQL("DROP TABLE IF EXISTS flogging")
+            db!!.execSQL("DROP TABLE IF EXISTS plogging")
             onCreate(db)
         }
     }
 
     //타이머 시작
-    fun flogging_start() {
-        flogging_start.setText("종료")
+    fun plogging_start() {
+        plogging_start.setText("종료")
         time = 0
         distance = 0
         timerTask = timer(period = 10) {
@@ -374,10 +370,10 @@ class AppMain : AppCompatActivity() {
             sec = time/100
             milli = time%100
             runOnUiThread {
-                flogging_time.text = "${sec} : ${milli}"
+                plogging_time.text = "${sec} : ${milli}"
                 popup_time.text = "시간  ${sec} : ${milli}"
 
-                flogging_distance.text = "${distance} m"
+                plogging_distance.text = "${distance} m"
                 popup_distance.text = "이동거리  ${distance} m"
             }
             //이동 거리 증가
@@ -386,36 +382,36 @@ class AppMain : AppCompatActivity() {
             }
         }
         //타이머 종료 클릭
-        flogging_start.setOnClickListener {
+        plogging_start.setOnClickListener {
             btn_share.visibility = View.VISIBLE
-            flogging_stop()
+            plogging_stop()
         }
     }
 
     //타이머 종료
-    fun flogging_stop() {
-        flogging_start.setText("초기화")
+    fun plogging_stop() {
+        plogging_start.setText("초기화")
         //타이머 멈추기
         timerTask?.cancel()
         //DB에 시간, 이동거리 넣기
-        sqlDB.execSQL("INSERT INTO flogging VALUES('"+sec+"','"+milli+"','"+distance+"');")
+        sqlDB.execSQL("INSERT INTO plogging VALUES('"+sec+"','"+milli+"','"+distance+"');")
         sqlDB.close()
 
-        flogging_start.setOnClickListener {  //값 초기화
-            flogging_time.text = "00 : 00"
-            flogging_distance.text = "0 m"
-            flogging_start.setText("시작")
+        plogging_start.setOnClickListener {  //값 초기화
+            plogging_time.text = "00 : 00"
+            plogging_distance.text = "0 m"
+            plogging_start.setText("시작")
             btn_share.visibility = View.INVISIBLE
-            flogging_restart()
+            plogging_restart()
         }
     }
 
     //타이머 재시작
-    fun flogging_restart() {
+    fun plogging_restart() {
         timerTask?.cancel()
 
-        flogging_start.setOnClickListener {  //값 초기화
-            flogging_start()
+        plogging_start.setOnClickListener {  //값 초기화
+            plogging_start()
         }
     }
 }
