@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:minWidth="350dp"
     android:minHeight="400dp"
-    android:background="@drawable/flogging_round"
+    android:background="@drawable/plogging_round"
     android:layout_marginTop="30dp"
     android:layout_marginBottom="20dp"
     android:id="@+id/popup">
@@ -29,7 +29,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/flogging"
+            android:src="@drawable/plogging"
             android:layout_height="60dp">
         </ImageView>
 

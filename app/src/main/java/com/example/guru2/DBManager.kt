@@ -10,7 +10,7 @@ class DBManager (context: Context,
                  version: Int
 ): SQLiteOpenHelper(context, name, factory, version) {
     override fun onCreate(db: SQLiteDatabase?) {
-        db!!.execSQL("CREATE TABLE flogging (sec INTEGER, milli INTEGER, distance INTEGER)")
+        db!!.execSQL("CREATE TABLE plogging (sec INTEGER, milli INTEGER, distance INTEGER)")
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

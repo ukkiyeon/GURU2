@@ -4,10 +4,9 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageButton
 
-class TipFloggingEvent : AppCompatActivity() {
+class TipPlogging : AppCompatActivity() {
     lateinit var backBtn: ImageButton
     lateinit var eventBtn01: Button
     lateinit var eventBtn02: Button
@@ -16,7 +15,7 @@ class TipFloggingEvent : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.tip_flogging_event)
+        setContentView(R.layout.tip_plogging)
 
         //버튼 연결
         eventBtn01 = findViewById(R.id.tip_event01_btn)

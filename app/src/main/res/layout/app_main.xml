@@ -59,12 +59,12 @@
 
         <!-- 플로깅 레이아웃 -->
         <LinearLayout
-            android:id="@+id/flogging"
+            android:id="@+id/plogging"
             android:layout_width="380dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:background="@drawable/flogging_round"
+            android:background="@drawable/plogging_round"
             android:orientation="vertical">
             <!--오늘의 플로깅, 공유 이미지-->
             <LinearLayout
@@ -116,7 +116,7 @@
                         android:textSize="15dp"></TextView>
 
                     <TextView
-                        android:id="@+id/flogging_distance"
+                        android:id="@+id/plogging_distance"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -148,7 +148,7 @@
                         android:textSize="15dp"></TextView>
 
                     <TextView
-                        android:id="@+id/flogging_time"
+                        android:id="@+id/plogging_time"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -160,7 +160,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/flogging_start"
+                android:id="@+id/plogging_start"
                 android:layout_width="350dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -391,7 +391,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="10dp"
-                    android:text="금                                    - 2 °   2 °"
+                    android:text="금                                   - 2 °   2 °"
                     android:textColor="@color/black"
                     android:textSize="18sp"></TextView>
             </LinearLayout>
@@ -422,13 +422,14 @@
                     android:layout_marginTop="10dp"
                     android:orientation="vertical">
                     <TextView
-                        android:id="@+id/trash_num1"
+                        android:id="@+id/trash_num"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:text="쓰레기통 위치"
                         android:textColor="@color/black"
                         android:textSize="15dp" />
 
@@ -549,13 +550,14 @@
                     android:layout_marginTop="10dp"
                     android:orientation="vertical">
                     <TextView
-                        android:id="@+id/walks_num1"
+                        android:id="@+id/walks_num"
                         android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:text="서울 주변 산책로 위치"
                         android:textColor="@color/black"
                         android:textSize="15dp" />
 

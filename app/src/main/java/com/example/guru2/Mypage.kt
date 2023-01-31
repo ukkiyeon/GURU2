@@ -52,13 +52,13 @@ class Mypage : AppCompatActivity() {
         mypage_distance = findViewById(R.id.mypage_distance)
         mypage_time = findViewById(R.id.mypage_time)
 
-        //DB - flogging 테이블에서 데이터 불러오기
-        dbManager = DBManager(this, "flogging", null, 1)
+        //DB - plogging 테이블에서 데이터 불러오기
+        dbManager = DBManager(this, "plogging", null, 1)
         sqlitedb = dbManager.readableDatabase
         layout = findViewById(R.id.mypage)
 
         var cursor: Cursor
-        cursor = sqlitedb.rawQuery("SELECT * FROM flogging;", null)
+        cursor = sqlitedb.rawQuery("SELECT * FROM plogging;", null)
 
         cursor.moveToFirst();
         var distance:Int = cursor.getInt(cursor.getColumnIndex("distance"))

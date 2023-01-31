@@ -127,7 +127,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".TipFlogging"
+            android:name=".TipPlogging"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -141,7 +141,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".TipFloggingEvent"
+            android:name=".TipPloggingEvent"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

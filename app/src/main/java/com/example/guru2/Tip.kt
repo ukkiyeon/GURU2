@@ -11,8 +11,8 @@ class Tip : AppCompatActivity() {
     // 이미지 버튼
     lateinit var appguideBtn: ImageButton
     lateinit var ecoguideBtn: ImageButton
-    lateinit var floggingeventBtn: ImageButton
-    lateinit var floggingBtn: ImageButton
+    lateinit var ploggingeventBtn: ImageButton
+    lateinit var ploggingBtn: ImageButton
     lateinit var econewsBtn: ImageButton
     lateinit var zerowasteBtn: ImageButton
 
@@ -23,8 +23,8 @@ class Tip : AppCompatActivity() {
         // 버튼 연결
         appguideBtn = findViewById(R.id.imageButton)
         ecoguideBtn = findViewById(R.id.imageButton2)
-        floggingeventBtn = findViewById(R.id.imageButton3)
-        floggingBtn = findViewById(R.id.imageButton4)
+        ploggingeventBtn = findViewById(R.id.imageButton3)
+        ploggingBtn = findViewById(R.id.imageButton4)
         econewsBtn = findViewById(R.id.imageButton5)
         zerowasteBtn = findViewById(R.id.imageButton6)
 
@@ -38,12 +38,12 @@ class Tip : AppCompatActivity() {
             startActivity(Intent(this@Tip, TipEcoGuide::class.java))
         }
 
-        floggingeventBtn.setOnClickListener {
-            startActivity(Intent(this@Tip, TipFloggingEvent::class.java))
+        ploggingeventBtn.setOnClickListener {
+            startActivity(Intent(this@Tip, TipPloggingEvent::class.java))
         }
 
-        floggingBtn.setOnClickListener {
-            startActivity(Intent(this@Tip, TipFlogging::class.java))
+        ploggingBtn.setOnClickListener {
+            startActivity(Intent(this@Tip, TipPlogging::class.java))
         }
 
         econewsBtn.setOnClickListener {
