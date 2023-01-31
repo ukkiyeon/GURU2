@@ -116,6 +116,11 @@ class AppMain : AppCompatActivity() {
 //            }
         }
 
+        //DB
+        myHelper = myDBHelper(this)
+        sqlDB = myHelper.writableDatabase
+        myHelper.onUpgrade(sqlDB, 1, 2)
+
         //하단 버튼 동작
         val fix_bottom = findViewById<View>(R.id.fix_bottom)
         var btn_tipPage: ImageButton
@@ -339,18 +344,13 @@ class AppMain : AppCompatActivity() {
         btn_mypage.setOnClickListener{
             startActivity(Intent(this@AppMain, Mypage::class.java))
         }
-
-        //DB
-        myHelper = myDBHelper(this)
-        sqlDB = myHelper.writableDatabase
-        myHelper.onUpgrade(sqlDB, 1, 2)
-
     }
 
     //DB
     inner class myDBHelper(context : Context) : SQLiteOpenHelper(context, "plogging", null, 1) {
         override fun onCreate(db: SQLiteDatabase?) {
             db!!.execSQL("CREATE TABLE plogging (sec Integer, milli Integer, distance Integer);")
+            sqlDB.execSQL("INSERT INTO plogging VALUES('"+0+"','"+0+"','"+0+"');")
         }
 
         override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
