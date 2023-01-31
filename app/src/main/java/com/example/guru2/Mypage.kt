@@ -64,6 +64,7 @@ class Mypage : AppCompatActivity() {
         var distance:Int = cursor.getInt(cursor.getColumnIndex("distance"))
         var sec:Int = cursor.getInt(cursor.getColumnIndex("sec"))
         var milli:Int = cursor.getInt(cursor.getColumnIndex("milli"))
+        Log.d("DB : ", sec.toString()  +" " + milli.toString() + " " + distance.toString())
         //가져온 데이터 넣기
         mypage_time.text = "${sec} : ${milli}"
         mypage_distance.text = "${distance} m"

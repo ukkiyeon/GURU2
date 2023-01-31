@@ -349,13 +349,13 @@ class AppMain : AppCompatActivity() {
     //DB
     inner class myDBHelper(context : Context) : SQLiteOpenHelper(context, "plogging", null, 1) {
         override fun onCreate(db: SQLiteDatabase?) {
-            db!!.execSQL("CREATE TABLE plogging (sec Integer, milli Integer, distance Integer);")
-            sqlDB.execSQL("INSERT INTO plogging VALUES('"+0+"','"+0+"','"+0+"');")
+            sqlDB.execSQL("CREATE TABLE plogging (sec Integer, milli Integer, distance Integer);")
+//            sqlDB.execSQL("INSERT INTO plogging VALUES('"+0+"','"+0+"','"+0+"');")
         }
 
         override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-            db!!.execSQL("DROP TABLE IF EXISTS plogging")
-            onCreate(db)
+            sqlDB.execSQL("DROP TABLE IF EXISTS plogging")
+            onCreate(sqlDB)
         }
     }
 
@@ -408,7 +408,6 @@ class AppMain : AppCompatActivity() {
 
     //타이머 재시작
     fun plogging_restart() {
-        timerTask?.cancel()
 
         plogging_start.setOnClickListener {  //값 초기화
             plogging_start()
