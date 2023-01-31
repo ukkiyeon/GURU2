@@ -27,14 +27,14 @@ class PostDetailViewFragment : Fragment() {
         firestore = FirebaseFirestore.getInstance() // 파이어스토어 객체 초기화
         uid = FirebaseAuth.getInstance().currentUser?.uid // uid 받아오기
 
-        view.detailviewfragment_recyclerview.adapter = DetailViewRecyclerViewAdapter() // 아래 정의된 메소드
+        view.detailviewfragment_recyclerview.adapter = DetailViewRecyclerViewAdapter() // RecyclerView에 어댑터 연결
         view.detailviewfragment_recyclerview.layoutManager = LinearLayoutManager(activity) // 화면을 세로로 배치
         return view
     }
 
     //////////////////////////////////////////////////
 
-    // 어댑터 (데이터를 아이템 레이아웃으로 만듦)
+    // RecyclerView가 사용할 어댑터 (데이터를 아이템 레이아웃으로 만듦)
     inner class DetailViewRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         var contentDTOs : ArrayList<ContentDTO> = arrayListOf()
         var contentUidList : ArrayList<String> = arrayListOf()
@@ -45,7 +45,7 @@ class PostDetailViewFragment : Fragment() {
                 contentDTOs.clear() // 초기화
                 contentUidList.clear()
 
-                for(snapshot in querySnapshot!!.documents) { // snapshot의 데이터를 for문으로 돌아가며 읽기
+                for(snapshot in querySnapshot!!.documents.reversed()) { // snapshot 데이터 읽기, timestamp 역순으로 재배치
                     var item = snapshot.toObject(ContentDTO::class.java)
 
                     contentDTOs.add(item!!) // 배열에 추가
