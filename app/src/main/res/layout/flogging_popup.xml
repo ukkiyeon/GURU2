@@ -29,7 +29,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/mypage"
+            android:src="@drawable/flogging"
             android:layout_height="60dp">
         </ImageView>
 
