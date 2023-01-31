@@ -37,7 +37,7 @@ class PostPhoto : AppCompatActivity() {
         postphoto_edit_explain = findViewById(R.id.postphoto_edit_explain)
 
         // 파이어베이스 관련 초기화
-        storage = FirebaseStorage.getInstance()
+        storage = FirebaseStorage.getInstance() // db 초기화
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
